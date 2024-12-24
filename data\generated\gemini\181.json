@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-181",
+    "problem_id": "p03599",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  long long a, b, c, d, e, f;\n  cin >> a >> b >> c >> d >> e >> f;\n\n  long long max_sugar_water = 0;\n  long long max_sugar = 0;\n\n  for (long long i = 0; i <= 30; ++i) {\n    for (long long j = 0; j <= 30; ++j) {\n      long long water = 100 * (a * i + b * j);\n      for (long long k = 0; k <= 30; ++k) {\n        for (long long l = 0; l <= 30; ++l) {\n          long long sugar = c * k + d * l;\n          if (sugar * 100 <= water * e && water + sugar <= f) {\n            if (water + sugar > max_sugar_water) {\n              max_sugar_water = water + sugar;\n              max_sugar = sugar;\n            }\n          }\n        }\n      }\n    }\n  }\n  cout << max_sugar_water << \" \" << max_sugar << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

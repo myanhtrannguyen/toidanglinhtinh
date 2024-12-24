@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1192",
+    "problem_id": "p03866",
+    "language": "Python",
+    "solution": "```python\nimport math\n\nxs, ys, xt, yt = map(int, input().split())\nn = int(input())\ncircles = []\nfor i in range(n):\n    x, y, r = map(int, input().split())\n    circles.append((x, y, r))\n\ndist = math.sqrt((xs - xt)**2 + (ys - yt)**2)\n\ndef dist_to_circle(x, y, cx, cy, r):\n    d = math.sqrt((x - cx)**2 + (y - cy)**2)\n    if d <= r:\n        return 0\n    else:\n        return d - r\n\nmin_exposed = dist\n\nprint(min_exposed)\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1862",
+    "problem_id": "p04048",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long N, X;\n    scanf(\"%lld %lld\", &N, &X);\n    long long ans = 0;\n    long long cur_x = X;\n    long long cur_y = 0;\n    long long dx = 1;\n    long long dy = 0;\n    while (1) {\n        long long next_x = cur_x + dx;\n        long long next_y = cur_y + dy;\n        if (next_x < 0 || next_x > N || next_y < 0 || next_y > N) {\n            if (next_x < 0) {\n                next_x = -next_x;\n                dx = -dx;\n            }\n            if (next_x > N) {\n                next_x = 2 * N - next_x;\n                dx = -dx;\n            }\n            if (next_y < 0) {\n                next_y = -next_y;\n                dy = -dy;\n            }\n            if (next_y > N) {\n                next_y = 2 * N - next_y;\n                dy = -dy;\n            }\n        }\n\n        long long dist = (long long)((next_x - cur_x) * (next_x - cur_x) + (next_y - cur_y) * (next_y - cur_y));\n        \n        ans += (long long)sqrt(dist);\n        cur_x = next_x;\n        cur_y = next_y;\n        if(cur_x == X && cur_y == 0) break;\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

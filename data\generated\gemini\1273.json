@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1273",
+    "problem_id": "p03889",
+    "language": "Python",
+    "solution": "```python\ns = input()\nt = s[::-1]\nmapping = {'b': 'd', 'd': 'b', 'p': 'q', 'q': 'p'}\nt_mapped = ''.join([mapping[c] for c in t])\nif s == t_mapped:\n    print('Yes')\nelse:\n    print('No')\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

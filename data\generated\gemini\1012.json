@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1012",
+    "problem_id": "p03818",
+    "language": "Python",
+    "solution": "```python\nfrom collections import Counter\n\nn = int(input())\na = list(map(int, input().split()))\n\ncount = Counter(a)\nsorted_count = sorted(count.items())\n\nremaining = n\nwhile True:\n    duplicates = []\n    for num, freq in sorted_count:\n        if freq > 1:\n            duplicates.append((num, freq))\n    \n    if not duplicates:\n        break\n\n    min_num, min_freq = duplicates[0]\n    max_num, max_freq = duplicates[-1]\n\n    if min_freq > max_freq:\n        remaining -= min_freq\n        count[min_num] = 1\n    else:\n        remaining -= max_freq\n        count[max_num] = 1\n\n    sorted_count = sorted(count.items())\n\nprint(remaining)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

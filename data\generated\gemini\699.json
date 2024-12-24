@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-699",
+    "problem_id": "p03737",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <ctype.h>\n#include <string.h>\n\nint main() {\n    char s1[11], s2[11], s3[11];\n    scanf(\"%s %s %s\", s1, s2, s3);\n    printf(\"%c%c%c\\n\", toupper(s1[0]), toupper(s2[0]), toupper(s3[0]));\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

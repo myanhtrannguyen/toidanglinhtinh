@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1295",
+    "problem_id": "p03895",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  vector<long long> a(n), b(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> a[i] >> b[i];\n  }\n\n  int max_early_wakeups = 0;\n  for (long long start_time = 0; start_time < 86400; ++start_time) {\n    int early_wakeups = 0;\n    long long current_time = start_time;\n    for (int i = 0; i < n; ++i) {\n      current_time += a[i];\n      if (current_time >= 4 * 3600 && current_time < 7 * 3600) {\n        early_wakeups++;\n      }\n      current_time += b[i];\n    }\n    max_early_wakeups = max(max_early_wakeups, early_wakeups);\n  }\n\n  cout << max_early_wakeups << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

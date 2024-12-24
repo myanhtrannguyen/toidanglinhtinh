@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1677",
+    "problem_id": "p03998",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char sa[101], sb[101], sc[101];\n    scanf(\"%s %s %s\", sa, sb, sc);\n    int pa = 0, pb = 0, pc = 0;\n    char turn = 'a';\n    while (1) {\n        if (turn == 'a') {\n            if (pa == strlen(sa)) {\n                printf(\"A\\n\");\n                break;\n            }\n            turn = sa[pa++];\n        } else if (turn == 'b') {\n            if (pb == strlen(sb)) {\n                printf(\"B\\n\");\n                break;\n            }\n            turn = sb[pb++];\n        } else {\n            if (pc == strlen(sc)) {\n                printf(\"C\\n\");\n                break;\n            }\n            turn = sc[pc++];\n        }\n    }\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1183",
+    "problem_id": "p03864",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long n, x;\n  cin >> n >> x;\n\n  vector<long long> a(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> a[i];\n  }\n\n  long long ans = 0;\n  for (int i = 0; i < n - 1; ++i) {\n    if (a[i] + a[i + 1] > x) {\n      long long diff = a[i] + a[i + 1] - x;\n      ans += diff;\n      a[i + 1] -= diff;\n    }\n  }\n\n  cout << ans << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1362",
+    "problem_id": "p03914",
+    "language": "Python",
+    "solution": "```python\nMOD = 1000000007\n\ndef solve():\n    n, m = map(int, input().split())\n    \n    count = 0\n    \n    def check(path):\n        edges = []\n        curr = 1\n        for town in path:\n            edges.append((curr, town))\n            curr = town\n        \n        adj = {i: [] for i in range(1, n + 1)}\n        for u, v in edges:\n            adj[u].append(v)\n        \n        def dfs(start, visited):\n            visited.add(start)\n            for neighbor in adj[start]:\n                if neighbor not in visited:\n                    dfs(neighbor, visited)\n        \n        visited = set()\n        dfs(1, visited)\n        return len(visited) == n\n\n    \n    import itertools\n    for path_tuple in itertools.product(range(1, n + 1), repeat=m):\n        path = list(path_tuple)\n        if check(path):\n            count +=1\n\n    print(count % MOD)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

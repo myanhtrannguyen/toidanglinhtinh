@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1091",
+    "problem_id": "p03840",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Tetrominoes {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        long aI = scanner.nextLong();\n        long aO = scanner.nextLong();\n        long aT = scanner.nextLong();\n        long aJ = scanner.nextLong();\n        long aL = scanner.nextLong();\n        long aS = scanner.nextLong();\n        long aZ = scanner.nextLong();\n\n        long total = aI + aO + aT + aJ + aL + aS + aZ;\n        long K = 0;\n\n        long oCount = aO;\n        long otherCount = aI / 2 + aT + aJ + aL + aS + aZ;\n\n        K = Math.min(oCount, otherCount);\n\n        long ans = Math.min(K, (aI+2*aO+aT+aJ+aL+aS+aZ)/2);\n\n        System.out.println(ans);\n\n        scanner.close();\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-698",
+    "problem_id": "p03736",
+    "language": "Python",
+    "solution": "```python\nn, q, a, b = map(int, input().split())\nqueries = list(map(int, input().split()))\n\na_pos = a\nb_pos = b\ntotal_time = 0\n\nfor query in queries:\n    move_a_time = abs(a_pos - query)\n    move_b_time = abs(b_pos - query)\n    \n    if move_a_time <= move_b_time:\n        total_time += move_a_time\n        a_pos = query\n    else:\n        total_time += move_b_time\n        b_pos = query\n\nprint(total_time)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

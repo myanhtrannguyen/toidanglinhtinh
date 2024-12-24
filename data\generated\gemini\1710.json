@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1710",
+    "problem_id": "p04007",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    int h, w;\n    cin >> h >> w;\n\n    vector<string> a(h);\n    for (int i = 0; i < h; ++i) {\n        cin >> a[i];\n    }\n\n    vector<string> red(h, string(w, '.'));\n    vector<string> blue(h, string(w, '.'));\n\n    for (int i = 0; i < h; ++i) {\n        for (int j = 0; j < w; ++j) {\n            if (a[i][j] == '#') {\n                red[i][j] = '#';\n                blue[i][j] = '#';\n            }\n        }\n    }\n\n    for (int i = 0; i < h; ++i) {\n        cout << red[i] << endl;\n    }\n    cout << endl;\n    for (int i = 0; i < h; ++i) {\n        cout << blue[i] << endl;\n    }\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

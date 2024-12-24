@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-775",
+    "problem_id": "p03756",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\n\n#define MAXN 70000\n#define MAXH 100000\n#define MAXW 100000\n\ntypedef struct {\n    int a, b, d, e;\n    char c;\n} Arrow;\n\nint main() {\n    int H, W, N, f;\n    int sx, sy, gx, gy;\n    Arrow arrows[MAXN];\n\n    scanf(\"%d %d %d %d\", &H, &W, &N, &f);\n    scanf(\"%d %d %d %d\", &sx, &sy, &gx, &gy);\n\n    for (int i = 0; i < N; i++) {\n        scanf(\"%d %d %c %d %d\", &arrows[i].a, &arrows[i].b, &arrows[i].c, &arrows[i].d, &arrows[i].e);\n    }\n\n    long long min_cost = -1;\n\n    \n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-986",
+    "problem_id": "p03812",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    vector<long long> a(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> a[i];\n    }\n\n    vector<vector<int>> adj(n);\n    for (int i = 0; i < n - 1; ++i) {\n        int u, v;\n        cin >> u >> v;\n        adj[u - 1].push_back(v - 1);\n        adj[v - 1].push_back(u - 1);\n    }\n\n    vector<int> winning_positions;\n    for (int i = 0; i < n; ++i) {\n        if (a[i] % 2 != 0) {\n            winning_positions.push_back(i + 1);\n        }\n    }\n\n    sort(winning_positions.begin(), winning_positions.end());\n    for (int i = 0; i < winning_positions.size(); ++i) {\n        cout << winning_positions[i] << (i == winning_positions.size() - 1 ? \"\" : \" \");\n    }\n    cout << endl;\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

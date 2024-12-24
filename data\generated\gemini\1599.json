@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1599",
+    "problem_id": "p03977",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    T = int(input())\n    for _ in range(T):\n        N, D = map(int, input().split())\n        if N == 1:\n            print(D)\n        else:\n            print(127 * (N - 1) + D)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1615",
+    "problem_id": "p03981",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    t = input()\n    n = len(t)\n    ans = 0\n    for i in range(1 << n):\n        s = []\n        cur = \"\"\n        for j in range(n):\n            if (i >> j) & 1:\n                cur += t[j]\n            else:\n                if cur:\n                    s.append(cur)\n                    cur = \"\"\n        if cur:\n            s.append(cur)\n\n        ok = True\n        for k in range(len(s)):\n            for l in range(len(s)):\n                if k != l:\n                    if is_subsequence(s[k], s[l]):\n                        ok = False\n                        break\n            if not ok:\n                break\n        if ok:\n            ans = max(ans, len(s))\n    print(ans)\n\ndef is_subsequence(s1, s2):\n    i = 0\n    j = 0\n    while i < len(s1) and j < len(s2):\n        if s1[i] == s2[j]:\n            i += 1\n        j += 1\n    return i == len(s1)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

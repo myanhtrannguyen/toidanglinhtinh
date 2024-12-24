@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-829",
+    "problem_id": "p03770",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\n#define MOD 1000000007\n\ntypedef struct {\n    int c;\n    long long w;\n} Ball;\n\nint cmp(const void *a, const void *b) {\n    return ((Ball *)a)->c - ((Ball *)b)->c;\n}\n\nint main() {\n    int N, i, j, k;\n    long long X, Y;\n    scanf(\"%d %lld %lld\", &N, &X, &Y);\n    Ball balls[N];\n    for (i = 0; i < N; i++) {\n        scanf(\"%d %lld\", &balls[i].c, &balls[i].w);\n    }\n    qsort(balls, N, sizeof(Ball), cmp);\n    long long count = 1;\n    int colors[N];\n    for (i = 0; i < N; i++) {\n        colors[i] = balls[i].c;\n    }\n    for (i = 1; i < N; i++) {\n        if (colors[i] != colors[i - 1]) {\n            count = (count * i) % MOD;\n        }\n    }\n    printf(\"%lld\\n\", count);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

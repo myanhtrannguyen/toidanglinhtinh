@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1774",
+    "problem_id": "p04023",
+    "language": "Python",
+    "solution": "```python\nn, q = map(int, input().split())\na = list(range(1, n + 1))\nfor _ in range(q):\n    qi = int(input())\n    new_a = []\n    for i in range(int(qi)):\n        new_a.append(a[i % len(a)])\n    a = new_a\ncounts = [0] * n\nfor x in a:\n    counts[x - 1] += 1\nfor count in counts:\n    print(count)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

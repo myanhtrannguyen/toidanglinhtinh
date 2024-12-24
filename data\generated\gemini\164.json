@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-164",
+    "problem_id": "p03594",
+    "language": "Python",
+    "solution": "```python\nH, W, d = map(int, input().split())\ngrid = [['' for _ in range(W)] for _ in range(H)]\ncolors = ['R', 'Y', 'G', 'B']\nfor i in range(H):\n    for j in range(W):\n        grid[i][j] = colors[(i + j) % 4]\nfor row in grid:\n    print(''.join(row))\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-540",
+    "problem_id": "p03695",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int a[n];\n    int colors[8] = {0};\n    int max_rating = 0;\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &a[i]);\n        if (a[i] <= 399) colors[0]++;\n        else if (a[i] <= 799) colors[1]++;\n        else if (a[i] <= 1199) colors[2]++;\n        else if (a[i] <= 1599) colors[3]++;\n        else if (a[i] <= 1999) colors[4]++;\n        else if (a[i] <= 2399) colors[5]++;\n        else if (a[i] <= 2799) colors[6]++;\n        else if (a[i] <= 3199) colors[7]++;\n        else max_rating++;\n    }\n    int min_colors = 0;\n    for (int i = 0; i < 8; i++) {\n        if (colors[i] > 0) min_colors++;\n    }\n    min_colors += (max_rating > 0);\n    int max_colors = min_colors + max_rating;\n    if (min_colors == 0 && max_rating >0) min_colors =1;\n    if (max_rating == 0 && min_colors == 0) min_colors = 0;\n    if (max_rating == 0 && min_colors > 0) max_colors = min_colors;\n    printf(\"%d %d\\n\", min_colors, max_colors);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1340",
+    "problem_id": "p03908",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <math.h>\n\nint main() {\n    int N;\n    scanf(\"%d\", &N);\n    long long A[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld\", &A[i]);\n    }\n    long long max_sum = 0;\n    for (int i = 0; i < (1 << N); i++) {\n        long long current_sum = 0;\n        for (int j = 0; j < N; j++) {\n            if ((i >> j) & 1) {\n                current_sum += A[j];\n            }\n        }\n        if (current_sum > max_sum) {\n            max_sum = current_sum;\n        }\n    }\n    int count = 0;\n    long long temp = max_sum;\n    while (temp > 0) {\n        count++;\n        temp /= 10;\n    }\n    printf(\"%d\\n\", count);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

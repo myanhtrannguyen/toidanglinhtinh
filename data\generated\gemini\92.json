@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-92",
+    "problem_id": "p03575",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint n, m;\nvector<tuple<int, int, int>> edges;\nvector<vector<pair<int, int>>> adj;\nvector<bool> visited;\nvector<int> tin, low;\nint timer;\nint bridges;\n\nvoid dfs(int v, int p = -1) {\n    visited[v] = true;\n    tin[v] = low[v] = timer++;\n    for (auto [to, edge_index] : adj[v]) {\n        if (edge_index == p) continue;\n        if (visited[to]) {\n            low[v] = min(low[v], tin[to]);\n        } else {\n            dfs(to, edge_index);\n            low[v] = min(low[v], low[to]);\n            if (low[to] > tin[v]) {\n                bridges++;\n            }\n        }\n    }\n}\n\nint main() {\n    cin >> n >> m;\n    adj.resize(n + 1);\n    visited.resize(n + 1, false);\n    tin.resize(n + 1);\n    low.resize(n + 1);\n    bridges = 0;\n    timer = 0;\n\n    for (int i = 0; i < m; ++i) {\n        int u, v;\n        cin >> u >> v;\n        edges.emplace_back(u, v, i);\n        adj[u].emplace_back(v, i);\n        adj[v].emplace_back(u, i);\n    }\n\n    dfs(1);\n    cout << bridges << endl;\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

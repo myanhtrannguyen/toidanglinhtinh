@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-683",
+    "problem_id": "p03732",
+    "language": "Python",
+    "solution": "```python\nN, W = map(int, input().split())\nitems = []\nfor i in range(N):\n    w, v = map(int, input().split())\n    items.append((w, v))\n\ndp = {}\ndp[0] = 0\n\nfor w, v in items:\n    new_dp = {}\n    for weight, value in dp.items():\n        if weight + w <= W:\n            new_dp[weight + w] = max(new_dp.get(weight + w, 0), value + v)\n        new_dp[weight] = max(new_dp.get(weight,0), value)\n    dp.update(new_dp)\n\nprint(max(dp.values()))\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1621",
+    "problem_id": "p03983",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  int q;\n  cin >> q;\n\n  while (q--) {\n    long long n, c;\n    cin >> n >> c;\n\n    long long max_leaflets = 0;\n    for (long long i = 0; i <= n; ++i) {\n      long long current_leaflets = 0;\n      long long time_spent = 0;\n      long long num_clones = 1;\n\n      if (i > 0) {\n        time_spent += i * c;\n      }\n\n      if (time_spent >= n) {\n          continue;\n      }\n\n      long long remaining_time = n - time_spent;\n      \n      long long clones = 1LL << i;\n      current_leaflets = remaining_time * clones;\n\n      max_leaflets = max(max_leaflets, current_leaflets);\n    }\n    cout << max_leaflets % 1000000007 << endl;\n  }\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1203",
+    "problem_id": "p03870",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N;\n    scanf(\"%d\", &N);\n    long long a[N];\n    long long nim_sum = 0;\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld\", &a[i]);\n        nim_sum ^= a[i];\n    }\n    long long min_stones = -1;\n    for (int i = 0; i < (1 << N); i++) {\n        long long current_nim_sum = 0;\n        long long stones_eaten = 0;\n        for (int j = 0; j < N; j++) {\n            long long pile_size = a[j];\n            if ((i >> j) & 1) {\n                pile_size--;\n                stones_eaten++;\n            }\n            current_nim_sum ^= pile_size;\n        }\n        if (current_nim_sum == 0) {\n            if (min_stones == -1 || stones_eaten < min_stones) {\n                min_stones = stones_eaten;\n            }\n        }\n    }\n    printf(\"%lld\\n\", min_stones);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

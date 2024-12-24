@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-35",
+    "problem_id": "p03560",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <limits.h>\n#include <queue>\n\nusing namespace std;\n\nint main() {\n    int k;\n    scanf(\"%d\", &k);\n\n    queue<pair<long long, int>> q;\n    q.push({0, 0});\n\n    long long min_sum = LLONG_MAX;\n    int visited[100000] = {0};\n\n    while (!q.empty()) {\n        long long num = q.front().first;\n        int sum = q.front().second;\n        q.pop();\n\n        if (num != 0 && num % k == 0) {\n            min_sum = min(min_sum, sum);\n            continue;\n        }\n\n        if (num > 1000000000) continue;\n\n        for (int i = 0; i <= 9; ++i) {\n            long long next_num = num * 10 + i;\n            int next_sum = sum + i;\n\n            \n            q.push({next_num, next_sum});\n        }\n    }\n    printf(\"%lld\\n\", min_sum);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

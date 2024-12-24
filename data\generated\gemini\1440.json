@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1440",
+    "problem_id": "p03936",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int H, W, N, K;\n    scanf(\"%d %d %d %d\", &H, &W, &N, &K);\n    long long ans = 0;\n    long long pow2 = 1;\n    for (int i = 0; i < H; ++i) {\n        for (int j = 0; j < W; ++j) {\n            printf(\"? %d %d %d %d\\n\", i, j, i, j);\n            fflush(stdout);\n            int p;\n            scanf(\"%d\", &p);\n            if (p == 1) {\n                ans = (ans + pow2) % K;\n            }\n            pow2 = (pow2 * 2) % K;\n        }\n    }\n    printf(\"! %lld\\n\", ans);\n    fflush(stdout);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-509",
+    "problem_id": "p03687",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nint solve() {\n    char s[105];\n    scanf(\"%s\", s);\n    int n = strlen(s);\n    if (n == 0) return 0;\n    int ans = 1000000;\n    for (char c = 'a'; c <= 'z'; c++) {\n        int cur = 0;\n        char t[105];\n        strcpy(t, s);\n        while (1) {\n            int flag = 0;\n            for (int i = 0; i < strlen(t); i++) {\n                if (t[i] != c) {\n                    flag = 1;\n                    break;\n                }\n            }\n            if (!flag) break;\n            char next[105] = \"\";\n            int k=0;\n            for (int i = 0; i < strlen(t) -1; i++) {\n                if(t[i] == c || t[i+1] == c){\n                    next[k++] = (t[i] == c)? t[i] : t[i+1];\n                } else {\n                    next[k++] = t[i];\n                }\n            }\n            next[k] = '\\0';\n            strcpy(t,next);\n            cur++;\n\n        }\n        ans = (ans < cur) ? ans : cur;\n    }\n    return ans;\n}\n\nint main() {\n    printf(\"%d\\n\", solve());\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1207",
+    "problem_id": "p03871",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    double p[6], q[6];\n    for (int i = 0; i < 6; ++i) {\n        scanf(\"%lf\", &p[i]);\n        p[i] /= 100.0;\n    }\n    for (int i = 0; i < 6; ++i) {\n        scanf(\"%lf\", &q[i]);\n        q[i] /= 100.0;\n    }\n    double ans = 0.0;\n    for (int i = 1; i <= 6; ++i) {\n        double pr = 0.0, qr = 0.0;\n        for (int j = 0; j < 6; ++j) {\n            if (j + 1 == i) {\n                pr += p[j];\n                qr += q[j];\n            }\n        }\n        if (pr > qr) {\n            ans += pr;\n        } else {\n            ans += qr;\n        }\n    }\n    ans /= 2.0;\n    printf(\"%.12lf\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-736",
+    "problem_id": "p03746",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int n, m;\n  cin >> n >> m;\n\n  vector<tuple<int, int>> edges;\n  vector<vector<int>> adj(n);\n  for (int i = 0; i < m; ++i) {\n    int u, v;\n    cin >> u >> v;\n    --u; --v;\n    edges.emplace_back(u, v);\n    adj[u].push_back(v);\n    adj[v].push_back(u);\n  }\n\n  vector<int> path;\n  vector<bool> visited(n, false);\n  function<bool(int)> dfs = [&](int u) {\n    path.push_back(u);\n    visited[u] = true;\n\n    vector<int> neighbors;\n    for (int v : adj[u]) {\n      bool ok = true;\n      for (int p : path) {\n        if (p == v) ok = false;\n      }\n      if (ok) neighbors.push_back(v);\n    }\n\n    if (neighbors.empty()) return true;\n\n    for (int v : neighbors) {\n      if (dfs(v)) return true;\n    }\n\n    path.pop_back();\n    visited[u] = false;\n    return false;\n  };\n\n  for (int i = 0; i < n; ++i) {\n    if (dfs(i)) break;\n  }\n\n  cout << path.size() << endl;\n  for (int i = 0; i < path.size(); ++i) {\n    cout << path[i] + 1 << (i == path.size() - 1 ? \"\" : \" \");\n  }\n  cout << endl;\n\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-770",
+    "problem_id": "p03754",
+    "language": "Python",
+    "solution": "```python\nimport sys\n\ndef solve():\n    n = int(sys.stdin.readline())\n    edges = []\n    graph = [[] for _ in range(n)]\n    for _ in range(n - 1):\n        u, v = map(int, sys.stdin.readline().split())\n        edges.append((u - 1, v - 1))\n        graph[u - 1].append(v - 1)\n        graph[v - 1].append(u - 1)\n\n    ans = []\n    for start_node in range(n):\n        q = [(start_node, [start_node], 0)]\n        total_turns = 0\n        count = 0\n        while q:\n            curr_node, path, turns = q.pop(0)\n            total_turns += turns\n            count += 1\n            neighbors = [neighbor for neighbor in graph[curr_node] if neighbor not in path]\n            for neighbor in neighbors:\n                q.append((neighbor, path + [neighbor], turns + 1))\n        ans.append(total_turns / count)\n\n    for val in ans:\n        print(val)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

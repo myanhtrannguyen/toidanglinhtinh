@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1754",
+    "problem_id": "p04018",
+    "language": "Python",
+    "solution": "```python\ndef is_good(s):\n    n = len(s)\n    for k in range(2, n + 1):\n        for i in range(1, n // k + 1):\n            if s == (s[:i] * k)[:n]:\n                return False\n    return True\n\ndef solve():\n    w = input()\n    n = len(w)\n    \n    min_len = float('inf')\n    count = 0\n    \n    for i in range(1 << (n - 1)):\n        representation = []\n        current_string = \"\"\n        for j in range(n):\n            current_string += w[j]\n            if (i >> j) & 1 or j == n - 1:\n                representation.append(current_string)\n                current_string = \"\"\n        \n        good = True\n        for s in representation:\n            if not is_good(s):\n                good = False\n                break\n        \n        if good:\n            if len(representation) < min_len:\n                min_len = len(representation)\n                count = 1\n            elif len(representation) == min_len:\n                count += 1\n\n    print(min_len)\n    print(count % 1000000007)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

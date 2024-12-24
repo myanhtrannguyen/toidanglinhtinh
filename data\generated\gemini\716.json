@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-716",
+    "problem_id": "p03741",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <cmath>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    vector<long long> a(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> a[i];\n    }\n\n    long long ans = 0;\n    long long sum = 0;\n    long long prev_sum = 0;\n    long long prev_sign = 0;\n\n    for (int i = 0; i < n; ++i) {\n        sum += a[i];\n        if (i == 0) {\n            if (sum == 0) {\n                ans++;\n                sum++;\n            }\n            prev_sum = sum;\n            prev_sign = sum > 0 ? 1 : -1;\n        } else {\n            if (sum * prev_sum >= 0) {\n                long long diff = abs(sum) + 1;\n                ans += diff;\n                sum = (prev_sign == 1 ? -diff : diff);\n            }\n            prev_sum = sum;\n            prev_sign = sum > 0 ? 1 : -1;\n\n        }\n    }\n\n    cout << ans << endl;\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

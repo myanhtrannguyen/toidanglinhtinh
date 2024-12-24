@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-426",
+    "problem_id": "p03663",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    left = 1\n    right = 10**9\n    while left <= right:\n        mid = (left + right) // 2\n        print(f\"? {mid}\")\n        response = input()\n        if response == 'Y':\n            left_str = str(mid)\n            \n            \n            low = 1\n            high = 10**9\n            \n            ans = -1\n            while low <= high:\n                test = (low + high) // 2\n                print(f\"? {test}\")\n                res = input()\n                if res == \"Y\":\n                    ans = test\n                    high = test -1\n                else:\n                    low = test + 1\n            print(f\"! {ans}\")\n            return\n\n            \n            \n            \n            \n        else:\n            left = mid + 1\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

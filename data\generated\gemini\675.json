@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-675",
+    "problem_id": "p03730",
+    "language": "Python",
+    "solution": "```python\nA, B, C = map(int, input().split())\n\nif A == 0:\n  if C == 0:\n    print(\"YES\")\n  else:\n    print(\"NO\")\n  exit()\n\ng = __import__('math').gcd(A, B)\nif C % g == 0:\n  print(\"YES\")\nelse:\n  print(\"NO\")\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

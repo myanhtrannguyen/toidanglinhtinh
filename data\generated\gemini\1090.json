@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1090",
+    "problem_id": "p03840",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n  long long aI, aO, aT, aJ, aL, aS, aZ;\n  cin >> aI >> aO >> aT >> aJ >> aL >> aS >> aZ;\n\n  long long total = aI + aO + aT + aJ + aL + aS + aZ;\n  long long ans = 0;\n\n  for (long long k = 1; k <= total; ++k) {\n    long long num_tets = 2 * k;\n    long long cur_aI = min(aI, num_tets);\n    long long cur_aO = min(aO, num_tets / 2);\n    long long cur_aT = min(aT, num_tets);\n    long long cur_aJ = min(aJ, num_tets);\n    long long cur_aL = min(aL, num_tets);\n    long long cur_aS = min(aS, num_tets / 2);\n    long long cur_aZ = min(aZ, num_tets / 2);\n\n    if (cur_aI + 2 * cur_aO + cur_aT + cur_aJ + cur_aL + 2* cur_aS + 2 * cur_aZ >= num_tets) {\n      ans = max(ans, k);\n    }\n  }\n    \n  cout << ans << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

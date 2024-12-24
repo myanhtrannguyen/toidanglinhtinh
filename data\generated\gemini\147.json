@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-147",
+    "problem_id": "p03590",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int n, k;\n  cin >> n >> k;\n\n  vector<pair<long long, long long>> items(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> items[i].first >> items[i].second;\n  }\n\n  long long max_utility = 0;\n  for (int i = 0; i < (1 << n); ++i) {\n    long long current_or = 0;\n    long long current_utility = 0;\n    for (int j = 0; j < n; ++j) {\n      if ((i >> j) & 1) {\n        current_or |= items[j].first;\n        current_utility += items[j].second;\n      }\n    }\n    if (current_or <= k) {\n      max_utility = max(max_utility, current_utility);\n    }\n  }\n\n  cout << max_utility << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

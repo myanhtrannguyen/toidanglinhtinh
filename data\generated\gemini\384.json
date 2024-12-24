@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-384",
+    "problem_id": "p03652",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, m = map(int, input().split())\n    a = []\n    for _ in range(n):\n        a.append(list(map(int, input().split())))\n\n    ans = float('inf')\n    for i in range(1, 1 << m):\n        selected_sports = []\n        for j in range(m):\n            if (i >> j) & 1:\n                selected_sports.append(j + 1)\n\n        counts = {}\n        for person_pref in a:\n            best_sport = -1\n            min_index = float('inf')\n            for k in range(m):\n                if person_pref[k] in selected_sports:\n                    if k < min_index:\n                        min_index = k\n                        best_sport = person_pref[k]\n            if best_sport != -1:\n                counts[best_sport] = counts.get(best_sport, 0) + 1\n\n        if counts:\n            ans = min(ans, max(counts.values()))\n\n    print(ans)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

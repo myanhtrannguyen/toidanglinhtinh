@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-850",
+    "problem_id": "p03775",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\nclass Main {\n    public static int countDigits(long n) {\n        if (n == 0) return 1;\n        int count = 0;\n        while (n > 0) {\n            n /= 10;\n            count++;\n        }\n        return count;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long n = sc.nextLong();\n        int minF = Integer.MAX_VALUE;\n        for (long a = 1; a * a <= n; a++) {\n            if (n % a == 0) {\n                long b = n / a;\n                int f = Math.max(countDigits(a), countDigits(b));\n                minF = Math.min(minF, f);\n            }\n        }\n        System.out.println(minF);\n        sc.close();\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

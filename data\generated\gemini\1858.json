@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1858",
+    "problem_id": "p04047",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint compare(const void *a, const void *b) {\n    return *(int *)a - *(int *)b;\n}\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int l[2 * n];\n    for (int i = 0; i < 2 * n; i++) {\n        scanf(\"%d\", &l[i]);\n    }\n    qsort(l, 2 * n, sizeof(int), compare);\n    long long sum = 0;\n    for (int i = 0; i < n; i++) {\n        sum += l[i];\n    }\n    printf(\"%lld\\n\", sum);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

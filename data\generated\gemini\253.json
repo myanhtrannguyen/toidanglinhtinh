@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-253",
+    "problem_id": "p03618",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <set>\n\nusing namespace std;\n\nint main() {\n  string a;\n  cin >> a;\n\n  set<string> distinct_strings;\n  distinct_strings.insert(a);\n\n  for (int i = 0; i < a.length(); ++i) {\n    for (int j = i; j < a.length(); ++j) {\n      string temp = a;\n      reverse(temp.begin() + i, temp.begin() + j + 1);\n      distinct_strings.insert(temp);\n    }\n  }\n\n  cout << distinct_strings.size() << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

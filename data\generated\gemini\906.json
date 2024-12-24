@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-906",
+    "problem_id": "p03790",
+    "language": "Python",
+    "solution": "```python\nN, K = map(int, input().split())\nsections = []\nfor i in range(N):\n    A, B = map(int, input().split())\n    sections.append((A, B))\n\ntotal_time_forward = sum([s[0] for s in sections])\ntotal_time_backward = sum([s[0] for s in sections])\n\nmax_single_forward = 0\nmax_single_backward = 0\ncurrent_time_forward = 0\ncurrent_time_backward = 0\n\nfor i in range(N):\n    A, B = sections[i]\n    if B == 1:\n        max_single_forward = max(max_single_forward, current_time_forward + A)\n        current_time_forward += A\n\nfor i in range(N - 1, -1, -1):\n    A, B = sections[i]\n    if B == 1:\n        max_single_backward = max(max_single_backward, current_time_backward + A)\n        current_time_backward += A\n\n\nif max_single_forward + max_single_backward > K:\n    print(-1)\nelse:\n    print(total_time_forward + total_time_backward)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-959",
+    "problem_id": "p03805",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdbool.h>\n\nint n, m;\nbool adj[8][8];\nbool visited[8];\nint count = 0;\n\nvoid dfs(int u, int path_len) {\n    visited[u] = true;\n    if (path_len == n) {\n        count++;\n        visited[u] = false;\n        return;\n    }\n    for (int v = 1; v <= n; v++) {\n        if (adj[u][v] && !visited[v]) {\n            dfs(v, path_len + 1);\n        }\n    }\n    visited[u] = false;\n}\n\nint main() {\n    scanf(\"%d %d\", &n, &m);\n    for (int i = 0; i < m; i++) {\n        int u, v;\n        scanf(\"%d %d\", &u, &v);\n        adj[u][v] = adj[v][u] = true;\n    }\n    dfs(1, 1);\n    printf(\"%d\\n\", count);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

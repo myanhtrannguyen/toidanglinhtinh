@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-263",
+    "problem_id": "p03620",
+    "language": "Python",
+    "solution": "```python\nfrom collections import deque\n\ndef solve():\n    a = input()\n    b = input()\n    n = len(a)\n    \n    q = deque([(a, 0)])\n    visited = {a}\n    \n    while q:\n        curr_a, dist = q.popleft()\n        if curr_a == b:\n            print(dist)\n            return\n        \n        # Shift left\n        shifted_left = curr_a[1:] + curr_a[0]\n        if shifted_left not in visited:\n            visited.add(shifted_left)\n            q.append((shifted_left, dist + 1))\n            \n        # Shift right\n        shifted_right = curr_a[-1] + curr_a[:-1]\n        if shifted_right not in visited:\n            visited.add(shifted_right)\n            q.append((shifted_right, dist + 1))\n            \n        # Flip\n        for i in range(n):\n            if b[i] == '1':\n                next_a = list(curr_a)\n                next_a[i] = '1' if next_a[i] == '0' else '0'\n                next_a = \"\".join(next_a)\n                if next_a not in visited:\n                    visited.add(next_a)\n                    q.append((next_a, dist + 1))\n    \n    print(-1)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

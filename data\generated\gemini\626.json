@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-626",
+    "problem_id": "p03717",
+    "language": "Python",
+    "solution": "```python\nN, M = map(int, input().split())\nmod = 10**9 + 7\nconditions = []\nfor i in range(M):\n    l, r, x = map(int, input().split())\n    conditions.append((l, r, x))\n\ncount = 0\nfor i in range(3**N):\n    colors = []\n    temp = i\n    for j in range(N):\n        colors.append(temp % 3)\n        temp //= 3\n    satisfied = True\n    for l, r, x in conditions:\n        distinct_colors = set()\n        for k in range(l - 1, r):\n            distinct_colors.add(colors[k])\n        if len(distinct_colors) != x:\n            satisfied = False\n            break\n    if satisfied:\n        count += 1\n\nprint(count % mod)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

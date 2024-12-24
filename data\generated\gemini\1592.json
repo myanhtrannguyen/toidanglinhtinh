@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1592",
+    "problem_id": "p03975",
+    "language": "Python",
+    "solution": "```python\nN, A, B = map(int, input().split())\ncount = 0\nfor i in range(N):\n    t = int(input())\n    if t < A or t >= B:\n        count += 1\nprint(count)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

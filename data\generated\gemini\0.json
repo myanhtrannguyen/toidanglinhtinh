@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-0",
+    "problem_id": "p03551",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long n, m;\n    scanf(\"%lld %lld\", &n, &m);\n    long long expected_time = 0;\n    long long success_prob = 1;\n    long long time_per_submission = 100 * (n - m) + 1900 * m;\n    long long num_submissions = 0;\n    \n    while (success_prob > 1e-15) {\n        num_submissions++;\n        success_prob *= 0.5;\n        expected_time += (long long)(time_per_submission * num_submissions * success_prob);\n\n    }\n\n    printf(\"%lld\\n\", expected_time);\n    \n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

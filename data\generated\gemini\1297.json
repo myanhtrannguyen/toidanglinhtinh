@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1297",
+    "problem_id": "p03895",
+    "language": "Python",
+    "solution": "```python\nN = int(input())\nab = []\nfor _ in range(N):\n    a, b = map(int, input().split())\n    ab.append((a, b))\n\nans = 0\nfor start_time in range(86400):\n    count = 0\n    current_time = start_time\n    for a, b in ab:\n        current_time += a\n        if 14400 <= current_time % 86400 <= 25200:\n            count += 1\n        current_time += b\n    ans = max(ans, count)\n\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

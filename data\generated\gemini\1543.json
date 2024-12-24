@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1543",
+    "problem_id": "p03963",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long n, k;\n    scanf(\"%lld %lld\", &n, &k);\n    if (n == 1) {\n        printf(\"%lld\\n\", k);\n    } else {\n        long long a = k, b = k * (k - 1);\n        for (long long i = 2; i < n; i++) {\n            long long temp = b;\n            b = (b * (k - 1)) ;\n        }\n        printf(\"%lld\\n\", b);\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

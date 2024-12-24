@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1515",
+    "problem_id": "p03955",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int[][] a = new int[3][n];\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < n; j++) {\n                a[i][j] = sc.nextInt();\n            }\n        }\n        int[][] b = new int[3][n];\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < n; j++) {\n                b[i][j] = i + 3 * j + 3;\n            }\n        }\n        List<Integer> listA = new ArrayList<>();\n        List<Integer> listB = new ArrayList<>();\n        for (int i = 0; i < 3; i++) {\n            for (int j = 0; j < n; j++) {\n                listA.add(a[i][j]);\n                listB.add(b[i][j]);\n            }\n        }\n        Collections.sort(listA);\n        Collections.sort(listB);\n        if (listA.equals(listB)) {\n            System.out.println(\"Yes\");\n        } else {\n            System.out.println(\"No\");\n        }\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

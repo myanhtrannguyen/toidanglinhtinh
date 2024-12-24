@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1377",
+    "problem_id": "p03920",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int i = 1, sum = 0;\n    while (sum < n) {\n        sum += i;\n        i++;\n    }\n    if (sum == n) {\n        printf(\"%d\\n\", i - 1);\n    } else {\n        int diff = sum - n;\n        int j = 1;\n        while (diff > 0) {\n            if (diff >= j) {\n                diff -= j;\n                printf(\"%d\\n\", j);\n            }\n            j++;\n        }\n        for (int k = j; k < i -1; k++) {\n            printf(\"%d\\n\", k);\n        }\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

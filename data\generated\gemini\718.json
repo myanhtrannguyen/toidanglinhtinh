@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-718",
+    "problem_id": "p03741",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\nans = 0\ncur_sum = 0\nfor i in range(n):\n    cur_sum += a[i]\n    if i < n - 1:\n        if (cur_sum > 0 and a[i+1] >=0) or (cur_sum < 0 and a[i+1] <= 0):\n            if cur_sum > 0:\n                ans += abs(cur_sum + 1)\n                cur_sum = -1\n            else:\n                ans += abs(cur_sum -1)\n                cur_sum = 1\n    else:\n        if cur_sum == 0:\n            ans += 1\n\nprint(ans)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

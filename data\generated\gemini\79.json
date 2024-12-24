@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-79",
+    "problem_id": "p03571",
+    "language": "Python",
+    "solution": "```python\nA, B, C, D = map(int, input().split())\nMOD = 10**9 + 7\n\ncount = 0\nfor x in range(A):\n    for y in range(B):\n        for z in range(C):\n            found = False\n            for x_prime in range(A):\n                for y_prime in range(B):\n                    for z_prime in range(C):\n                        if x_prime * B * C + y_prime * C + z_prime == x * B * C + y * C + z:\n                            if max(abs(x - x_prime), abs(y - y_prime), abs(z - z_prime)) <= D:\n                                found = True\n                                break\n                    if found:\n                        break\n                if found:\n                    break\n            if found:\n                count += 1\n\nprint(count % MOD)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1231",
+    "problem_id": "p03877",
+    "language": "Python",
+    "solution": "```python\nN, A, B, C = map(int, input().split())\nMOD = 10**9 + 7\n\ndp = {}\n\ndef count_ways(remaining_numbers, a_count, b_count, c_count):\n    if (remaining_numbers, a_count, b_count, c_count) in dp:\n        return dp[(remaining_numbers, a_count, b_count, c_count)]\n    \n    if remaining_numbers == 0:\n        return 1\n    \n    ways = 0\n    \n    if a_count < A and remaining_numbers >= 2:\n        ways = (ways + count_ways(remaining_numbers - 2, a_count + 1, b_count, c_count)) % MOD\n    \n    if b_count < B and remaining_numbers >= 2:\n        ways = (ways + count_ways(remaining_numbers - 2, a_count, b_count + 1, c_count)) % MOD\n\n    if c_count < C and remaining_numbers >= 2:\n        ways = (ways + count_ways(remaining_numbers - 2, a_count, b_count, c_count + 1)) % MOD\n\n    dp[(remaining_numbers, a_count, b_count, c_count)] = ways\n    return ways\n\nprint(count_ways(2 * N, 0, 0, 0))\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

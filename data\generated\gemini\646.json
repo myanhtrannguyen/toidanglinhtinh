@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-646",
+    "problem_id": "p03723",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  long long a, b, c;\n  cin >> a >> b >> c;\n\n  long long count = 0;\n  while (a % 2 == 0 && b % 2 == 0 && c % 2 == 0) {\n    long long next_a = (a / 2) + (b / 2) + (c / 2);\n    long long next_b = (a / 2) + (b / 2) + (c / 2);\n    long long next_c = (a / 2) + (b / 2) + (c / 2);\n    a = next_a;\n    b = next_b;\n    c = next_c;\n    count++;\n    if (count > 1000) {\n      cout << -1 << endl;\n      return 0;\n    }\n  }\n  cout << count << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1769",
+    "problem_id": "p04022",
+    "language": "Java",
+    "solution": "```java\nimport java.io.*;\nimport java.util.*;\nimport java.lang.Math;\n\npublic class Main {\n    public static long cubeFree(long n) {\n        long res = 1;\n        for (long i = 2; i * i * i <= n; ++i) {\n            long cnt = 0;\n            while (n % i == 0) {\n                n /= i;\n                cnt++;\n            }\n            cnt %= 3;\n            for (int j = 0; j < cnt; ++j)\n                res *= i;\n        }\n        if (n > 1) res *= n;\n        return res;\n    }\n\n    public static void main(String[] args) throws IOException {\n        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\n        int n = Integer.parseInt(br.readLine());\n        Map<Long, Integer> count = new HashMap<>();\n        for (int i = 0; i < n; ++i) {\n            long s = Long.parseLong(br.readLine());\n            long cf = cubeFree(s);\n            count.put(cf, count.getOrDefault(cf, 0) + 1);\n        }\n        int maxCount = 0;\n        for (int c : count.values())\n            maxCount = Math.max(maxCount, c);\n        System.out.println(maxCount);\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

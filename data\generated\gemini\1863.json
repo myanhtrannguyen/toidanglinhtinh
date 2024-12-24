@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1863",
+    "problem_id": "p04048",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nint main() {\n    long long N, X;\n    std::cin >> N >> X;\n    long long ans = 0;\n    long long curX = X;\n    long long curY = 0;\n    while (true) {\n        long long dx = 0, dy = 0;\n        if (curX + curY <= N) {\n            dx = curY;\n            dy = curX;\n        } else if (curX + curY <= 2 * N) {\n            dx = 2 * N - curX - curY;\n            dy = N - curX;\n        } else {\n            dx = curX + curY - 2 * N;\n            dy = 2 * N - curX;\n        }\n\n        ans += std::sqrt(dx * dx + dy * dy);\n        curX += dx;\n        curY += dy;\n        if (curX == X && curY == 0) break;\n\n    }\n    std::cout << ans << std::endl;\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

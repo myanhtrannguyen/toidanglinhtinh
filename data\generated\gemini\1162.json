@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1162",
+    "problem_id": "p03859",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\n#define MOD 1000000007\n\nint main() {\n    int n, m;\n    scanf(\"%d %d\", &n, &m);\n    char s[n + 1];\n    scanf(\"%s\", s);\n    int l[m], r[m];\n    for (int i = 0; i < m; i++) {\n        scanf(\"%d %d\", &l[i], &r[i]);\n        l[i]--; \n        r[i]--; \n    }\n    long long count = 0;\n    int ones[n];\n    for (int i = 0; i < n; i++) {\n        ones[i] = s[i] - '0';\n    }\n    int total_ones = 0;\n    for (int i = 0; i < n; i++) {\n        total_ones += ones[i];\n    }\n    long long dp[n + 1][n + 1];\n    memset(dp, 0, sizeof(dp));\n    dp[0][0] = 1;\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j <= i; j++) {\n            if (dp[i][j] == 0) continue;\n            dp[i + 1][j + 1] = (dp[i + 1][j + 1] + dp[i][j]) % MOD;\n            dp[i + 1][j] = (dp[i + 1][j] + dp[i][j]) % MOD;\n        }\n    }\n\n    long long ans = 0;\n    for (int i = 0; i <= n; i++) {\n        ans = (ans + dp[n][i]) % MOD;\n    }\n\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

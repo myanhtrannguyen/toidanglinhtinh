@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-497",
+    "problem_id": "p03683",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.math.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long n = sc.nextLong();\n        long m = sc.nextLong();\n        long mod = 1000000007;\n\n        if (Math.abs(n - m) > 1) {\n            System.out.println(0);\n            return;\n        }\n\n        BigInteger ans = BigInteger.ONE;\n        BigInteger nFact = factorial(n, mod);\n        BigInteger mFact = factorial(m, mod);\n\n        if (n == m) {\n            ans = ans.multiply(BigInteger.valueOf(2)).multiply(nFact).multiply(mFact);\n        } else if (n > m) {\n            ans = ans.multiply(nFact).multiply(mFact);\n\n        } else {\n            ans = ans.multiply(nFact).multiply(mFact);\n        }\n\n        System.out.println(ans.mod(BigInteger.valueOf(mod)));\n    }\n\n    public static BigInteger factorial(long n, long mod) {\n        BigInteger fact = BigInteger.ONE;\n        for (long i = 1; i <= n; i++) {\n            fact = fact.multiply(BigInteger.valueOf(i)).mod(BigInteger.valueOf(mod));\n        }\n        return fact;\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

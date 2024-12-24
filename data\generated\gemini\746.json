@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-746",
+    "problem_id": "p03748",
+    "language": "Python",
+    "solution": "```python\nN, M = map(int, input().split())\nMOD = 10**9 + 7\n\ndp = {}\n\ndef count_sequences(n, m, red, blue):\n    if m == 0:\n        return 1\n    if (n, m, red, blue) in dp:\n        return dp[(n, m, red, blue)]\n    \n    count = 0\n    for i in range(red + 1):\n        for j in range(blue + 1):\n            if i + j > 0 and n - (i + j) >= 0:\n                count = (count + count_sequences(n - (i + j) + 2, m - 1, red - i + 1, blue - j + 1)) % MOD\n\n    dp[(n, m, red, blue)] = count\n    return count\n\nresult = 0\nfor i in range(N + 1):\n    result = (result + count_sequences(N, M, i, N - i)) % MOD\n\nprint(result)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

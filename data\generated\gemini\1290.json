@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1290",
+    "problem_id": "p03894",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int N, Q;\n    scanf(\"%d %d\", &N, &Q);\n    int A[Q], B[Q];\n    for (int i = 0; i < Q; i++) {\n        scanf(\"%d %d\", &A[i], &B[i]);\n    }\n    int min_pos = 1, max_pos = 1;\n    int ball_pos = 1;\n    for (int i = 0; i < Q; i++) {\n        if (ball_pos == A[i]) {\n            ball_pos = B[i];\n        } else if (ball_pos == B[i]) {\n            ball_pos = A[i];\n        }\n        min_pos = (ball_pos < min_pos) ? ball_pos : min_pos;\n        max_pos = (ball_pos > max_pos) ? ball_pos : max_pos;\n\n    }\n    int ans = max_pos - min_pos + 1;\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

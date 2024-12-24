@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-267",
+    "problem_id": "p03621",
+    "language": "Python",
+    "solution": "```python\nimport math\n\nMOD = 998244353\n\ndef solve():\n    a = input()\n    b = input()\n    n = len(a)\n    \n    a_ones = [i for i, x in enumerate(a) if x == '1']\n    b_ones = [i for i, x in enumerate(b) if x == '1']\n    k = len(a_ones)\n    \n    if k == 0:\n        print(1)\n        return\n\n    ans = 0\n    \n    import itertools\n    for perm_a in itertools.permutations(a_ones):\n        for perm_b in itertools.permutations(b_ones):\n            temp_a = list(a)\n            for i in range(k):\n                temp_a[perm_a[i]], temp_a[perm_b[i]] = temp_a[perm_b[i]], temp_a[perm_a[i]]\n            \n            if \"\".join(temp_a) == b:\n                ans += 1\n\n    print((ans * pow(math.factorial(k), 2, MOD)) % MOD)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

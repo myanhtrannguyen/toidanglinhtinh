@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1777",
+    "problem_id": "p04024",
+    "language": "Python",
+    "solution": "```python\nH, W, K = map(int, input().split())\ngrid = [input() for _ in range(H)]\nmod = 10**9 + 7\n\ndef solve():\n    if K == 0:\n        return 1\n    \n    size = 1\n    for _ in range(K):\n        size *= max(H,W)\n\n    \n    count = 0\n    for r in range(H):\n        for c in range(W):\n            if grid[r][c] == '#':\n                count += 1\n    \n    \n    ans = pow(count, K, mod)\n    return ans\n\nprint(solve())\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

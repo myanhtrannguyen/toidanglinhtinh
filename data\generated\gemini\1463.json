@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1463",
+    "problem_id": "p03942",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    char s0[n + 1], t[n + 1];\n    scanf(\"%s\", s0);\n    scanf(\"%s\", t);\n    if (strcmp(s0, t) == 0) {\n        printf(\"0\\n\");\n        return 0;\n    }\n    char s[n + 1];\n    int i = 1;\n    while (i <= n) {\n        strcpy(s, s0);\n        int j = 1;\n        while (j < n) {\n            if (s[j] != t[j]) {\n                s[j] = s[j - 1];\n            }\n            j++;\n        }\n        if (strcmp(s, t) == 0) {\n            printf(\"%d\\n\", i);\n            return 0;\n        }\n        strcpy(s0, s);\n        i++;\n        if (i > n) break;\n    }\n    printf(\"-1\\n\");\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

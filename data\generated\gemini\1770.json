@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1770",
+    "problem_id": "p04022",
+    "language": "Python",
+    "solution": "```python\nimport math\n\ndef is_cubic(n):\n    cbrt = round(n**(1/3))\n    return cbrt**3 == n\n\ndef max_circled(nums):\n    groups = {}\n    for num in nums:\n        x = num\n        i = 2\n        factors = {}\n        while i * i <= x:\n            count = 0\n            while x % i == 0:\n                x //= i\n                count += 1\n            if count > 0:\n                factors[i] = count\n            i += 1\n        if x > 1:\n            factors[x] = 1\n        \n        key = tuple(sorted(factors.items()))\n        if key not in groups:\n            groups[key] = 0\n        groups[key] +=1\n    \n    ans = 0\n    for val in groups.values():\n        ans += val //2 *2 + min(1, val%2)\n\n    return ans\n\n\nN = int(input())\nnums = []\nfor _ in range(N):\n    nums.append(int(input()))\n\nprint(max_circled(nums))\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

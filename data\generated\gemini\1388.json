@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1388",
+    "problem_id": "p03922",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nx = list(map(int, input().split()))\n\ncounts = {}\nfor val in x:\n    counts[val] = counts.get(val, 0) + 1\n\npairs = 0\nremainders = {}\nfor val in x:\n    if counts[val] > 0:\n        if counts[val] >= 2:\n            pairs += counts[val] // 2\n            counts[val] %= 2\n        remainder = val % m\n        if remainder in remainders and remainders[remainder] > 0:\n            pairs += 1\n            counts[val] -= 1\n            remainders[remainder] -= 1\n        else:\n            remainders[remainder] = remainders.get(remainder, 0) + counts[val]\n\nprint(pairs)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

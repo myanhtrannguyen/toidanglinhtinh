@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1533",
+    "problem_id": "p03960",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int H, W;\n    scanf(\"%d %d\", &H, &W);\n    char c[H][W];\n    for (int i = 0; i < H; i++) {\n        char s[305];\n        scanf(\"%s\", s);\n        for (int j = 0; j < W; j++) {\n            c[i][j] = s[j];\n        }\n    }\n    long long ans = 0;\n    for (int k = 0; k < H * W; k++) {\n        int min_cost = 1e9;\n        int min_col = -1;\n        for (int j = 0; j < W; j++) {\n            int cost = 0;\n            for (int i = 0; i < H; i++) {\n                if (j > 0 && i < H && c[i][j] == c[i][j - 1]) cost++;\n                if (j < W - 1 && i < H && c[i][j] == c[i][j + 1]) cost++;\n            }\n            if (cost < min_cost) {\n                min_cost = cost;\n                min_col = j;\n            }\n        }\n        ans += min_cost;\n        for (int i = H - 1; i > 0; i--) {\n            c[i][min_col] = c[i - 1][min_col];\n        }\n        c[0][min_col] = ' ';\n\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

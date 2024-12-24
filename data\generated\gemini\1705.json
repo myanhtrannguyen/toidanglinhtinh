@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1705",
+    "problem_id": "p04006",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <limits.h>\n\nlong long min(long long a, long long b) {\n    return a < b ? a : b;\n}\n\nint main() {\n    int N;\n    long long x;\n    scanf(\"%d %lld\", &N, &x);\n    long long a[N];\n    long long sum = 0;\n    long long max = 0;\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld\", &a[i]);\n        sum += a[i];\n        max = max > a[i] ? max : a[i];\n    }\n    long long ans = sum;\n    for (int i = 0; i < N; i++) {\n        long long cur = sum - a[i] + (long long)(N - 1) * x;\n        long long temp = 0;\n        for (int j = 0; j < N; j++) {\n            if (j != i)\n                temp += a[j];\n        }\n        long long cur2 = temp + (long long)(N-1) * x;\n        ans = min(ans, cur);\n        ans = min(ans, cur2);\n\n\n    }\n\n    \n    long long cur = 0;\n    for(int i = 0; i < N; ++i){\n        cur += a[i];\n    }\n    \n    \n    ans = min(ans,cur);\n    \n    long long cur3 = (long long) (N-1) * x;\n    for(int i = 0; i < N; ++i){\n        cur3 += a[i];\n    }\n    ans = min(ans, cur3);\n\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

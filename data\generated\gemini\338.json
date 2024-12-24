@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-338",
+    "problem_id": "p03640",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int H, W, N;\n    scanf(\"%d %d\", &H, &W);\n    scanf(\"%d\", &N);\n    int a[N];\n    int sum = 0;\n    for (int i = 0; i < N; i++) {\n        scanf(\"%d\", &a[i]);\n        sum += a[i];\n    }\n    int grid[H][W];\n    int count = 0;\n    int color = 0;\n    int r = 0, c = 0;\n    while (count < sum) {\n        if (a[color] > 0) {\n            grid[r][c] = color + 1;\n            a[color]--;\n            count++;\n            if (c < W - 1) c++;\n            else {\n                r++;\n                c = 0;\n            }\n        } else {\n            color++;\n        }\n    }\n    for (int i = 0; i < H; i++) {\n        for (int j = 0; j < W; j++) {\n            printf(\"%d \", grid[i][j]);\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

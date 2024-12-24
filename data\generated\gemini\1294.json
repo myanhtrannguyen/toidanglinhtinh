@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1294",
+    "problem_id": "p03895",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N;\n    scanf(\"%d\", &N);\n    long long a[N], b[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld %lld\", &a[i], &b[i]);\n    }\n    int count = 0;\n    long long time = 0;\n    for (int i = 0; i < N; i++) {\n        time += a[i];\n        long long wake_time = time % 86400;\n        long long end_time = (time + b[i]) % 86400;\n        if (wake_time < 10800 && end_time >= 10800) {\n            count++;\n\n        } else if (wake_time >=10800 && end_time >= 10800 && wake_time < 21600) {\n            if (end_time >=21600){\n                count++;\n            }\n        } else if (wake_time < 10800 && end_time < 10800){\n            count++;\n        }\n\n\n    }\n    printf(\"%d\\n\", count);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-145",
+    "problem_id": "p03589",
+    "language": "Python",
+    "solution": "```python\nN = int(input())\nh = 1\nn = 2\nw = (4 * h * n) / (N * (h * n - 4 * h - 4 * n))\nwhile not w.is_integer() or w <= 0:\n    h += 1\n    w = (4 * h * n) / (N * (h * n - 4 * h - 4 * n))\n    if h > 3500 :\n        n+=1\n        h = 1\n        w = (4 * h * n) / (N * (h * n - 4 * h - 4 * n))\nprint(int(h), int(n), int(w))\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

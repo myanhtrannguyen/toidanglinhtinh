@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1060",
+    "problem_id": "p03832",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\n#define MOD 1000000007\n\nlong long dp[1001][1001];\nlong long comb[1001][1001];\n\nint main() {\n    int n, a, b, c, d;\n    scanf(\"%d %d %d %d %d\", &n, &a, &b, &c, &d);\n\n    for (int i = 0; i <= n; i++) {\n        comb[i][0] = 1;\n        for (int j = 1; j <= i; j++) {\n            comb[i][j] = (comb[i - 1][j - 1] + comb[i - 1][j]) % MOD;\n        }\n    }\n\n    dp[0][0] = 1;\n    for (int i = 1; i <= n; i++) {\n        for (int j = 0; j <= i; j++) {\n            for (int k = a; k <= b && k <= i; k++) {\n                for (int l = c; l <= d && l * k <= i; l++) {\n                    if (i >= k * l) {\n                        dp[i][j + l] = (dp[i][j + l] + dp[i - k * l][j] * comb[i -1][k -1] % MOD * comb[i - k][k * l - 1] % MOD) % MOD;\n\n                    }\n                }\n            }\n        }\n    }\n\n    long long ans = 0;\n    for (int i = 0; i <= n; i++) {\n        ans = (ans + dp[n][i]) % MOD;\n    }\n\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

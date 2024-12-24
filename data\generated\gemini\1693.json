@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1693",
+    "problem_id": "p04002",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long h, w, n;\n  cin >> h >> w >> n;\n\n  vector<pair<long long, long long>> painted(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> painted[i].first >> painted[i].second;\n  }\n\n  vector<long long> counts(10, 0);\n  for (long long i = 1; i <= h - 2; ++i) {\n    for (long long j = 1; j <= w - 2; ++j) {\n      int black_cells = 0;\n      for (long long x = i; x <= i + 2; ++x) {\n        for (long long y = j; y <= j + 2; ++y) {\n          bool is_painted = false;\n          for (int k = 0; k < n; ++k) {\n            if (painted[k].first == x && painted[k].second == y) {\n              is_painted = true;\n              break;\n            }\n          }\n          if (is_painted) {\n            black_cells++;\n          }\n        }\n      }\n      counts[black_cells]++;\n    }\n  }\n\n  for (int i = 0; i < 10; ++i) {\n    cout << counts[i] << endl;\n  }\n\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

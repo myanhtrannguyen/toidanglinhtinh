@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1447",
+    "problem_id": "p03937",
+    "language": "Python",
+    "solution": "```python\nH, W = map(int, input().split())\ngrid = [input() for _ in range(H)]\n\npossible = True\nfor i in range(H):\n    for j in range(W):\n        if grid[i][j] == '#':\n            if i == 0 and j == 0:\n                continue\n            if grid[i-1][j] != '#' and i > 0 and j==0 :\n                possible = False\n                break\n            if grid[i][j-1] != '#' and i == 0 and j > 0 :\n                possible = False\n                break\n            if grid[i-1][j] != '#' and grid[i][j-1] != '#' and i>0 and j>0:\n                possible = False\n                break\n\n    if not possible:\n        break\n\nif possible:\n    count = 0\n    for i in range(H):\n        for j in range(W):\n            if grid[i][j] == '#':\n                count +=1\n    if count != H+W-1:\n        possible = False\n\n\nif possible:\n    print(\"Possible\")\nelse:\n    print(\"Impossible\")\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

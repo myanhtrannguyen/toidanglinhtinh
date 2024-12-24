@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1194",
+    "problem_id": "p03867",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nlong long power(long long base, long long exp, long long mod) {\n  long long res = 1;\n  base %= mod;\n  while (exp > 0) {\n    if (exp % 2 == 1) res = (res * base) % mod;\n    base = (base * base) % mod;\n    exp /= 2;\n  }\n  return res;\n}\n\nint main() {\n  long long n, k;\n  cin >> n >> k;\n\n  long long mod = 1e9 + 7;\n\n  if (n == 1) {\n    cout << k << endl;\n    return 0;\n  }\n\n  long long half_len = (n + 1) / 2;\n  long long ans = power(k, half_len, mod);\n\n  if (n % 2 == 0) {\n    ans = (ans * power(k, half_len -1, mod)) % mod;\n  }\n\n  cout << ans << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

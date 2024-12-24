@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-766",
+    "problem_id": "p03753",
+    "language": "Python",
+    "solution": "```python\nn, m, q = map(int, input().split())\na = list(map(int, input().split()))\n\ngrid = [[(7 * i + j - 8) % m for j in range(7)] for i in range(int(n))]\n\nvisited = [[False for _ in range(7)] for _ in range(int(n))]\n\ndef dfs(i, j):\n    if i < 0 or i >= len(grid) or j < 0 or j >= 7 or visited[i][j] or grid[i][j] in a:\n        return\n    visited[i][j] = True\n    dfs(i + 1, j)\n    dfs(i - 1, j)\n    dfs(i, j + 1)\n    dfs(i, j - 1)\n\ncount = 0\nfor i in range(len(grid)):\n    for j in range(7):\n        if not visited[i][j] and grid[i][j] not in a:\n            dfs(i, j)\n            count += 1\n\nprint(count)\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

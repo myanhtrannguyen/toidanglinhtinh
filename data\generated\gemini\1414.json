@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1414",
+    "problem_id": "p03929",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long n = sc.nextLong();\n        long k = sc.nextLong();\n        long count = 0;\n        for (long i = 1; i <= n - 2; i++) {\n            for (long j = 1; j <= 5; j++) {\n                long sum = 0;\n                for (long x = 0; x < 3; x++) {\n                    for (long y = 0; y < 3; y++) {\n                        sum += 7 * (i + x) + j + y - 7;\n                    }\n                }\n                if (sum % 11 == k) {\n                    count++;\n                }\n            }\n        }\n        System.out.println(count);\n        sc.close();\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

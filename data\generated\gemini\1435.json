@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1435",
+    "problem_id": "p03934",
+    "language": "Python",
+    "solution": "```python\nn, q = map(int, input().split())\ncustomers = [0] * n\nfor _ in range(q):\n    a, b = map(int, input().split())\n    min_dishes = float('inf')\n    min_customer = -1\n    for i in range(a):\n        if customers[i] < min_dishes:\n            min_dishes = customers[i]\n            min_customer = i\n    \n    add = min(b, (customers[0] if 0 < a else 0) - customers[min_customer] + 1)\n\n    for i in range(a):\n        if customers[i] == min_dishes:\n            customers[i] += add\n            \nfor c in customers:\n    print(c)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

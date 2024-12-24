@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-791",
+    "problem_id": "p03760",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char O[51], E[51];\n    scanf(\"%s\", O);\n    scanf(\"%s\", E);\n    int lenO = strlen(O);\n    int lenE = strlen(E);\n    char result[101];\n    int i = 0, j = 0, k = 0;\n    while (i < lenO || j < lenE) {\n        if (i < lenO) {\n            result[k++] = O[i++];\n        }\n        if (j < lenE) {\n            result[k++] = E[j++];\n        }\n    }\n    result[k] = '\\0';\n    printf(\"%s\\n\", result);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

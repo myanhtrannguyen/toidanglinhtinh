@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1319",
+    "problem_id": "p03901",
+    "language": "Python",
+    "solution": "```python\nx = int(input())\np = int(input())\n\ndp = {}\ndef solve(a, b):\n    if (a, b) in dp:\n        return dp[(a, b)]\n    if a == b:\n        return 0\n    ans = float('inf')\n    for next_a in [a - 1, a, a + 1]:\n        if next_a < 0:\n            continue\n        expected_turns = 1 + (p / 100) * solve(next_a, b - 1) + ((100 - p) / 100) * solve(next_a, b + 1)\n        ans = min(ans, expected_turns)\n    dp[(a, b)] = ans\n    return ans\n\nprint(solve(0, x))\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

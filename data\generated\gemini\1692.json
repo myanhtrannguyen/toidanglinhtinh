@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1692",
+    "problem_id": "p04002",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long H, W, N;\n    scanf(\"%lld %lld %lld\", &H, &W, &N);\n    long long a[N], b[N];\n    for (long long i = 0; i < N; i++) {\n        scanf(\"%lld %lld\", &a[i], &b[i]);\n    }\n    long long count[10] = {0};\n    for (long long i = 1; i <= H - 2; i++) {\n        for (long long j = 1; j <= W - 2; j++) {\n            long long black_cells = 0;\n            for (long long x = i; x <= i + 2; x++) {\n                for (long long y = j; y <= j + 2; y++) {\n                    for (long long k = 0; k < N; k++) {\n                        if (a[k] == x && b[k] == y) {\n                            black_cells++;\n                            break;\n                        }\n                    }\n                }\n            }\n            count[black_cells]++;\n        }\n    }\n    for (long long i = 0; i < 10; i++) {\n        printf(\"%lld\\n\", count[i]);\n    }\n    return 0;\n}\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-804",
+    "problem_id": "p03763",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <vector>\n#include <map>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    vector<map<char, int>> counts(n);\n    vector<string> s(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> s[i];\n        for (char c : s[i]) {\n            counts[i][c]++;\n        }\n    }\n\n    map<char, int> min_counts;\n    for (char c = 'a'; c <= 'z'; ++c) {\n        int min_count = 1e9;\n        for (int i = 0; i < n; ++i) {\n            min_count = min(min_count, counts[i][c]);\n        }\n        min_counts[c] = min_count;\n    }\n\n    string result = \"\";\n    for (auto const& [key, val] : min_counts) {\n        for (int i = 0; i < val; ++i) {\n            result += key;\n        }\n    }\n\n    cout << result << endl;\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

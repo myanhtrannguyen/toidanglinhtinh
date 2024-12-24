@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1601",
+    "problem_id": "p03978",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    for (int i = 1; i <= n; ++i) {\n        string s1 = \"\", s2 = \"\";\n        for (int j = 0; j < i; ++j) {\n            s1 += \".\";\n            s2 += \".\";\n        }\n        cout << s1 << endl << s2 << endl;\n        fflush(stdout);\n        string r;\n        cin >> r;\n        if (r == \"end\") return 0;\n\n        if (r == \"T\"){\n            for (int k = i + 1; k <=n; k++){\n                string s1_ext = s1;\n                string s2_ext = s2;\n                for (int z = 0; z < k - i; z++){\n                    s1_ext += \".\";\n                    s2_ext += \".\";\n                }\n                cout << s1_ext << endl << s2_ext << endl;\n                fflush(stdout);\n                string r_ext;\n                cin >> r_ext;\n                if (r_ext == \"end\") return 0;\n                if (r_ext == \"T\") i = k;\n            }\n        }\n        \n    }\n\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

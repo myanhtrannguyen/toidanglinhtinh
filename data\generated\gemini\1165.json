@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1165",
+    "problem_id": "p03859",
+    "language": "Python",
+    "solution": "```python\nMOD = 1000000007\n\ndef solve():\n    n, m = map(int, input().split())\n    s = list(input())\n    ranges = []\n    for _ in range(m):\n        ranges.append(list(map(int, input().split())))\n\n    groups = []\n    current_group = []\n    for i in range(n):\n        current_group.append(i)\n        for r in ranges:\n            if r[0] -1 <= i < r[1]:\n                break\n        else:\n            groups.append(current_group)\n            current_group = []\n    if current_group:\n        groups.append(current_group)\n\n\n    ans = 1\n    for group in groups:\n        zeros = 0\n        ones = 0\n        for i in group:\n            if s[i] == '0':\n                zeros += 1\n            else:\n                ones += 1\n        ans = (ans * (zeros + ones + 1)) % MOD\n\n    print(ans)\n\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

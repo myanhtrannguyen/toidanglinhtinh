@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1469",
+    "problem_id": "p03943",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int a = scanner.nextInt();\n        int b = scanner.nextInt();\n        int c = scanner.nextInt();\n        scanner.close();\n\n        if ((a + b + c) % 2 != 0) {\n            System.out.println(\"No\");\n            return;\n        }\n\n        int sum = a + b + c;\n        int halfSum = sum / 2;\n\n        if (a == halfSum || b == halfSum || c == halfSum ||\n                a + b == halfSum || a + c == halfSum || b + c == halfSum) {\n            System.out.println(\"Yes\");\n        } else {\n            System.out.println(\"No\");\n        }\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

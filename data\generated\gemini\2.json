@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-2",
+    "problem_id": "p03551",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int m = sc.nextInt();\n        long ans = 0;\n        long prob = 1;\n        for (int i = 1; ; i++) {\n            ans += (long) i * (long) (Math.pow(2, m)) * (long) (n - m) * 100 + (long) i * (long) (Math.pow(2, m)) * m * 1900;\n            prob *= 2;\n            if (Math.pow(2, m) >= prob) break;\n\n        }\n        System.out.println(ans);\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-55",
+    "problem_id": "p03565",
+    "language": "Python",
+    "solution": "```python\ns_prime, t = input(), input()\nn, m = len(s_prime), len(t)\nans = \"z\" * n\nfor i in range(n - m + 1):\n    s = list(s_prime)\n    cur = \"\"\n    for j in range(m):\n        if s[i + j] == '?':\n            s[i + j] = t[j]\n        elif s[i + j] != t[j]:\n            cur = \"\"\n            break\n        cur += s[i + j]\n    if cur == t:\n        for j in range(n):\n            if s[j] == '?':\n                s[j] = 'a'\n        if \"\".join(s) < ans:\n            ans = \"\".join(s)\n\nif ans == \"z\" * n:\n    print(\"UNRESTORABLE\")\nelse:\n    print(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

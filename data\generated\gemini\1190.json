@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1190",
+    "problem_id": "p03866",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <math.h>\n\nstruct Point {\n    double x, y;\n};\n\nstruct Circle {\n    struct Point center;\n    double radius;\n};\n\ndouble dist(struct Point p1, struct Point p2) {\n    return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));\n}\n\nint main() {\n    struct Point start, end;\n    int n;\n    scanf(\"%lf %lf %lf %lf\", &start.x, &start.y, &end.x, &end.y);\n    scanf(\"%d\", &n);\n    struct Circle circles[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lf %lf %lf\", &circles[i].center.x, &circles[i].center.y, &circles[i].radius);\n    }\n    double min_exposed_time = dist(start, end);\n    printf(\"%.12lf\\n\", min_exposed_time);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

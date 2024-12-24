@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-378",
+    "problem_id": "p03651",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <numeric>\n#include <vector>\n\nint gcd(int a, int b) {\n    if (b == 0)\n        return a;\n    return gcd(b, a % b);\n}\n\nint main() {\n    int n, k;\n    std::cin >> n >> k;\n    std::vector<int> a(n);\n    for (int i = 0; i < n; ++i)\n        std::cin >> a[i];\n    int g = 0;\n    for (int i = 0; i < n; ++i)\n        g = gcd(g, a[i]);\n    if (k % g == 0)\n        std::cout << \"POSSIBLE\" << std::endl;\n    else\n        std::cout << \"IMPOSSIBLE\" << std::endl;\n    return 0;\n}\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

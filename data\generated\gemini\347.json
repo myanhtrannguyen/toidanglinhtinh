@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-347",
+    "problem_id": "p03642",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  vector<long long> x(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> x[i];\n  }\n\n  vector<bool> cards(10000001, false);\n  for (long long val : x) {\n    cards[val] = true;\n  }\n\n  int count = 0;\n  for (long long i = 1; i <= 10000000; ++i) {\n    if (cards[i]) {\n      bool found = false;\n      for (long long p = 3; p <= 10000; ++p) {\n        bool is_prime = true;\n        for (long long j = 2; j * j <= p; ++j) {\n          if (p % j == 0) {\n            is_prime = false;\n            break;\n          }\n        }\n        if (is_prime && i + p -1 <= 10000000) {\n          bool possible = true;\n          for (long long j = i; j < i + p; ++j) {\n            cards[j] = !cards[j];\n          }\n          count++;\n          found = true;\n          break;\n        }\n      }\n    }\n  }\n  cout << count << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

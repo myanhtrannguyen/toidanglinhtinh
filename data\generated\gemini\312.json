@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-312",
+    "problem_id": "p03633",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nlong long gcd(long long a, long long b) {\n    if (b == 0) return a;\n    return gcd(b, a % b);\n}\n\nlong long lcm(long long a, long long b) {\n    return (a * b) / gcd(a, b);\n}\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    long long t[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lld\", &t[i]);\n    }\n    long long result = t[0];\n    for (int i = 1; i < n; i++) {\n        result = lcm(result, t[i]);\n    }\n    printf(\"%lld\\n\", result);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

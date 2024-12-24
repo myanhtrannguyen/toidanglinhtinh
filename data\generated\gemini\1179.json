@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1179",
+    "problem_id": "p03863",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  string s;\n  cin >> s;\n\n  if (s.length() < 3) {\n    cout << \"Second\" << endl;\n    return 0;\n  }\n\n  bool can_move = false;\n  for (int i = 1; i < s.length() - 1; ++i) {\n    string next_s = s.substr(0, i) + s.substr(i + 1);\n    bool ok = true;\n    for (int j = 0; j < next_s.length() - 1; ++j) {\n      if (next_s[j] == next_s[j + 1]) {\n        ok = false;\n        break;\n      }\n    }\n    if (ok) {\n      can_move = true;\n      break;\n    }\n  }\n\n  if (can_move) {\n    cout << \"First\" << endl;\n  } else {\n    cout << \"Second\" << endl;\n  }\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

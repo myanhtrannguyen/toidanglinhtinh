@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1792",
+    "problem_id": "p04028",
+    "language": "Python",
+    "solution": "```python\nMOD = 10**9 + 7\n\ndef solve():\n    n = int(input())\n    s = input()\n    m = len(s)\n    \n    dp = {}\n    def count_ways(length, current_string):\n        if (length, current_string) in dp:\n            return dp[(length, current_string)]\n        \n        if length == 0:\n            if current_string == \"\":\n                return 1\n            else:\n                return 0\n\n        ways = 0\n        \n        # Add 0\n        ways = (ways + count_ways(length - 1, current_string + \"0\")) % MOD\n        \n        # Add 1\n        ways = (ways + count_ways(length - 1, current_string + \"1\")) % MOD\n        \n        #Backspace\n        if len(current_string) > 0:\n            ways = (ways + count_ways(length -1, current_string[:-1])) % MOD\n\n        dp[(length, current_string)] = ways\n        return ways\n\n    print(count_ways(n, s))\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

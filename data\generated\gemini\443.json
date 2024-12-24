@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-443",
+    "problem_id": "p03668",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  if (n == 2) {\n    cout << \"Alice\" << endl;\n    return 0;\n  }\n\n  vector<tuple<int, int>> edges(n - 1);\n  vector<vector<int>> adj(n);\n  for (int i = 0; i < n - 1; ++i) {\n    cin >> get<0>(edges[i]) >> get<1>(edges[i]);\n    get<0>(edges[i])--;\n    get<1>(edges[i])--;\n    adj[get<0>(edges[i])].push_back(get<1>(edges[i]));\n    adj[get<1>(edges[i])].push_back(get<0>(edges[i]));\n  }\n\n  int leaves = 0;\n  for (int i = 0; i < n; ++i) {\n    if (adj[i].size() == 1 && i != 0) {\n      leaves++;\n    }\n  }\n\n  if (leaves % 2 == 0) {\n    cout << \"Bob\" << endl;\n  } else {\n    cout << \"Alice\" << endl;\n  }\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

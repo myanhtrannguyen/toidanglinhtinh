@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-230",
+    "problem_id": "p03611",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\ncounts = {}\nfor x in a:\n    for dx in [-1, 0, 1]:\n        nx = x + dx\n        counts[nx] = counts.get(nx, 0) + 1\n\nmax_count = 0\nfor x in counts:\n    max_count = max(max_count, counts[x])\n\nprint(max_count)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

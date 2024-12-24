@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1516",
+    "problem_id": "p03955",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = []\nfor _ in range(3):\n    a.append(list(map(int, input().split())))\n\nb = [[i + 3 * j for i in range(1, 4) for j in range(n)]]\nb = [[(x) for x in y] for y in b]\nb = list(zip(*b))\nb = [list(x) for x in b]\n\n\ndef solve():\n    for i in range(n - 2):\n        for j in range(3):\n            if a[0][i] + a[2][i+2] != b[0][i] + b[2][i+2] and a[1][i+1] + a[1][i+1]!=b[1][i+1] + b[1][i+1]:\n                return \"No\"\n\n    \n    s1 = sum(a[0][i] for i in range(n))\n    s2 = sum(a[1][i] for i in range(n))\n    s3 = sum(a[2][i] for i in range(n))\n\n    s4 = sum(b[0][i] for i in range(n))\n    s5 = sum(b[1][i] for i in range(n))\n    s6 = sum(b[2][i] for i in range(n))\n\n\n    if (s1 + s2 + s3) % 2 == (s4 + s5 + s6) % 2:\n        return \"Yes\"\n    else:\n        return \"No\"\n\n\n\nprint(solve())\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-340",
+    "problem_id": "p03640",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int H = sc.nextInt();\n        int W = sc.nextInt();\n        int N = sc.nextInt();\n        int[] a = new int[N];\n        for (int i = 0; i < N; i++) {\n            a[i] = sc.nextInt();\n        }\n        int[][] grid = new int[H][W];\n        int count = 0;\n        int color = 0;\n        int r = 0, c = 0;\n        for (int i = 0; i < N; i++) {\n            int num = a[i];\n            for (int j = 0; j < num; j++) {\n                grid[r][c] = i + 1;\n                count++;\n                c++;\n                if (c == W) {\n                    c = 0;\n                    r++;\n                }\n            }\n        }\n        for (int i = 0; i < H; i++) {\n            for (int j = 0; j < W; j++) {\n                System.out.print(grid[i][j] + (j == W - 1 ? \"\" : \" \"));\n            }\n            System.out.println();\n        }\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

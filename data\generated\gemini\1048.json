@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1048",
+    "problem_id": "p03829",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nlong long min(long long a, long long b) {\n    return a < b ? a : b;\n}\n\nint main() {\n    long long n, a, b;\n    scanf(\"%lld %lld %lld\", &n, &a, &b);\n    long long x[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lld\", &x[i]);\n    }\n    long long dp[n];\n    dp[0] = 0;\n    for (int i = 1; i < n; i++) {\n        dp[i] = dp[i - 1] + a * (x[i] - x[i - 1]);\n        long long cost = dp[i];\n        for (int j = 0; j < i; j++) {\n            cost = min(cost, dp[j] + b + a * (x[i] - x[j]));\n\n        }\n        dp[i] = cost;\n    }\n    printf(\"%lld\\n\", dp[n - 1]);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

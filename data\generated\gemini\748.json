@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-748",
+    "problem_id": "p03749",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long n, m;\n  cin >> n >> m;\n\n  vector<long long> x(m);\n  for (int i = 0; i < m; ++i) {\n    cin >> x[i];\n  }\n\n  long long mod = 1e9 + 7;\n  long long ans = 0;\n\n  if (m == 0) {\n    ans = 1;\n    for (long long i = 0; i < n; ++i) ans = (ans * n) % mod;\n  } else {\n      vector<long long> cuts;\n      cuts.push_back(0);\n      for (long long i = 0; i < m; i++) cuts.push_back(x[i]);\n      cuts.push_back(n);\n      \n      long long num_segments = cuts.size() -1;\n      vector<long long> dp(num_segments + 1, 0);\n      dp[0] = 1;\n      \n      for(long long i = 1; i <= num_segments; ++i){\n          long long cur_seg = cuts[i] - cuts[i-1];\n          for(long long j = 1; j <= cur_seg; ++j){\n              if (i - j >= 0)\n                  dp[i] = (dp[i] + dp[i-j]) % mod;\n          }\n      }\n      ans = dp[num_segments];\n      for(long long i = 0; i < num_segments; ++i){\n          long long len = cuts[i+1] - cuts[i];\n          ans = (ans * len * len) % mod;\n      }\n  }\n\n  cout << ans << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

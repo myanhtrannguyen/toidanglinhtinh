@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-730",
+    "problem_id": "p03744",
+    "language": "Python",
+    "solution": "```python\nN, L = map(int, input().split())\ntemps = []\nvols = []\nfor i in range(N):\n    t, v = map(int, input().split())\n    temps.append(t)\n    vols.append(v)\n\ntotal_temp = 0\ntotal_vol = 0\nfor i in range(N):\n    total_temp = temps[i] * vols[i]\n    total_vol = vols[i]\n    for j in range(i):\n        removed_vol = max(0, total_vol - L)\n        total_temp = total_temp + temps[j] * (vols[j] - removed_vol)\n        total_vol = total_vol + vols[j] - removed_vol\n        \n    print(total_temp / L)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

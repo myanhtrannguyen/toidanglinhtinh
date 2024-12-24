@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-388",
+    "problem_id": "p03653",
+    "language": "Python",
+    "solution": "```python\nx, y, z = map(int, input().split())\nl = []\nfor i in range(x + y + z):\n  l.append(list(map(int, input().split())))\n\nl.sort(key=lambda x: x[0], reverse=True)\ngold = []\nfor i in range(x):\n  gold.append(l[i][0])\n\nl.sort(key=lambda x: x[1], reverse=True)\nsilver = []\nfor i in range(y):\n  silver.append(l[i][1])\n\nl.sort(key=lambda x: x[2], reverse=True)\nbronze = []\nfor i in range(z):\n  bronze.append(l[i][2])\n\nans = sum(gold) + sum(silver) + sum(bronze)\nprint(ans)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

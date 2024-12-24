@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-441",
+    "problem_id": "p03667",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, m = map(int, input().split())\n    a = list(map(int, input().split()))\n\n    def count_modifications(arr):\n        count = 0\n        cur_arr = arr[:]\n        while len(cur_arr) > 0:\n            k = len(cur_arr)\n            new_arr = []\n            for x in cur_arr:\n                if x != k:\n                    new_arr.append(x)\n            if len(new_arr) == len(cur_arr):\n                count = float('inf')\n                break\n            cur_arr = new_arr\n        return count\n\n    for _ in range(m):\n        x, y = map(int, input().split())\n        a[x - 1] = y\n        print(count_modifications(a))\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

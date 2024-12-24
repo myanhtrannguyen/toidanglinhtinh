@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-847",
+    "problem_id": "p03774",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nstudents = []\nfor i in range(n):\n    a, b = map(int, input().split())\n    students.append((a, b))\ncheckpoints = []\nfor i in range(m):\n    c, d = map(int, input().split())\n    checkpoints.append((c, d))\n\nfor i in range(n):\n    min_dist = float('inf')\n    min_index = -1\n    for j in range(m):\n        dist = abs(students[i][0] - checkpoints[j][0]) + abs(students[i][1] - checkpoints[j][1])\n        if dist < min_dist:\n            min_dist = dist\n            min_index = j + 1\n        elif dist == min_dist and j + 1 < min_index :\n            min_index = j + 1\n\n    print(min_index)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-897",
+    "problem_id": "p03788",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long k = sc.nextLong();\n        String s = sc.next();\n        char[] a = s.toCharArray();\n        for (long i = 0; i < k; i++) {\n            int cur = 0;\n            char state = a[cur];\n            while (true) {\n                if (state == 'A') {\n                    a[cur] = 'B';\n                    if (cur == n - 1) break;\n                    cur++;\n                    state = a[cur];\n                } else {\n                    if (cur == 0) {\n                        a[cur] = 'A';\n                        break;\n                    } else {\n                        a[cur] = 'A';\n                        cur--;\n                        state = a[cur];\n                    }\n                }\n            }\n        }\n        System.out.println(String.valueOf(a));\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

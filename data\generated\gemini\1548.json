@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1548",
+    "problem_id": "p03964",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <numeric>\n\nlong long gcd(long long a, long long b) {\n    if (b == 0)\n        return a;\n    return gcd(b, a % b);\n}\n\nint main() {\n    int n;\n    std::cin >> n;\n    long long t[n], a[n];\n    for (int i = 0; i < n; ++i)\n        std::cin >> t[i] >> a[i];\n    long long lcm_ta = a[0];\n    for (int i = 1; i < n; ++i) {\n        long long g = gcd(a[i - 1], a[i]);\n        lcm_ta = lcm_ta * a[i] / g;\n    }\n    long long total_votes = lcm_ta;\n    long long takahashi = total_votes * t[n - 1] / a[n - 1];\n    long long aoki = total_votes * a[n-1]/ a[n-1];\n    std::cout << takahashi + aoki << std::endl;\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

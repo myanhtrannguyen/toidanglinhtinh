@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-738",
+    "problem_id": "p03746",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nedges = []\ngraph = [[] for _ in range(n)]\nfor i in range(m):\n    a, b = map(int, input().split())\n    a -= 1\n    b -= 1\n    edges.append((a, b))\n    graph[a].append(b)\n    graph[b].append(a)\n\nstart_node = 0\npath = [start_node]\nvisited = {start_node}\nneighbors = set(graph[start_node])\n\nwhile neighbors:\n    next_node = neighbors.pop()\n    if next_node not in visited:\n        path.append(next_node)\n        visited.add(next_node)\n        neighbors.update(graph[next_node])\n        neighbors -= visited\n\nprint(len(path))\nprint(*(node + 1 for node in path))\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

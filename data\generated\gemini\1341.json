@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1341",
+    "problem_id": "p03908",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long[] a = new long[n];\n        for (int i = 0; i < n; i++) {\n            a[i] = sc.nextLong();\n        }\n        Set<Long> sums = new HashSet<>();\n        for (int i = 0; i < (1 << n); i++) {\n            long sum = 0;\n            for (int j = 0; j < n; j++) {\n                if ((i >> j) % 2 == 1) {\n                    sum += a[j];\n                }\n            }\n            if (sum > 0) sums.add(sum);\n        }\n        long maxSum = 0;\n        for (long sum : sums) {\n            maxSum = Math.max(maxSum, sum);\n        }\n        long ans = 0;\n        long pow10 = 1;\n        while (maxSum > 0) {\n            long count = 0;\n            for (long sum : sums) {\n                if (sum % pow10 != 0) {\n                    count++;\n                }\n            }\n            if(count > 0) ans += count;\n            maxSum /= 10;\n            pow10 *= 10;\n        }\n        System.out.println(ans);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1315",
+    "problem_id": "p03900",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\ns = input()\n\nfor i in range(n - 1):\n    b = []\n    if s[i] == 'M':\n        for j in range(len(a) - 1):\n            b.append(max(a[j], a[j + 1]))\n    else:\n        for j in range(len(a) - 1):\n            b.append(min(a[j], a[j + 1]))\n    a = b\n\nprint(a[0])\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1818",
+    "problem_id": "p04035",
+    "language": "Python",
+    "solution": "```python\nn, l = map(int, input().split())\na = list(map(int, input().split()))\n\nprefix_sums = [0] * n\nprefix_sums[0] = a[0]\nfor i in range(1, n):\n    prefix_sums[i] = prefix_sums[i - 1] + a[i]\n\nans = []\ncur_sum = 0\nleft = 0\nright = n -1\n\nwhile left < right:\n    cur_sum = prefix_sums[right] - (prefix_sums[left-1] if left > 0 else 0)\n    if cur_sum >= l:\n      ans.append(right)\n      right -=1\n    elif cur_sum < l:\n      left +=1\n      cur_sum = prefix_sums[right] - (prefix_sums[left-1] if left > 0 else 0)\n      if cur_sum >= l:\n        ans.append(left)\n        left +=1\n      else:\n        print(\"Impossible\")\n        exit()\n\nif len(ans) == n - 1:\n    print(\"Possible\")\n    for x in ans:\n        print(x)\nelse:\n    print(\"Impossible\")\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

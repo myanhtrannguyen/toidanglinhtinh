@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-604",
+    "problem_id": "p03711",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int x = scanner.nextInt();\n        int y = scanner.nextInt();\n\n        int[] group = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};\n        int[] groupAssignment = {1, 1, 1, 2, 2, 2, 3, 3, 3, 1, 2, 3};\n\n\n        if (groupAssignment[x - 1] == groupAssignment[y - 1]) {\n            System.out.println(\"Yes\");\n        } else {\n            System.out.println(\"No\");\n        }\n        scanner.close();\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

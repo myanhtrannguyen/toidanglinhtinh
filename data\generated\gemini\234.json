@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-234",
+    "problem_id": "p03613",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int a[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &a[i]);\n    }\n    int counts[200000] = {0};\n    for (int i = 0; i < n; i++) {\n        counts[a[i] + 100000]++;\n        counts[a[i] + 100000 + 1]++;\n        counts[a[i] + 100000 - 1]++;\n    }\n    int max_count = 0;\n    for (int i = 0; i < 200000; i++) {\n        if (counts[i] > max_count) {\n            max_count = counts[i];\n        }\n    }\n    printf(\"%d\\n\", max_count);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

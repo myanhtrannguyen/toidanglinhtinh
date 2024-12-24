@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1873",
+    "problem_id": "p04051",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\n#define MOD 1000000007\n\nlong long factorial(int n) {\n    long long res = 1;\n    for (int i = 2; i <= n; i++)\n        res = (res * i) % MOD;\n    return res;\n}\n\nlong long power(long long base, int exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long inverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    long long a[n], b[n];\n    for (int i = 0; i < n; i++)\n        scanf(\"%lld %lld\", &a[i], &b[i]);\n\n    long long ans = 0;\n    for (int i = 0; i < n; i++) {\n        for (int j = i + 1; j < n; j++) {\n            long long total = a[i] + b[i] + a[j] + b[j];\n            long long ways = (factorial(total) * inverse(factorial(a[i])) % MOD * inverse(factorial(b[i])) % MOD * inverse(factorial(a[j])) % MOD * inverse(factorial(b[j])) % MOD);\n            ans = (ans + ways) % MOD;\n\n        }\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

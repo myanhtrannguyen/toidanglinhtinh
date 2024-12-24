@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-102",
+    "problem_id": "p03578",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N, M;\n    scanf(\"%d\", &N);\n    int D[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%d\", &D[i]);\n    }\n    scanf(\"%d\", &M);\n    int T[M];\n    for (int i = 0; i < M; i++) {\n        scanf(\"%d\", &T[i]);\n    }\n\n    int count[100001] = {0};\n    for (int i = 0; i < N; i++) {\n        count[D[i]]++;\n    }\n\n    int possible = 1;\n    for (int i = 0; i < M; i++) {\n        if (count[T[i]] > 0) {\n            count[T[i]]--;\n        } else {\n            possible = 0;\n            break;\n        }\n    }\n\n    if (possible) {\n        printf(\"YES\\n\");\n    } else {\n        printf(\"NO\\n\");\n    }\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

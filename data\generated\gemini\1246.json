@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1246",
+    "problem_id": "p03881",
+    "language": "Python",
+    "solution": "```python\np = list(map(int, input().split()))\nq = list(map(int, input().split()))\n\np = [x / 100 for x in p]\nq = [x / 100 for x in q]\n\nans = 0.0\nfor i in range(6):\n    if p[i] > 0 and q[i] > 0:\n        ans += max(p[i] / (p[i] + q[i]), q[i] / (p[i] + q[i])) * (p[i] + q[i])\n    elif p[i] > 0:\n        ans += p[i]\n    elif q[i] > 0:\n        ans += q[i]\n\nprint(ans)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

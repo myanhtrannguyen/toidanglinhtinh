@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1564",
+    "problem_id": "p03968",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  vector<tuple<int, int, int, int>> tiles(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> get<0>(tiles[i]) >> get<1>(tiles[i]) >> get<2>(tiles[i]) >> get<3>(tiles[i]);\n  }\n\n  long long count = 0;\n  vector<int> p(6);\n  vector<int> rot(6);\n\n  for (int i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n      if (i == j) continue;\n      for (int k = 0; k < n; ++k) {\n        if (k == i || k == j) continue;\n        for (int l = 0; l < n; ++l) {\n          if (l == i || l == j || l == k) continue;\n          for (int m = 0; m < n; ++m) {\n            if (m == i || m == j || m == k || m == l) continue;\n            for (int o = 0; o < n; ++o) {\n              if (o == i || o == j || o == k || o == l || o == m) continue;\n\n              \n            }\n          }\n        }\n      }\n    }\n  }\n\n  cout << count << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-881",
+    "problem_id": "p03783",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nrectangles = []\nfor i in range(n):\n    l, r = map(int, input().split())\n    rectangles.append((l, r))\n\nintervals = []\nfor l, r in rectangles:\n    intervals.append((l, 1))\n    intervals.append((r, -1))\n\nintervals.sort()\n\nevents = []\ncount = 0\nprev_x = intervals[0][0]\nfor x, type in intervals:\n    if count > 0:\n        events.append((x - prev_x, count))\n    count += type\n    prev_x = x\n\nevents.sort(reverse=True)\ntotal_cost = 0\ncurr_rightmost = -float('inf')\nfor cost_per_unit, num_rectangles in events:\n    if curr_rightmost < intervals[0][0]:\n        curr_rightmost = intervals[0][0]\n    \n    rightmost = curr_rightmost\n    for i in range(num_rectangles):\n      \n        rightmost = max(rightmost, rectangles[i][1])\n    \n    total_cost += cost_per_unit * num_rectangles\n\nprint(total_cost)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

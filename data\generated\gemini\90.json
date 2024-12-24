@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-90",
+    "problem_id": "p03574",
+    "language": "Python",
+    "solution": "```python\nH, W = map(int, input().split())\nS = [list(input()) for _ in range(H)]\n\nfor i in range(H):\n    for j in range(W):\n        if S[i][j] == '.':\n            count = 0\n            for x in range(max(0, i - 1), min(H, i + 2)):\n                for y in range(max(0, j - 1), min(W, j + 2)):\n                    if S[x][y] == '#' :\n                        count += 1\n            S[i][j] = str(count)\n\nfor row in S:\n    print(\"\".join(row))\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

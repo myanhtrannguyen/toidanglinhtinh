@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1117",
+    "problem_id": "p03847",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long n;\n    scanf(\"%lld\", &n);\n    long long ans = 1;\n    long long mod = 1000000007;\n    long long x = 1;\n    while (x <= n) {\n        ans = (ans * (x * 2 + 1)) % mod;\n        x *= 2;\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

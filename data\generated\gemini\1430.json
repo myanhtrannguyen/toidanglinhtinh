@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1430",
+    "problem_id": "p03933",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Arrays;\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int k = sc.nextInt();\n        double[] areas = new double[(n * (n - 1) * (n - 2)) / 6];\n        int index = 0;\n        for (int i = 0; i < n; i++) {\n            for (int j = i + 1; j < n; j++) {\n                for (int l = j + 1; l < n; l++) {\n                    double a = Math.abs(i - j);\n                    double b = Math.abs(j - l);\n                    double c = Math.abs(l - i);\n                    double s = (a + b + c) / 2;\n                    double area = Math.sqrt(s * (s - a) * (s - b) * (s - c));\n                    areas[index++] = area * Math.sin(Math.PI / n);\n                    \n\n                }\n            }\n        }\n        Arrays.sort(areas);\n        System.out.printf(\"%.12f\\n\", areas[k - 1] );\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

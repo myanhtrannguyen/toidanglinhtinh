@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1296",
+    "problem_id": "p03895",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long[] a = new long[n];\n        long[] b = new long[n];\n        for (int i = 0; i < n; i++) {\n            a[i] = sc.nextLong();\n            b[i] = sc.nextLong();\n        }\n        int ans = 0;\n        for (long start = 0; start < 86400; start++) {\n            int cnt = 0;\n            long cur = start;\n            for (int i = 0; i < n; i++) {\n                cur += a[i];\n                if (cur >= 4 * 3600 && cur < 7 * 3600) {\n                    cnt++;\n                }\n                cur += b[i];\n            }\n            ans = Math.max(ans, cnt);\n        }\n        System.out.println(ans);\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

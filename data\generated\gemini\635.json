@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-635",
+    "problem_id": "p03720",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N, M;\n    scanf(\"%d %d\", &N, &M);\n    int count[N + 1];\n    for (int i = 1; i <= N; i++) {\n        count[i] = 0;\n    }\n    for (int i = 0; i < M; i++) {\n        int a, b;\n        scanf(\"%d %d\", &a, &b);\n        count[a]++;\n        count[b]++;\n    }\n    for (int i = 1; i <= N; i++) {\n        printf(\"%d\\n\", count[i]);\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

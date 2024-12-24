@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1354",
+    "problem_id": "p03912",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nx = list(map(int, input().split()))\n\ncounts = {}\nfor val in x:\n    counts[val] = counts.get(val, 0) + 1\n\npairs = 0\nfor val in list(counts.keys()):\n    if counts[val] >= 2:\n        num_pairs = counts[val] // 2\n        pairs += num_pairs\n        counts[val] -= num_pairs * 2\n\nremainders = {}\nfor val in x:\n    remainder = val % m\n    remainders[remainder] = remainders.get(remainder, 0) + 1\n\nfor i in range(1, (m + 1) // 2):\n    if i in remainders and (m - i) in remainders:\n        num_pairs = min(remainders[i], remainders[m - i])\n        pairs += num_pairs\n        remainders[i] -= num_pairs\n        remainders[m - i] -= num_pairs\n\nif 0 in remainders:\n    pairs += remainders[0] // 2\n\nif m % 2 == 0 and m // 2 in remainders:\n    pairs += remainders[m // 2] // 2\n\nprint(pairs)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

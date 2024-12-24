@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1455",
+    "problem_id": "p03940",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    long long N, E, T;\n    scanf(\"%lld %lld %lld\", &N, &E, &T);\n    long long x[N];\n    for (long long i = 0; i < N; i++) {\n        scanf(\"%lld\", &x[i]);\n    }\n    long long total_time = 0;\n    long long current_pos = 0;\n    long long current_time = 0;\n    for (long long i = 0; i < N; i++) {\n        total_time += abs(x[i] - current_pos);\n        current_pos = x[i];\n        current_time += abs(x[i] - current_pos) + T;\n        \n    }\n    total_time += abs(E - current_pos);\n    current_time += abs(E - current_pos);\n\n    printf(\"%lld\\n\", current_time);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

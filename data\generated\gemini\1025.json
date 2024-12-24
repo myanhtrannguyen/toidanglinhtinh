@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1025",
+    "problem_id": "p03822",
+    "language": "Python",
+    "solution": "```python\nimport math\n\nn = int(input())\na = []\nfor i in range(n - 1):\n    a.append(int(input()))\n\ndepth = 0\ncounts = {}\nfor x in a:\n    if x not in counts:\n        counts[x] = 0\n    counts[x] += 1\n\nmax_depth = 0\nq = [1]\nvisited = {1}\nd = {1:0}\nwhile q:\n    curr = q.pop(0)\n    max_depth = max(max_depth, d[curr])\n    for i in range(2, n+1):\n        if i in counts and counts[i]>0 and a[i-2] == curr and i not in visited:\n            q.append(i)\n            visited.add(i)\n            d[i] = d[curr]+1\n            counts[i]-=1\n\nprint(max_depth+1)\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

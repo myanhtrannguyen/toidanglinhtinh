@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-31",
+    "problem_id": "p03559",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long n;\n    scanf(\"%lld\", &n);\n    long long a[n], b[n], c[n];\n    for (long long i = 0; i < n; i++) {\n        scanf(\"%lld\", &a[i]);\n    }\n    for (long long i = 0; i < n; i++) {\n        scanf(\"%lld\", &b[i]);\n    }\n    for (long long i = 0; i < n; i++) {\n        scanf(\"%lld\", &c[i]);\n    }\n    long long count = 0;\n    for (long long i = 0; i < n; i++) {\n        for (long long j = 0; j < n; j++) {\n            for (long long k = 0; k < n; k++) {\n                if (b[j] > a[i] && c[k] > b[j]) {\n                    count++;\n                }\n            }\n        }\n    }\n    printf(\"%lld\\n\", count);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

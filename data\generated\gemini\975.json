@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-975",
+    "problem_id": "p03809",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long[] a = new long[n];\n        for (int i = 0; i < n; i++) {\n            a[i] = sc.nextLong();\n        }\n        List<List<Integer>> g = new ArrayList<>();\n        for (int i = 0; i < n; i++) {\n            g.add(new ArrayList<>());\n        }\n        for (int i = 0; i < n - 1; i++) {\n            int u = sc.nextInt() - 1;\n            int v = sc.nextInt() - 1;\n            g.get(u).add(v);\n            g.get(v).add(u);\n        }\n        long sum = 0;\n        for (long x : a) {\n            sum += x;\n        }\n        if (sum % 2 != 0) {\n            System.out.println(\"NO\");\n            return;\n        }\n        int leaves = 0;\n        for (int i = 0; i < n; i++) {\n            if (g.get(i).size() == 1) {\n                leaves++;\n            }\n        }\n        if (leaves <= 1) {\n            System.out.println(\"NO\");\n            return;\n        }\n        System.out.println(\"YES\");\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

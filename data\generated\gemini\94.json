@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-94",
+    "problem_id": "p03576",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <limits.h>\n\ntypedef struct {\n    long long x, y;\n} Point;\n\nint main() {\n    int N, K;\n    scanf(\"%d %d\", &N, &K);\n    Point points[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld %lld\", &points[i].x, &points[i].y);\n    }\n    long long min_area = LLONG_MAX;\n    for (int i = 0; i < (1 << N); i++) {\n        if (__builtin_popcount(i) < K) continue;\n        long long min_x = LLONG_MAX, max_x = LLONG_MIN, min_y = LLONG_MAX, max_y = LLONG_MIN;\n        for (int j = 0; j < N; j++) {\n            if ((i >> j) & 1) {\n                min_x = (min_x < points[j].x) ? min_x : points[j].x;\n                max_x = (max_x > points[j].x) ? max_x : points[j].x;\n                min_y = (min_y < points[j].y) ? min_y : points[j].y;\n                max_y = (max_y > points[j].y) ? max_y : points[j].y;\n            }\n        }\n        long long area = (max_x - min_x) * (max_y - min_y);\n        min_area = (min_area < area) ? min_area : area;\n    }\n    printf(\"%lld\\n\", min_area);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

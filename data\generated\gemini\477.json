@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-477",
+    "problem_id": "p03678",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char S[200005];\n    long long l, r;\n    scanf(\"%s %lld %lld\", S, &l, &r);\n    long long len = strlen(S);\n    long long ans[26] = {0};\n    for (long long i = 0; i < len; i++) {\n        ans[S[i] - 'a']++;\n    }\n    long long total = r - l + 1;\n    for (long long i = 0; i < 26; i++) {\n        printf(\"%lld \", ans[i] * (total / len) + (total % len >= l && total % len <= r ? (total % len < len / 2 ? ans[i] * (total%len) / (len / 2) : ans[i] * (total%len - len / 2) / (len / 2) + ans[i]*(len/2) / (len/2) ) : 0));\n    }\n    printf(\"\\n\");\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

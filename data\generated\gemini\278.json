@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-278",
+    "problem_id": "p03624",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.lang.*;\n\nclass Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.next();\n        boolean[] seen = new boolean[26];\n        for (char c : s.toCharArray()) {\n            seen[c - 'a'] = true;\n        }\n        for (int i = 0; i < 26; i++) {\n            if (!seen[i]) {\n                System.out.println((char) ('a' + i));\n                return;\n            }\n        }\n        System.out.println(\"None\");\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

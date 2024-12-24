@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1372",
+    "problem_id": "p03917",
+    "language": "Python",
+    "solution": "```python\nMOD = 1000000007\n\nh, w = map(int, input().split())\ngrid = [input() for _ in range(h)]\n\nrows = [''.join(sorted(row)) for row in grid]\ncols = []\nfor j in range(w):\n    col = ''.join(sorted(rows[i][j] for i in range(h)))\n    cols.append(col)\n\nans = 1\nfor i in range(h):\n    count = {}\n    for c in rows[i]:\n        count[c] = count.get(c, 0) + 1\n    for c in count:\n        ans = (ans * (count[c] + 1)) % MOD\n\nfor j in range(w):\n    count = {}\n    for c in cols[j]:\n        count[c] = count.get(c, 0) + 1\n    for c in count:\n      ans = (ans * (count[c] + 1)) % MOD\n\nprint(ans)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

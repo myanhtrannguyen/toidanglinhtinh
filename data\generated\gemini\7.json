@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-7",
+    "problem_id": "p03552",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, z, w = map(int, input().split())\n    a = list(map(int, input().split()))\n\n    def get_score(x_card, y_card):\n        return abs(x_card - y_card)\n\n    def minimax(cards, turn, x_card, y_card):\n        if not cards:\n            return get_score(x_card, y_card)\n\n        if turn == 'X':\n            best_score = -1\n            for i in range(1, len(cards) + 1):\n                new_x_card = cards[i - 1]\n                score = minimax(cards[i:], 'Y', new_x_card, y_card)\n                best_score = max(best_score, score) if best_score != -1 else score\n            return best_score\n        else:\n            best_score = float('inf')\n            for i in range(1, len(cards) + 1):\n                new_y_card = cards[i - 1]\n                score = minimax(cards[i:], 'X', x_card, new_y_card)\n                best_score = min(best_score, score)\n            return best_score\n\n    print(minimax(a, 'X', z, w))\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

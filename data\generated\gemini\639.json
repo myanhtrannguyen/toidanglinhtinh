@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-639",
+    "problem_id": "p03721",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint compare(const void *a, const void *b) {\n    return *(int *)a - *(int *)b;\n}\n\nint main() {\n    int N, K;\n    scanf(\"%d %d\", &N, &K);\n    int *arr = (int *)malloc(sizeof(int) * (N * 100000));\n    int count = 0;\n    for (int i = 0; i < N; i++) {\n        int a, b;\n        scanf(\"%d %d\", &a, &b);\n        for (int j = 0; j < b; j++) {\n            arr[count++] = a;\n        }\n    }\n    qsort(arr, count, sizeof(int), compare);\n    printf(\"%d\\n\", arr[K - 1]);\n    free(arr);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-930",
+    "problem_id": "p03797",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long N, M;\n    scanf(\"%lld %lld\", &N, &M);\n    long long ans = 0;\n    long long s_used = 0;\n    long long c_used = 0;\n    long long s_available = N;\n    long long c_available = M;\n\n    long long s_from_c = c_available / 2;\n    if (s_from_c > 0) {\n        s_available += s_from_c;\n        c_available -= s_from_c * 2;\n    }\n\n    ans = s_available;\n    if(c_available >= 2 * ans){\n        ans = s_available;\n    } else {\n        ans = (s_available + c_available)/3;\n    }\n\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

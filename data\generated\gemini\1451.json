@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1451",
+    "problem_id": "p03939",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long N, d1, x;\n    scanf(\"%lld %lld %lld\", &N, &d1, &x);\n    double ans = 0;\n    for (long long i = 1; i <= N; i++) {\n        long long d = d1 + (2 * i - 2) * x;\n        ans += (double)d * (i + 1) / 2.0;\n    }\n    printf(\"%.15lf\\n\", ans);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

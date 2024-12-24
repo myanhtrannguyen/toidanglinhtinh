@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-734",
+    "problem_id": "p03745",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n = int(input())\n    a = list(map(int, input().split()))\n\n    ans = 0\n    i = 0\n    while i < n:\n        ans += 1\n        j = i + 1\n        increasing = True\n        decreasing = True\n        while j < n:\n            if a[j] < a[j-1]:\n                increasing = False\n            if a[j] > a[j-1]:\n                decreasing = False\n            if not increasing and not decreasing:\n                break\n            j += 1\n        i = j\n\n    print(ans)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

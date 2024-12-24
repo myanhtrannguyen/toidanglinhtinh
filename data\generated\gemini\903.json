@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-903",
+    "problem_id": "p03790",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    long long N, K;\n    scanf(\"%lld %lld\", &N, &K);\n    long long A[N], B[N];\n    long long sum_A = 0;\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld %lld\", &A[i], &B[i]);\n        sum_A += A[i];\n    }\n    long long min_sum = -1;\n    long long t0_N = 0, tN_0 = 0;\n    long long max_single = 0;\n    for (int i = 0; i < N; i++) {\n        if (B[i] == 1) {\n            max_single = max_single > A[i] ? max_single : A[i];\n        }\n    }\n    if (max_single > K) {\n        printf(\"-1\\n\");\n        return 0;\n    }\n    t0_N = sum_A;\n    tN_0 = sum_A;\n    long long diff = 0;\n    for (int i = 0; i < N; i++) {\n        if (B[i] == 1) {\n            diff += A[i];\n        }\n    }\n    if (diff * 2 > K) {\n        printf(\"-1\\n\");\n        return 0;\n    }\n    \n    long long ans = t0_N + tN_0;\n    printf(\"%lld\\n\", ans);\n\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

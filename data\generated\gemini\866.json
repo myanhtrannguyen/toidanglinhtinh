@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-866",
+    "problem_id": "p03779",
+    "language": "Python",
+    "solution": "```python\nx = int(input())\nl, r = 0, 2 * 10**5\nwhile l <= r:\n    mid = (l + r) // 2\n    s = mid * (mid + 1) // 2\n    if s >= abs(x):\n        r = mid - 1\n    else:\n        l = mid + 1\nprint(l)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

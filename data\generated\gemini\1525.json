@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1525",
+    "problem_id": "p03958",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int K, T;\n    scanf(\"%d %d\", &K, &T);\n    int a[T];\n    int sum = 0;\n    for (int i = 0; i < T; i++) {\n        scanf(\"%d\", &a[i]);\n        sum += a[i];\n    }\n    if (T == 1) {\n        printf(\"%d\\n\", K - 1);\n        return 0;\n    }\n    int max = 0;\n    for (int i = 0; i < T; i++) {\n        if (a[i] > max) {\n            max = a[i];\n        }\n    }\n    int ans = max - 1;\n    int remain = K - max;\n    if (remain > T -1){\n        ans += remain - (T-1);\n    }\n\n    printf(\"%d\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-160",
+    "problem_id": "p03593",
+    "language": "Python",
+    "solution": "```python\nfrom collections import Counter\n\nH, W = map(int, input().split())\ncount = Counter()\nfor _ in range(H):\n    s = input()\n    for c in s:\n        count[c] += 1\n\nodd_count = 0\nfor c in count:\n    if count[c] % 2 != 0:\n        odd_count += 1\n\nif H % 2 == 0 and W % 2 == 0:\n    if odd_count == 0:\n        print('Yes')\n    else:\n        print('No')\nelif H % 2 == 1 and W % 2 == 1:\n    if odd_count <= 1:\n        print('Yes')\n    else:\n        print('No')\nelif H % 2 == 1 and W % 2 == 0:\n    if odd_count == 0:\n        print('Yes')\n    else:\n        print('No')\nelse:\n    if odd_count == 0:\n        print('Yes')\n    else:\n        print('No')\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-638",
+    "problem_id": "p03720",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nconnections = [0] * n\nfor i in range(m):\n    a, b = map(int, input().split())\n    connections[a - 1] += 1\n    connections[b - 1] += 1\nfor count in connections:\n    print(count)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1161",
+    "problem_id": "p03858",
+    "language": "Python",
+    "solution": "```python\nimport itertools\n\ndef manhattan_distance(p1, p2):\n    return abs(p1[0] - p2[0]) + abs(p1[1] - p2[1])\n\ndef solve():\n    n, a, b = map(int, input().split())\n    points = []\n    for _ in range(n):\n        points.append(list(map(int, input().split())))\n    \n    a -= 1\n    b -= 1\n    \n    initial_distance = manhattan_distance(points[a], points[b])\n    \n    reachable = { (min(a,b), max(a,b)) }\n    q = [ (a,b) ]\n    \n    while q:\n        p1, p2 = q.pop(0)\n        for p3 in range(n):\n            if (min(p1,p3), max(p1,p3)) not in reachable and manhattan_distance(points[p1],points[p2]) == manhattan_distance(points[p1], points[p3]):\n                reachable.add((min(p1,p3), max(p1,p3)))\n                q.append((p1,p3))\n    \n    print(len(reachable))\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

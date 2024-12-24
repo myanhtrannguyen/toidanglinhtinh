@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1057",
+    "problem_id": "p03831",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long n, a, b;\n  cin >> n >> a >> b;\n\n  vector<long long> x(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> x[i];\n  }\n\n  long long min_fatigue = -1;\n\n  for (int i = 0; i < (1 << (n - 1)); ++i) {\n    long long current_fatigue = 0;\n    long long current_pos = x[0];\n    vector<int> visited;\n    visited.push_back(0);\n\n    for (int j = 0; j < n - 1; ++j) {\n      if ((i >> j) & 1) { \n        current_fatigue += abs(x[j + 1] - current_pos) * a;\n        current_pos = x[j + 1];\n      } else { \n        current_fatigue += b;\n        current_pos = x[j + 1];\n      }\n      visited.push_back(j+1);\n    }\n\n    if (min_fatigue == -1 || current_fatigue < min_fatigue) {\n      min_fatigue = current_fatigue;\n    }\n  }\n  cout << min_fatigue << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

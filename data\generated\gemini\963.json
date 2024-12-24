@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-963",
+    "problem_id": "p03806",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <limits>\n\nusing namespace std;\n\nint main() {\n  int n, ma, mb;\n  cin >> n >> ma >> mb;\n\n  vector<tuple<int, int, int>> chemicals(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> get<0>(chemicals[i]) >> get<1>(chemicals[i]) >> get<2>(chemicals[i]);\n  }\n\n  long long min_cost = numeric_limits<long long>::max();\n  for (int i = 0; i < (1 << n); ++i) {\n    long long total_a = 0;\n    long long total_b = 0;\n    long long total_cost = 0;\n    for (int j = 0; j < n; ++j) {\n      if ((i >> j) & 1) {\n        total_a += get<0>(chemicals[j]);\n        total_b += get<1>(chemicals[j]);\n        total_cost += get<2>(chemicals[j]);\n      }\n    }\n\n    if (total_a == 0 && total_b == 0) continue;\n\n    if (total_b * ma == total_a * mb && total_a > 0 && total_b >0) {\n      min_cost = min(min_cost, total_cost);\n    }\n  }\n\n  if (min_cost == numeric_limits<long long>::max()) {\n    cout << -1 << endl;\n  } else {\n    cout << min_cost << endl;\n  }\n\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

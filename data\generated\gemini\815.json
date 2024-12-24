@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-815",
+    "problem_id": "p03766",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\n#define MOD 1000000007\n\nint main() {\n    long long n;\n    scanf(\"%lld\", &n);\n    long long dp[n + 1];\n    dp[1] = 1;\n    for (long long i = 2; i <= n; i++) {\n        dp[i] = 0;\n        for (long long j = 1; j <= i; j++) {\n            dp[i] = (dp[i] + dp[j]) % MOD;\n        }\n    }\n    long long ans = 0;\n    for (long long i = 1; i <= n; i++) {\n        ans = (ans + dp[i]) % MOD;\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

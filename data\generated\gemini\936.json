@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-936",
+    "problem_id": "p03798",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\ns = input()\n\ndef solve():\n    for i in range(2**n):\n        assignment = bin(i)[2:].zfill(n)\n        t = \"\"\n        for j in range(n):\n            if assignment[j] == '0':\n                t += 'S'\n            else:\n                t += 'W'\n\n        valid = True\n        for j in range(n):\n            left = (j - 1 + n) % n\n            right = (j + 1) % n\n            \n            same_species = (t[left] == t[right])\n            \n            if t[j] == 'S':\n                if (same_species and s[j] == 'x') or (not same_species and s[j] == 'o'):\n                    valid = False\n                    break\n            else:\n                if (same_species and s[j] == 'o') or (not same_species and s[j] == 'x'):\n                    valid = False\n                    break\n        \n        if valid:\n            print(t)\n            return\n\n    print(\"-1\")\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

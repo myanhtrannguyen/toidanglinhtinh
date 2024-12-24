@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1481",
+    "problem_id": "p03946",
+    "language": "Python",
+    "solution": "```python\nN, T = map(int, input().split())\nA = list(map(int, input().split()))\n\nprofit = 0\nfor i in range(N - 1):\n    profit += max(0, A[i + 1] - A[i])\n\nprint(min(profit, min(A[i+1]-A[i] for i in range(N-1)) if N>1 else profit))\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

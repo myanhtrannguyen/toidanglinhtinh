@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1670",
+    "problem_id": "p03996",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <map>\n\nusing namespace std;\n\nint main() {\n    int n, m;\n    cin >> n >> m;\n\n    int q;\n    cin >> q;\n\n    map<int, int> counts;\n    for (int i = 0; i < q; ++i) {\n        int a;\n        cin >> a;\n        counts[a]++;\n    }\n\n    for (auto const& [key, val] : counts) {\n        if (val < (q / n)) {\n            cout << \"No\" << endl;\n            return 0;\n        }\n    }\n\n    cout << \"Yes\" << endl;\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

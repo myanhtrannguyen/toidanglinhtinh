@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-252",
+    "problem_id": "p03618",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nint main() {\n    char a[200001];\n    scanf(\"%s\", a);\n    int n = strlen(a);\n    int count = 0;\n    char *strings[100000000];\n    strings[0] = strdup(a);\n    count++;\n\n    for (int i = 0; i < n; i++) {\n        for (int j = i; j < n; j++) {\n            char temp[200001];\n            strcpy(temp, a);\n            int k = 0;\n            for (int l = j; l >= i; l--) {\n                temp[k + i] = a[l];\n                k++;\n            }\n            int flag = 0;\n            for (int l = 0; l < count; l++) {\n                if (strcmp(temp, strings[l]) == 0) {\n                    flag = 1;\n                    break;\n                }\n            }\n            if (!flag) {\n                strings[count] = strdup(temp);\n                count++;\n            }\n        }\n    }\n    printf(\"%d\\n\", count);\n    for(int i=0; i<count; ++i) free(strings[i]);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

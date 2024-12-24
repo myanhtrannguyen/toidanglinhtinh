@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1016",
+    "problem_id": "p03819",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nsouvenirs = []\nfor i in range(n):\n    l, r = map(int, input().split())\n    souvenirs.append((l, r))\n\nfor d in range(1, m + 1):\n    count = 0\n    stops = set()\n    for i in range(0, m + 1, d):\n        stops.add(i)\n    for l, r in souvenirs:\n        can_buy = False\n        for i in range(l, r + 1):\n            if i in stops:\n                can_buy = True\n                break\n        if can_buy:\n            count += 1\n    print(count)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1292",
+    "problem_id": "p03894",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int q = sc.nextInt();\n        int[] ab = new int[2 * q];\n        for (int i = 0; i < 2 * q; i++) {\n            ab[i] = sc.nextInt();\n        }\n        Set<Integer> set = new HashSet<>();\n        set.add(1);\n        for (int i = 0; i < q; i++) {\n            int a = ab[2 * i];\n            int b = ab[2 * i + 1];\n            Set<Integer> nextSet = new HashSet<>();\n            for (int x : set) {\n                if (x == a) {\n                    nextSet.add(b);\n                } else if (x == b) {\n                    nextSet.add(a);\n                } else {\n                    nextSet.add(x);\n                }\n            }\n            set = nextSet;\n        }\n        int min = Integer.MAX_VALUE;\n        int max = Integer.MIN_VALUE;\n        for (int x : set) {\n            min = Math.min(min, x);\n            max = Math.max(max, x);\n        }\n        System.out.println(max - min + 1);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

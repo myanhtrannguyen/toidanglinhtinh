@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-563",
+    "problem_id": "p03700",
+    "language": "Python",
+    "solution": "```python\nn, a, b = map(int, input().split())\nh = []\nfor _ in range(n):\n    h.append(int(input()))\n\nans = 0\nwhile True:\n    max_health = 0\n    max_index = -1\n    for i in range(n):\n        if h[i] > max_health:\n            max_health = h[i]\n            max_index = i\n    if max_health <= 0:\n        break\n    ans += 1\n    for i in range(n):\n        if i == max_index:\n            h[i] -= a\n        else:\n            h[i] -= b\n\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

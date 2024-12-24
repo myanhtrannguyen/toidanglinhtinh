@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1047",
+    "problem_id": "p03828",
+    "language": "Python",
+    "solution": "```python\nMOD = 10**9 + 7\n\ndef count_divisors(n):\n    fact = 1\n    for i in range(1, n + 1):\n        fact *= i\n    \n    count = 0\n    for i in range(1, int(fact**0.5) + 1):\n        if fact % i == 0:\n            count += 1\n            if i * i != fact:\n                count += 1\n    return count % MOD\n\nn = int(input())\nprint(count_divisors(n))\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-857",
+    "problem_id": "p03777",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main() {\n  char a, b;\n  cin >> a >> b;\n\n  if (a == 'H') {\n    cout << b << endl;\n  } else {\n    if (b == 'H') {\n      cout << 'D' << endl;\n    } else {\n      cout << 'H' << endl;\n    }\n  }\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

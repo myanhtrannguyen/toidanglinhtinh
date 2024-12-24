@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1077",
+    "problem_id": "p03836",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int sx = sc.nextInt();\n        int sy = sc.nextInt();\n        int tx = sc.nextInt();\n        int ty = sc.nextInt();\n        StringBuilder sb = new StringBuilder();\n        for (int i = 0; i < ty - sy; i++) {\n            sb.append('U');\n        }\n        for (int i = 0; i < tx - sx; i++) {\n            sb.append('R');\n        }\n        for (int i = 0; i < ty - sy; i++) {\n            sb.append('D');\n        }\n        for (int i = 0; i < tx - sx; i++) {\n            sb.append('L');\n        }\n        for (int i = 0; i < ty - sy + 1; i++) {\n            sb.append('U');\n        }\n        for (int i = 0; i < tx - sx + 1; i++) {\n            sb.append('R');\n        }\n        for (int i = 0; i < ty - sy + 1; i++) {\n            sb.append('D');\n        }\n        for (int i = 0; i < tx - sx + 1; i++) {\n            sb.append('L');\n        }\n        System.out.println(sb.toString());\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-15",
+    "problem_id": "p03554",
+    "language": "Python",
+    "solution": "```python\nN = int(input())\nb = list(map(int, input().split()))\nQ = int(input())\noperations = []\nfor _ in range(Q):\n    l, r = map(int, input().split())\n    operations.append((l - 1, r - 1))\n\nmin_hamming = float('inf')\nfor i in range(2**Q):\n    a = [0] * N\n    for j in range(Q):\n        if (i >> j) & 1:\n            l, r = operations[j]\n            for k in range(l, r + 1):\n                a[k] = 1\n    hamming = sum(1 for x, y in zip(a, b) if x != y)\n    min_hamming = min(min_hamming, hamming)\n\nprint(min_hamming)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

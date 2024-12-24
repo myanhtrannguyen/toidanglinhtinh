@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1043",
+    "problem_id": "p03827",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\ns = input()\nx = 0\nmax_x = 0\nfor i in range(n):\n    if s[i] == 'I':\n        x += 1\n    else:\n        x -= 1\n    max_x = max(max_x, x)\nprint(max_x)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

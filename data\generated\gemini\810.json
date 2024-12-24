@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-810",
+    "problem_id": "p03764",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nx = list(map(int, input().split()))\ny = list(map(int, input().split()))\nmod = 10**9 + 7\ntotal_area = 0\nfor i in range(n - 1):\n    for j in range(i + 1, n):\n        for k in range(m - 1):\n            for l in range(k + 1, m):\n                area = (x[j] - x[i]) * (y[l] - y[k])\n                total_area = (total_area + area) % mod\nprint(total_area)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

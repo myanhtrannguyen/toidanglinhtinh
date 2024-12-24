@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-552",
+    "problem_id": "p03698",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char S[27];\n    scanf(\"%s\", S);\n    int len = strlen(S);\n    int flag = 0;\n    for (int i = 0; i < len; i++) {\n        for (int j = i + 1; j < len; j++) {\n            if (S[i] == S[j]) {\n                flag = 1;\n                break;\n            }\n        }\n        if (flag == 1) break;\n    }\n    if (flag == 1) printf(\"no\\n\");\n    else printf(\"yes\\n\");\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

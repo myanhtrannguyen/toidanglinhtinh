@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1432",
+    "problem_id": "p03934",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    long long N, Q;\n    scanf(\"%lld %lld\", &N, &Q);\n    long long *dishes = (long long *)malloc(N * sizeof(long long));\n    for (long long i = 0; i < N; i++) {\n        dishes[i] = 0;\n    }\n    for (long long i = 0; i < Q; i++) {\n        long long a, b;\n        scanf(\"%lld %lld\", &a, &b);\n        for (long long j = 0; j < b; j++) {\n            long long min_dishes = -1;\n            long long min_customer = -1;\n            for (long long k = 0; k < a; k++) {\n                if (min_customer == -1 || dishes[k] < min_dishes || (dishes[k] == min_dishes && k < min_customer)) {\n                    min_dishes = dishes[k];\n                    min_customer = k;\n                }\n            }\n            dishes[min_customer]++;\n        }\n    }\n    for (long long i = 0; i < N; i++) {\n        printf(\"%lld\\n\", dishes[i]);\n    }\n    free(dishes);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

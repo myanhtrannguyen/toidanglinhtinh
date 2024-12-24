@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-342",
+    "problem_id": "p03641",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int N;\n    scanf(\"%d\", &N);\n    int *p = (int *)malloc(N * sizeof(int));\n    for (int i = 0; i < N; i++) {\n        scanf(\"%d\", &p[i]);\n    }\n    int *q = (int *)malloc(N * sizeof(int));\n    int q_index = 0;\n    int p_index = 0;\n    while (p_index < N) {\n        int min_val = p[p_index];\n        int min_index = p_index;\n        for (int i = p_index + 1; i < N; i++) {\n            if (p[i] < min_val) {\n                min_val = p[i];\n                min_index = i;\n            }\n        }\n        if (min_index == p_index) {\n            q[q_index++] = p[p_index++];\n            q[q_index++] = p[p_index++];\n        } else {\n            int temp = p[p_index];\n            for (int i = p_index; i < min_index; i++) {\n                p[i] = p[i + 1];\n            }\n            p[min_index] = temp;\n            q[q_index++] = p[p_index++];\n            q[q_index++] = p[p_index++];\n        }\n    }\n    for (int i = 0; i < N; i++) {\n        printf(\"%d%c\", q[i], (i == N - 1) ? '\\n' : ' ');\n    }\n    free(p);\n    free(q);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

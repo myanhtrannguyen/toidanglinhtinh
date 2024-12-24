@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-30",
+    "problem_id": "p03558",
+    "language": "Python",
+    "solution": "```python\nimport heapq\n\ndef solve():\n    k = int(input())\n    q = [(0, 0, 0)]\n    visited = set()\n    while q:\n        s, n, rem = heapq.heappop(q)\n        if rem == 0:\n            print(s)\n            return\n        if (n, rem) in visited:\n            continue\n        visited.add((n, rem))\n        for i in range(10):\n            new_n = n * 10 + i\n            new_rem = (rem * 10 + i) % k\n            heapq.heappush(q, (s + i, new_n, new_rem))\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

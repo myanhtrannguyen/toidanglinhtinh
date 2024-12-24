@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-105",
+    "problem_id": "p03578",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nd = list(map(int, input().split()))\nm = int(input())\nt = list(map(int, input().split()))\n\nd_count = {}\nfor x in d:\n    d_count[x] = d_count.get(x, 0) + 1\n\nt_count = {}\nfor x in t:\n    t_count[x] = t_count.get(x, 0) + 1\n\npossible = True\nfor k, v in t_count.items():\n    if k not in d_count or d_count[k] < v:\n        possible = False\n        break\n\nif possible:\n    print(\"YES\")\nelse:\n    print(\"NO\")\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

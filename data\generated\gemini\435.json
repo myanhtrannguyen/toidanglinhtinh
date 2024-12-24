@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-435",
+    "problem_id": "p03666",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  long long n, a, b, c, d;\n  cin >> n >> a >> b >> c >> d;\n\n  long long min_val = a, max_val = a;\n  for (long long i = 1; i < n; ++i) {\n    long long next_min = max(min_val - d, max_val - c);\n    long long next_max = min(min_val + d, max_val + c);\n    if (next_min > next_max) {\n      cout << \"NO\" << endl;\n      return 0;\n    }\n    min_val = next_min;\n    max_val = next_max;\n  }\n\n  if (min_val <= b && b <= max_val) {\n    cout << \"YES\" << endl;\n  } else {\n    cout << \"NO\" << endl;\n  }\n\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

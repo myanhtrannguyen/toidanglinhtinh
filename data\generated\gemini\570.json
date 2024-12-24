@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-570",
+    "problem_id": "p03702",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long a = sc.nextLong();\n        long b = sc.nextLong();\n        long[] h = new long[n];\n        for (int i = 0; i < n; i++) {\n            h[i] = sc.nextLong();\n        }\n        Arrays.sort(h);\n        long ans = 0;\n        for (int i = n - 1; i >= 0; i--) {\n            if (h[i] <= 0) continue;\n            long explosions = (h[i] + a - b - 1) / (a - b);\n            ans += explosions;\n            long dmg = explosions * b;\n            for (int j = 0; j < i; j++) {\n                h[j] -= dmg;\n            }\n        }\n        System.out.println(ans);\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

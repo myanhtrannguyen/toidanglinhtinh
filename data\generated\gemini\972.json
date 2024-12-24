@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-972",
+    "problem_id": "p03808",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\nfor start_box in range(n):\n    b = a[:]\n    possible = True\n    for j in range(1, n + 1):\n        box_index = (start_box + j) % n\n        if b[box_index] < j:\n            possible = False\n            break\n        b[box_index] -= j\n    if possible and all(x == 0 for x in b):\n        print(\"YES\")\n        exit()\n\nprint(\"NO\")\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1578",
+    "problem_id": "p03971",
+    "language": "Python",
+    "solution": "```python\nn, a, b = map(int, input().split())\ns = input()\npassed_count = 0\noverseas_count = 0\noverseas_passed = 0\noverseas_rank = []\n\nfor i in range(n):\n    if s[i] == 'b':\n        overseas_count += 1\n        overseas_rank.append(i)\n\nfor i in range(n):\n    if s[i] == 'a' and passed_count < a + b:\n        print('Yes')\n        passed_count += 1\n    elif s[i] == 'b' and passed_count < a + b and overseas_count - overseas_passed >= b and i in overseas_rank[overseas_passed:]:\n        print('Yes')\n        passed_count += 1\n        overseas_passed += 1\n\n    else:\n        print('No')\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

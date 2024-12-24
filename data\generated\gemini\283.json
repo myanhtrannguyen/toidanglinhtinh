@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-283",
+    "problem_id": "p03625",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\ncounts = {}\nfor x in a:\n    counts[x] = counts.get(x, 0) + 1\npairs = []\nfor x in counts:\n    if counts[x] >= 2:\n        pairs.append(x)\npairs.sort(reverse=True)\nmax_area = 0\nfor i in range(len(pairs)):\n    for j in range(i + 1, len(pairs)):\n        area = pairs[i] * pairs[j]\n        if counts[pairs[i]] >= 2 and counts[pairs[j]] >= 2:\n            max_area = max(max_area, area)\n        elif counts[pairs[i]] >= 2 and pairs[i] == pairs[j] and counts[pairs[i]] >=4:\n            max_area = max(max_area, area)\n\nprint(max_area)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-158",
+    "problem_id": "p03593",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    int H, W;\n    scanf(\"%d %d\", &H, &W);\n    int count[26] = {0};\n    char a[H][W];\n    for (int i = 0; i < H; i++) {\n        scanf(\"%s\", a[i]);\n        for (int j = 0; j < W; j++) {\n            count[a[i][j] - 'a']++;\n        }\n    }\n    int odd_count = 0;\n    for (int i = 0; i < 26; i++) {\n        if (count[i] % 2 != 0) {\n            odd_count++;\n        }\n    }\n    if (H % 2 == 0 && W % 2 == 0) {\n        if (odd_count == 0) {\n            printf(\"Yes\\n\");\n        } else {\n            printf(\"No\\n\");\n        }\n    } else if (H % 2 == 0 && W % 2 != 0) {\n        if (odd_count <= W) {\n            printf(\"Yes\\n\");\n        } else {\n            printf(\"No\\n\");\n        }\n    } else if (H % 2 != 0 && W % 2 == 0) {\n        if (odd_count <= H) {\n            printf(\"Yes\\n\");\n        } else {\n            printf(\"No\\n\");\n        }\n    } else {\n        if (odd_count <= 1) {\n            printf(\"Yes\\n\");\n        } else {\n            printf(\"No\\n\");\n        }\n    }\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

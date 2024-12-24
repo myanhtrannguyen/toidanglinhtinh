@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-933",
+    "problem_id": "p03797",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\ns_pieces = n\nc_pieces = m\ns_from_c = c_pieces // 2\ns_total = s_pieces + s_from_c\nscc_groups = min(s_total, c_pieces // 2)\nprint(scc_groups)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

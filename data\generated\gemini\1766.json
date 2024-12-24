@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1766",
+    "problem_id": "p04021",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = []\nfor _ in range(n):\n    a.append(int(input()))\n\nb = sorted(a)\ncount = 0\npos = [0] * (n + 1)\nfor i in range(n):\n    pos[b[i]] = i\n\nans = 0\ncur = 0\nfor i in range(n):\n    cur = max(cur, pos[a[i]])\n    ans += cur - i\n\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

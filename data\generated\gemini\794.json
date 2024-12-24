@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-794",
+    "problem_id": "p03760",
+    "language": "Python",
+    "solution": "```python\nO = input()\nE = input()\n\npassword = \"\"\no_index = 0\ne_index = 0\n\nfor i in range(len(O) + len(E)):\n    if (i + 1) % 2 != 0:\n        password += O[o_index]\n        o_index += 1\n    else:\n        password += E[e_index]\n        e_index += 1\n\nprint(password)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

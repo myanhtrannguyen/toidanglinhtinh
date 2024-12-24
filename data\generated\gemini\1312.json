@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1312",
+    "problem_id": "p03899",
+    "language": "Python",
+    "solution": "```python\nN, M, K = map(int, input().split())\nA = list(map(int, input().split()))\n\ndp = {}\ndef solve(idx, last, count):\n    if count == K:\n        return 0\n    if (idx, last, count) in dp:\n        return dp[(idx, last, count)]\n    ans = 0\n    for i in range(max(0, last - M), min(N, last + M)):\n        ans = max(ans, (count + 1) * A[i] + solve(i, i + 1, count + 1))\n    dp[(idx, last, count)] = ans\n    return ans\n\nprint(solve(0, 0, 0))\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

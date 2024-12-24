@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-692",
+    "problem_id": "p03735",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  vector<pair<long long, long long>> bags(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> bags[i].first >> bags[i].second;\n  }\n\n  long long min_prod = -1;\n\n  for (int i = 0; i < (1 << n); ++i) {\n    vector<long long> red;\n    vector<long long> blue;\n    for (int j = 0; j < n; ++j) {\n      if ((i >> j) & 1) {\n        red.push_back(bags[j].first);\n        blue.push_back(bags[j].second);\n      } else {\n        red.push_back(bags[j].second);\n        blue.push_back(bags[j].first);\n      }\n    }\n\n    long long r_max = *max_element(red.begin(), red.end());\n    long long r_min = *min_element(red.begin(), red.end());\n    long long b_max = *max_element(blue.begin(), blue.end());\n    long long b_min = *min_element(blue.begin(), blue.end());\n\n    long long prod = (r_max - r_min) * (b_max - b_min);\n    if (min_prod == -1 || prod < min_prod) {\n      min_prod = prod;\n    }\n  }\n\n  cout << min_prod << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

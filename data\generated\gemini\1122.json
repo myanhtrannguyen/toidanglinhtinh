@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1122",
+    "problem_id": "p03848",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  vector<long long> a(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> a[i];\n  }\n\n  long long count = 0;\n  vector<int> p(n);\n  vector<bool> used(n + 1, false);\n  function<void(int)> permute = [&](int k) {\n    if (k == n) {\n      bool ok = true;\n      for (int i = 0; i < n; ++i) {\n        long long left = 0;\n        long long right = 0;\n        for (int j = 0; j < n; ++j) {\n          if (j < i) {\n            left++;\n          } else if (j > i) {\n            right++;\n          }\n        }\n        if (abs(left - right) != a[i]) {\n          ok = false;\n          break;\n        }\n      }\n      if (ok) {\n        count++;\n      }\n      return;\n    }\n\n    for (int i = 1; i <= n; ++i) {\n      if (!used[i]) {\n        p[k] = i;\n        used[i] = true;\n        permute(k + 1);\n        used[i] = false;\n      }\n    }\n  };\n\n  permute(0);\n  cout << count << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

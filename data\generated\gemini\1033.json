@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1033",
+    "problem_id": "p03825",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long n, m, k;\n    scanf(\"%lld %lld %lld\", &n, &m, &k);\n    long long mod = 1e9 + 7;\n    long long ans = 0;\n    if (k == 2) {\n        ans = n + m + 1;\n    } else {\n        long long num = n + m;\n        long long den = k - 1;\n        if (num % den != 0)\n            return 0;\n        ans = (num / den) + 1;\n\n    }\n    printf(\"%lld\\n\", ans % mod);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

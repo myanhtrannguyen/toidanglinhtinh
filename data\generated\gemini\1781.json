@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1781",
+    "problem_id": "p04025",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\nans = float('inf')\nfor target in sorted(list(set(a))):\n    cost = 0\n    for x in a:\n        cost += (x - target) ** 2\n    ans = min(ans, cost)\n\nfor i in range(-100, 101):\n    cost = 0\n    for x in a:\n        cost += (x - i) ** 2\n    ans = min(ans, cost)\n\nprint(ans)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

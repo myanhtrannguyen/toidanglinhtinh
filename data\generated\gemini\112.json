@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-112",
+    "problem_id": "p03580",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\ns = input()\nones = []\nfor i in range(n):\n    if s[i] == '1':\n        ones.append(i)\ncount = 0\ni = 0\nj = 1\nwhile j < len(ones) - 1:\n    if ones[j] - ones[j - 1] == 2:\n        if ones[j + 1] - ones[j] == 2:\n            count += 1\n            j += 1\n        else:\n            count += 1\n            j += 1\n    else:\n        j += 1\n\nprint(count)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

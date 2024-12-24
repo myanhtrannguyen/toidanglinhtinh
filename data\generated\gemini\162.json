@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-162",
+    "problem_id": "p03594",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    int h, w, d;\n    cin >> h >> w >> d;\n\n    vector<string> grid(h, string(w, ' '));\n    for (int i = 0; i < h; ++i) {\n        for (int j = 0; j < w; ++j) {\n            int color_index = (i + j) % 4;\n            if (color_index == 0) grid[i][j] = 'R';\n            else if (color_index == 1) grid[i][j] = 'Y';\n            else if (color_index == 2) grid[i][j] = 'G';\n            else grid[i][j] = 'B';\n        }\n    }\n\n    for (int i = 0; i < h; ++i) {\n        for (int j = 0; j < w; ++j) {\n            cout << grid[i][j];\n        }\n        cout << endl;\n    }\n\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

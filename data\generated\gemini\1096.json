@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1096",
+    "problem_id": "p03841",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nx = list(map(int, input().split()))\n\na = [0] * (n * n)\ncount = [0] * (n + 1)\nused = [False] * (n * n + 1)\n\nfor i in range(n):\n    if used[x[i]]:\n        print(\"No\")\n        exit()\n    a[x[i] - 1] = i + 1\n    used[x[i]] = True\n    count[i + 1] +=1\n\nunused = []\nfor i in range(1, n * n + 1):\n    if not used[i]:\n        unused.append(i)\n\ncur = 0\nfor i in range(n):\n    while count[i+1] < n:\n        a[unused[cur]-1] = i+1\n        count[i+1]+=1\n        cur+=1\n\nprint(\"Yes\")\nprint(*a)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

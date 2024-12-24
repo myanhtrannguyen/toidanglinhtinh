@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1495",
+    "problem_id": "p03950",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <algorithm>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    long long w, h;\n    int n;\n    cin >> w >> h >> n;\n\n    vector<pair<long long, long long>> points(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> points[i].first >> points[i].second;\n    }\n\n    long long max_perimeter = 0;\n    for (int i = 0; i < (1 << (2 * n)); ++i) {\n        long long min_x = 0, max_x = w, min_y = 0, max_y = h;\n        vector<pair<long long, long long>> painted_regions;\n\n        for (int j = 0; j < n; ++j) {\n            int choice = (i >> (2 * j)) & 3;\n            if (choice == 0) max_x = min(max_x, points[j].first);\n            else if (choice == 1) min_x = max(min_x, points[j].first);\n            else if (choice == 2) max_y = min(max_y, points[j].second);\n            else min_y = max(min_y, points[j].second);\n        }\n\n        if (max_x >= min_x && max_y >= min_y) {\n            max_perimeter = max(max_perimeter, 2 * (max_x - min_x + max_y - min_y));\n        }\n    }\n\n    cout << max_perimeter << endl;\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

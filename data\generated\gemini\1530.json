@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1530",
+    "problem_id": "p03959",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  vector<long long> t(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> t[i];\n  }\n\n  vector<long long> a(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> a[i];\n  }\n\n  long long count = 0;\n  vector<long long> h(n);\n  function<void(int)> solve = [&](int k) {\n    if (k == n) {\n      bool ok = true;\n      vector<long long> max_t(n), max_a(n);\n      max_t[0] = h[0];\n      max_a[n - 1] = h[n - 1];\n      for (int i = 1; i < n; ++i) {\n        max_t[i] = max(max_t[i - 1], h[i]);\n      }\n      for (int i = n - 2; i >= 0; --i) {\n        max_a[i] = max(max_a[i + 1], h[i]);\n      }\n      for (int i = 0; i < n; ++i) {\n        if (max_t[i] != t[i] || max_a[i] != a[i]) {\n          ok = false;\n          break;\n        }\n      }\n      if (ok) count = (count + 1) % 1000000007;\n      return;\n    }\n\n    for (long long i = 1; i <= 1000; ++i) {\n      h[k] = i;\n      solve(k + 1);\n    }\n  };\n\n  solve(0);\n  cout << count << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

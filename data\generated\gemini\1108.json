@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1108",
+    "problem_id": "p03844",
+    "language": "Python",
+    "solution": "```python\na, op, b = input().split()\na = int(a)\nb = int(b)\n\nif op == '+':\n  print(a + b)\nelse:\n  print(a - b)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

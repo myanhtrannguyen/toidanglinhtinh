@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1775",
+    "problem_id": "p04024",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\n#define MOD 1000000007\n\nint main() {\n    long long H, W, K;\n    scanf(\"%lld %lld %lld\", &H, &W, &K);\n    char s[H][W + 1];\n    for (long long i = 0; i < H; i++) {\n        scanf(\"%s\", s[i]);\n    }\n    if (K == 0) {\n        printf(\"1\\n\");\n        return 0;\n    }\n    long long count = 0;\n    long long size = 1;\n    for (long long i = 0; i < H; i++) {\n        for (long long j = 0; j < W; j++) {\n            if (s[i][j] == '#')\n                count++;\n        }\n    }\n    long long ans = 1;\n    long long cur_size = 1;\n    for (long long i = 0; i < K; i++) {\n        long long next_size = cur_size * H;\n        long long next_count = 0;\n        for (long long r = 0; r < H; r++) {\n            for (long long c = 0; c < W; c++) {\n                if (s[r][c] == '#')\n                    next_count = (next_count + count) % MOD;\n            }\n        }\n        ans = next_count;\n        cur_size = next_size;\n\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

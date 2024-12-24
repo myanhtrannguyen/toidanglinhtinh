@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1445",
+    "problem_id": "p03937",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int h, w;\n  cin >> h >> w;\n\n  vector<string> a(h);\n  for (int i = 0; i < h; ++i) {\n    cin >> a[i];\n  }\n\n  bool possible = true;\n  for (int i = 0; i < h; ++i) {\n    for (int j = 0; j < w; ++j) {\n      if (a[i][j] == '#') {\n        bool reachable = false;\n        for (int k = 0; k <= i; ++k) {\n          for (int l = 0; l <= j; ++l) {\n            if (k == 0 && l == 0) {\n              reachable = true;\n              break;\n            }\n            if (a[k][l] == '#' && (k == 0 || a[k - 1][l] == '#') && (l == 0 || a[k][l - 1] == '#'))\n            {\n                reachable = true;\n                break;\n            }\n          }\n          if(reachable) break;\n        }\n\n        if (!reachable) {\n          possible = false;\n          break;\n        }\n      }\n    }\n    if (!possible) break;\n  }\n\n  if (possible) {\n    cout << \"Possible\" << endl;\n  } else {\n    cout << \"Impossible\" << endl;\n  }\n\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

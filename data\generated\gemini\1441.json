@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1441",
+    "problem_id": "p03936",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    long long H, W, N, K;\n    cin >> H >> W >> N >> K;\n\n    vector<vector<long long>> field(H, vector<long long>(W, 0));\n    long long ans = 0;\n\n    for (long long i = 0; i < H; ++i) {\n        for (long long j = 0; j < W; ++j) {\n            cout << \"? \" << i << \" \" << j << \" \" << i << \" \" << j << endl;\n            long long p;\n            cin >> p;\n            field[i][j] = p;\n            ans = (ans + field[i][j] * (long long)pow(2, i * W + j)) % K;\n        }\n    }\n\n    cout << \"! \" << ans << endl;\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

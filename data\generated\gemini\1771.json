@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1771",
+    "problem_id": "p04023",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long n, q;\n    scanf(\"%lld %lld\", &n, &q);\n    long long arr[n];\n    for (long long i = 0; i < n; i++) {\n        arr[i] = i + 1;\n    }\n    long long qi;\n    for (long long i = 0; i < q; i++) {\n        scanf(\"%lld\", &qi);\n        long long newArr[qi];\n        long long k = 0;\n        while (k < qi) {\n            for (long long j = 0; j < n && k < qi; j++) {\n                newArr[k++] = arr[j];\n            }\n        }\n        for (long long j = 0; j < qi; j++) {\n            arr[j] = newArr[j];\n        }\n        n = qi;\n    }\n    long long count[n];\n    for (long long i = 0; i < n; i++) {\n        count[i] = 0;\n    }\n    for (long long i = 0; i < n; i++) {\n        count[arr[i] -1]++;\n    }\n    for (long long i = 0; i < n; i++) {\n        printf(\"%lld\\n\", count[i]);\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

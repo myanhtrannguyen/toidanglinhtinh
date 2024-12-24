@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-48",
+    "problem_id": "p03564",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <limits.h>\n\nint main() {\n    int n, k;\n    scanf(\"%d %d\", &n, &k);\n    long long min_val = LLONG_MAX;\n    for (int i = 0; i <= n; ++i) {\n        long long val = (1LL << (n - i)) + (long long)i * k;\n        if (val < min_val) {\n            min_val = val;\n        }\n    }\n    printf(\"%lld\\n\", min_val);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-619",
+    "problem_id": "p03716",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    long long n;\n    scanf(\"%lld\", &n);\n    long long a[3 * n];\n    for (long long i = 0; i < 3 * n; i++) {\n        scanf(\"%lld\", &a[i]);\n    }\n    long long max_score = -1e18; \n    for (long long i = 0; i < (1LL << (3 * n)); i++) {\n        if (__builtin_popcountll(i) != n) continue;\n        long long b[2 * n];\n        long long k = 0;\n        for (long long j = 0; j < 3 * n; j++) {\n            if (!((i >> j) & 1)) {\n                b[k++] = a[j];\n            }\n        }\n        long long sum_first = 0;\n        for (long long j = 0; j < n; j++) {\n            sum_first += b[j];\n        }\n        long long sum_second = 0;\n        for (long long j = n; j < 2 * n; j++) {\n            sum_second += b[j];\n        }\n        max_score = max_score > sum_first - sum_second ? max_score : sum_first - sum_second;\n    }\n    printf(\"%lld\\n\", max_score);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

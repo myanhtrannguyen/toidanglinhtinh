@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-543",
+    "problem_id": "p03695",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\ncolors = {\n    (1, 399): \"gray\",\n    (400, 799): \"brown\",\n    (800, 1199): \"green\",\n    (1200, 1599): \"cyan\",\n    (1600, 1999): \"blue\",\n    (2000, 2399): \"yellow\",\n    (2400, 2799): \"orange\",\n    (2800, 3199): \"red\",\n}\n\nunique_colors = set()\nfor rating in a:\n    for range_tuple, color in colors.items():\n        if range_tuple[0] <= rating <= range_tuple[1]:\n            unique_colors.add(color)\n            break\n    else:\n        unique_colors.add(\"other\")\n\nmin_colors = len(unique_colors)\nif min_colors > 1:\n    min_colors = len(set([colors.get((400, 799)) if 400 <= x <= 799 else colors.get((800, 1199)) if 800 <= x <= 1199 else \"other\" for x in a]))\n\n\nmax_colors = len(unique_colors)\n\nprint(min_colors, max_colors)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

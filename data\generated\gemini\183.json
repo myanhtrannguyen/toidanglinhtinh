@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-183",
+    "problem_id": "p03599",
+    "language": "Python",
+    "solution": "```python\nA, B, C, D, E, F = map(int, input().split())\n\nbest_sugar = 0\nbest_water = 0\n\nfor i in range(F // (100 * A) + 1):\n    for j in range(F // (100 * B) + 1):\n        water = 100 * A * i + 100 * B * j\n        for k in range(F // C + 1):\n            for l in range(F // D + 1):\n                sugar = C * k + D * l\n                if sugar <= water * E / 100 and water + sugar <= F:\n                    if sugar > best_sugar:\n                        best_sugar = sugar\n                        best_water = water\n                    elif sugar == best_sugar and water < best_water:\n                        best_water = water\n\nprint(best_water + best_sugar, int(best_sugar))\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

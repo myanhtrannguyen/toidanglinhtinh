@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-449",
+    "problem_id": "p03669",
+    "language": "Python",
+    "solution": "```python\nn, h = map(int, input().split())\npieces = []\nfor i in range(n):\n    a, b, c, d = map(int, input().split())\n    pieces.append((a, b, c, d))\n\nin_degree = [0] * n\ngraph = [[] for _ in range(n)]\nfor i in range(n):\n    for j in range(n):\n        if i != j:\n            if pieces[i][0] <= pieces[j][1] and pieces[i][0] + pieces[j][1] >= h and pieces[i][2] + pieces[j][3] == h - pieces[i][0] and pieces[i][2] >= 0 and pieces[j][3] >=0:\n                in_degree[j] += 1\n                graph[i].append(j)\n            elif pieces[j][0] <= pieces[i][1] and pieces[j][0] + pieces[i][1] >= h and pieces[j][2] + pieces[i][3] == h - pieces[j][0] and pieces[j][2] >= 0 and pieces[i][3] >=0:\n                in_degree[i] += 1\n                graph[j].append(i)\n\n\nqueue = []\nfor i in range(n):\n    if in_degree[i] == 0:\n        queue.append(i)\n\ncount = 0\nwhile queue:\n    curr = queue.pop(0)\n    count += 1\n    for neighbor in graph[curr]:\n        in_degree[neighbor] -= 1\n        if in_degree[neighbor] == 0:\n            queue.append(neighbor)\n\nif count == n:\n    print(\"YES\")\nelse:\n    print(\"NO\")\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

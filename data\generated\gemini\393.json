@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-393",
+    "problem_id": "p03655",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  long long x1, x2, x3, x4, x5, x6;\n  long long y1, y2, y3, y4, y5, y6;\n\n  cin >> x1 >> x2 >> x3 >> x4 >> x5 >> x6;\n  cin >> y1 >> y2 >> y3 >> y4 >> y5 >> y6;\n\n  long long count = 0;\n  long long mod = 1e9 + 7;\n\n  for (long long p = x1; p <= x2; ++p) {\n    for (long long q = y1; q <= y2; ++q) {\n      for (long long s = x3; s <= x4; ++s) {\n        for (long long t = y3; t <= y4; ++t) {\n          for (long long u = x5; u <= x6; ++u) {\n            for (long long v = y5; v <= y6; ++v) {\n              if (abs(p - s) + abs(q - t) + abs(s - u) + abs(t - v) == abs(p - u) + abs(q - v))\n                count = (count + 1) % mod;\n            }\n          }\n        }\n      }\n    }\n  }\n\n  cout << count << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

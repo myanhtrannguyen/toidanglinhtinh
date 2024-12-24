@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1595",
+    "problem_id": "p03976",
+    "language": "Python",
+    "solution": "```python\nn, k = map(int, input().split())\nproblems = [input() for _ in range(n)]\nfirst_letters = [p[0] for p in problems]\ncounts = {}\nfor letter in first_letters:\n    counts[letter] = counts.get(letter, 0) + 1\nnum_kupcs = min(len(counts), n // k)\nprint(num_kupcs)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

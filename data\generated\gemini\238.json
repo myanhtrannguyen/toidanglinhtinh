@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-238",
+    "problem_id": "p03614",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int p[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &p[i]);\n        p[i]--; \n    }\n    long long ans = 0;\n    int vis[n];\n    for (int i = 0; i < n; i++) {\n        vis[i] = 0;\n    }\n    for (int i = 0; i < n; i++) {\n        if (vis[i] == 0 && p[i] == i) {\n            int j = i;\n            int cycle_len = 0;\n            while (vis[j] == 0) {\n                vis[j] = 1;\n                j = p[j];\n                cycle_len++;\n            }\n            if (cycle_len > 0) {\n                ans += cycle_len;\n            }\n\n        }\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

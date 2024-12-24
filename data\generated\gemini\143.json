@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-143",
+    "problem_id": "p03589",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nint main() {\n    long long N;\n    std::cin >> N;\n    long long h = N;\n    long long n = 2 * N;\n    long long w = 2 * N;\n    std::cout << h << \" \" << n << \" \" << w << std::endl;\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

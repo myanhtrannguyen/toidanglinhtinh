@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-458",
+    "problem_id": "p03672",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main() {\n  string s;\n  cin >> s;\n  int n = s.length();\n  for (int i = n / 2; i >= 1; --i) {\n    string s1 = s.substr(0, i);\n    string s2 = s.substr(0, 2 * i);\n    if (s2.length() <= n && s2.substr(0, i) == s2.substr(i, i)) {\n      cout << 2 * i << endl;\n      return 0;\n    }\n  }\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

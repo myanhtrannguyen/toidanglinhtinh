@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-792",
+    "problem_id": "p03760",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main() {\n  string o, e;\n  cin >> o >> e;\n\n  string result = \"\";\n  int o_ptr = 0;\n  int e_ptr = 0;\n\n  while (o_ptr < o.length() || e_ptr < e.length()) {\n    if (o_ptr < o.length()) {\n      result += o[o_ptr];\n      o_ptr++;\n    }\n    if (e_ptr < e.length()) {\n      result += e[e_ptr];\n      e_ptr++;\n    }\n  }\n  cout << result << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

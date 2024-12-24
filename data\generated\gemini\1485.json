@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1485",
+    "problem_id": "p03947",
+    "language": "Python",
+    "solution": "```python\ns = input()\nn = len(s)\nans = float('inf')\nfor color in ['B', 'W']:\n    count = 0\n    cur = list(s)\n    for i in range(n):\n        if cur[i] != color:\n            count += 1\n            for j in range(i + 1, n):\n                if cur[j] == color:\n                    for k in range(i, j):\n                        cur[k] = color\n                    break\n    ans = min(ans, count)\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

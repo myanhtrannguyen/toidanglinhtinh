@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-399",
+    "problem_id": "p03657",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int A, B;\n    scanf(\"%d %d\", &A, &B);\n    if ((A + B) % 3 == 0 || A % 3 == 0 && A >= 3 || B % 3 == 0 && B >=3) {\n        printf(\"Possible\\n\");\n    } else {\n        printf(\"Impossible\\n\");\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

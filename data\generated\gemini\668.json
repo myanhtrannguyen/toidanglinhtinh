@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-668",
+    "problem_id": "p03729",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char A[11], B[11], C[11];\n    scanf(\"%s %s %s\", A, B, C);\n    if (A[strlen(A) - 1] == B[0] && B[strlen(B) - 1] == C[0]) {\n        printf(\"YES\\n\");\n    } else {\n        printf(\"NO\\n\");\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

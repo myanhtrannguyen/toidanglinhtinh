@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1428",
+    "problem_id": "p03933",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <math.h>\n\nint main() {\n    long long n, k;\n    scanf(\"%lld %lld\", &n, &k);\n    double *areas = (double *)malloc(sizeof(double) * (n * (n - 1) * (n - 2) / 6));\n    long long count = 0;\n    for (long long i = 0; i < n; i++) {\n        for (long long j = i + 1; j < n; j++) {\n            for (long long l = j + 1; l < n; l++) {\n                double a = 2 * sin(M_PI * (j - i) / n);\n                double b = 2 * sin(M_PI * (l - j) / n);\n                double c = 2 * sin(M_PI * (i - l + n) / n);\n                double s = (a + b + c) / 2;\n                double area = sqrt(s * (s - a) * (s - b) * (s - c)) / 2;\n                areas[count++] = area;\n            }\n        }\n    }\n    qsort(areas, count, sizeof(double), [](const void *a, const void *b) {\n        return *(double *)a > *(double *)b ? 1 : -1;\n    });\n    printf(\"%.12lf\\n\", areas[k - 1]);\n    free(areas);\n    return 0;\n}\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1520",
+    "problem_id": "p03956",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, m = map(int, input().split())\n    black_cells = set()\n    for _ in range(m):\n        black_cells.add(tuple(map(int, input().split())))\n\n    changed = True\n    while changed:\n        changed = False\n        to_add = set()\n        for x, y in black_cells:\n            for y1, z in black_cells:\n                if y == y1 and (z, x) not in black_cells:\n                    to_add.add((z, x))\n                    changed = True\n        black_cells.update(to_add)\n\n    print(len(black_cells))\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

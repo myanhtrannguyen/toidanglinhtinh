@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1555",
+    "problem_id": "p03966",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nlong long gcd(long long a, long long b) {\n    if (b == 0)\n        return a;\n    return gcd(b, a % b);\n}\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    long long t[n], a[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lld %lld\", &t[i], &a[i]);\n    }\n    long long last_t = t[n - 1];\n    long long last_a = a[n - 1];\n    long long total = last_t + last_a;\n    long long g = gcd(last_t, last_a);\n    last_t /= g;\n    last_a /= g;\n\n    long long cur_t = t[0];\n    long long cur_a = a[0];\n    long long cur_g = gcd(cur_t, cur_a);\n    cur_t /= cur_g;\n    cur_a /= cur_g;\n\n    long long ans = (long long)last_t * cur_a + (long long)last_a * cur_t;\n    \n    printf(\"%lld\\n\", ans * g);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

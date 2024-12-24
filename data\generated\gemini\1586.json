@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1586",
+    "problem_id": "p03974",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <string>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n    vector<string> s(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> s[i];\n    }\n    int q;\n    cin >> q;\n    for (int i = 0; i < q; ++i) {\n        int k;\n        string p;\n        cin >> k >> p;\n        vector<string> t = s;\n        vector<int> order(26);\n        for (int j = 0; j < 26; ++j) {\n            order[p[j] - 'a'] = j;\n        }\n        sort(t.begin(), t.end(), [&](const string& a, const string& b) {\n            int len = min(a.length(), b.length());\n            for (int j = 0; j < len; ++j) {\n                if (order[a[j] - 'a'] < order[b[j] - 'a']) return true;\n                if (order[a[j] - 'a'] > order[b[j] - 'a']) return false;\n            }\n            return a.length() < b.length();\n        });\n        for (int j = 0; j < n; ++j) {\n            if (t[j] == s[k - 1]) {\n                cout << j + 1 << endl;\n                break;\n            }\n        }\n    }\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

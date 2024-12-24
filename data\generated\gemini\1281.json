@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1281",
+    "problem_id": "p03891",
+    "language": "Python",
+    "solution": "```python\nA = int(input())\nB = int(input())\nC = int(input())\n\nX13 = 2 * C - B\nX21 = 2 * C - A\nX33 = A + B - C\nX31 = A + B - C + B - A\nX11 = A\nX12 = B\nX22 = C\nX32 = A + B -C + A - B\nX23 = A+B -C + B -A + A -B + C + A +B -C\n\nprint(X11, X12, X13)\nprint(X21, X22, X23)\nprint(X31, X32, X33)\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

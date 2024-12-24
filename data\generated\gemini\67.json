@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-67",
+    "problem_id": "p03568",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\ncount = 0\ndef solve(i, current):\n    global count\n    if i == n:\n        product = 1\n        for x in current:\n            product *= x\n        if product % 2 == 0:\n            count += 1\n        return\n    for b in range(a[i] - 1, a[i] + 2):\n        if b > 0:\n            solve(i + 1, current + [b])\n\nsolve(0, [])\nprint(count)\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

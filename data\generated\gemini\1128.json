@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1128",
+    "problem_id": "p03849",
+    "language": "Python",
+    "solution": "```python\nMOD = 10**9 + 7\n\ndef solve():\n    n = int(input())\n    ans = 1\n    x = 1\n    while x <= n:\n        ans = (ans * (x * 2 + 1)) % MOD\n        x *= 2\n    print(ans)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

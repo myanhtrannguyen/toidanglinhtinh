@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-478",
+    "problem_id": "p03678",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    string s;\n    long long l, r;\n    cin >> s >> l >> r;\n\n    long long n = s.length();\n    string f_s = s + s;\n\n    vector<long long> counts(26, 0);\n    for (long long i = l - 1; i < r; ++i) {\n        counts[f_s[i % n] - 'a']++;\n    }\n\n    for (int i = 0; i < 26; ++i) {\n        cout << counts[i] << (i == 25 ? \"\" : \" \");\n    }\n    cout << endl;\n\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

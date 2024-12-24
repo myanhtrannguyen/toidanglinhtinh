@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-403",
+    "problem_id": "p03658",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N, K;\n    scanf(\"%d %d\", &N, &K);\n    int l[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%d\", &l[i]);\n    }\n    int sum = 0;\n    for (int i = 0; i < K; i++) {\n        int max = 0;\n        int index = -1;\n        for (int j = 0; j < N; j++) {\n            if (l[j] > max) {\n                max = l[j];\n                index = j;\n            }\n        }\n        sum += max;\n        l[index] = 0;\n    }\n    printf(\"%d\\n\", sum);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

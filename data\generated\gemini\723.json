@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-723",
+    "problem_id": "p03743",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long N, D;\n    scanf(\"%lld %lld\", &N, &D);\n    long long d[N];\n    for (long long i = 0; i < N; i++) {\n        scanf(\"%lld\", &d[i]);\n    }\n    long long Q;\n    scanf(\"%lld\", &Q);\n    for (long long i = 0; i < Q; i++) {\n        long long q;\n        scanf(\"%lld\", &q);\n        q--;\n        long long current_distance = D;\n        long long possible = 0;\n        for (long long j = 0; j < N; j++) {\n            if (j == q) continue;\n            if (current_distance >= d[j]) {\n                current_distance -= d[j];\n            }\n        }\n        if (current_distance > 0) possible = 1;\n        if (possible) {\n            printf(\"YES\\n\");\n        } else {\n            printf(\"NO\\n\");\n        }\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1330",
+    "problem_id": "p03904",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    k = int(input())\n    s = input()\n    n = len(s)\n\n    def check(x):\n        count = 0\n        cur = \"\"\n        for digit in s:\n            cur += digit\n            if int(cur) > x:\n                return False\n            if int(cur) == x:\n                count += 1\n                cur = \"\"\n        return count -1 <= k\n\n    left = 1\n    right = int(s)\n    ans = right\n    while left <= right:\n        mid = (left + right) // 2\n        if check(mid):\n            ans = mid\n            right = mid - 1\n        else:\n            left = mid + 1\n    print(ans)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

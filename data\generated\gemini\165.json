@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-165",
+    "problem_id": "p03595",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\n#define MOD 998244353\n\nint main() {\n    long long N, M;\n    scanf(\"%lld %lld\", &N, &M);\n    char A[N], B[N], C[M], D[M];\n    scanf(\"%s %s %s %s\", A, B, C, D);\n    long long ans = 1;\n    for (long long i = 0; i < N; i++) {\n        if (A[i] == '1' || B[i] == '1') ans = (ans * 2) % MOD;\n    }\n    for (long long i = 0; i < M; i++) {\n        if (C[i] == '1' || D[i] == '1') ans = (ans * 2) % MOD;\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

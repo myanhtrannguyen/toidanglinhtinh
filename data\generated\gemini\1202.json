@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1202",
+    "problem_id": "p03869",
+    "language": "Python",
+    "solution": "```python\nimport math\n\nx1, y1 = map(float, input().split())\nx2, y2 = map(float, input().split())\nx3, y3 = map(float, input().split())\n\ndef dist(x1, y1, x2, y2):\n    return math.sqrt((x1 - x2)**2 + (y1 - y2)**2)\n\na = dist(x1, y1, x2, y2)\nb = dist(x2, y2, x3, y3)\nc = dist(x3, y3, x1, y1)\n\ns = (a + b + c) / 2\narea = math.sqrt(s * (s - a) * (s - b) * (s - c))\nr = 2 * area / (a + b + c)\n\nprint(r / 2)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

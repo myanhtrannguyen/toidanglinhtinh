@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-72",
+    "problem_id": "p03570",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s[200001];\n    scanf(\"%s\", s);\n    int n = strlen(s);\n    int count = 0;\n    int odd_count = 0;\n    int i = 0;\n    while (i < n) {\n        odd_count = 0;\n        int j = i;\n        while (j < n) {\n            int freq[26] = {0};\n            int k = i;\n            while (k <= j) {\n                freq[s[k] - 'a']++;\n                k++;\n            }\n            odd_count = 0;\n            for (k = 0; k < 26; k++) {\n                if (freq[k] % 2 != 0) {\n                    odd_count++;\n                }\n            }\n            if (odd_count <= 1) {\n                j++;\n            } else {\n                break;\n            }\n        }\n        count++;\n        i = j;\n    }\n    printf(\"%d\\n\", count);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

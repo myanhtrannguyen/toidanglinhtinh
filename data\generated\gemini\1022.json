@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1022",
+    "problem_id": "p03821",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = []\nb = []\nfor i in range(n):\n    ai, bi = map(int, input().split())\n    a.append(ai)\n    b.append(bi)\n\nans = 0\nx = [0] * n\nfor i in range(n - 1, -1, -1):\n    target = (b[i] - (a[i] + sum(x[:i+1])) % b[i]) % b[i]\n    ans += target\n    for j in range(i + 1):\n        x[j] += target\n\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

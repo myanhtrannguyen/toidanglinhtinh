@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-118",
+    "problem_id": "p03582",
+    "language": "Python",
+    "solution": "```python\nfrom itertools import permutations\n\nx, y, z = map(int, input().split())\n\ns = ['a'] * x + ['b'] * y + ['c'] * z\nans = ''\nfor p in permutations(s):\n    t = ''.join(p)\n    f_t = min(t[i:] + t[:i] for i in range(len(t)))\n    if f_t > ans:\n        ans = f_t\nprint(ans)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

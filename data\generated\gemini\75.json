@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-75",
+    "problem_id": "p03570",
+    "language": "Python",
+    "solution": "```python\nfrom collections import Counter\n\ns = input()\ncount = 0\ni = 0\nwhile i < len(s):\n    count += 1\n    c = Counter()\n    j = i\n    while j < len(s):\n        c[s[j]] += 1\n        odd_count = 0\n        for k in c:\n            if c[k] % 2 != 0:\n                odd_count += 1\n        if odd_count <= 1:\n            j += 1\n        else:\n            break\n    i = j\nprint(count)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

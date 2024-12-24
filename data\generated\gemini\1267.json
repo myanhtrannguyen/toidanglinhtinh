@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1267",
+    "problem_id": "p03888",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <iomanip>\n\nusing namespace std;\n\nint main() {\n  double r1, r2;\n  cin >> r1 >> r2;\n  double r3 = 1.0 / (1.0 / r1 + 1.0 / r2);\n  cout << fixed << setprecision(10) << r3 << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

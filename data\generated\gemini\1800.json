@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1800",
+    "problem_id": "p04030",
+    "language": "Python",
+    "solution": "```python\ns = input()\nresult = \"\"\nfor char in s:\n    if char == 'B':\n        if len(result) > 0:\n            result = result[:-1]\n    else:\n        result += char\nprint(result)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

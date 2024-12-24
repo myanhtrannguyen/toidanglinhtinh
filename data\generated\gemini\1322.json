@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1322",
+    "problem_id": "p03902",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, m = map(int, input().split())\n    a = []\n    for _ in range(n):\n        a.append(list(map(int, input().split())))\n\n    def cast_spell(arr):\n        s = [0] * m\n        s[0] = arr[0]\n        for i in range(1, m):\n            s[i] = s[i-1] + arr[i]\n        return s\n\n    def is_sorted(arrays):\n        for i in range(len(arrays) - 1):\n            if not (arrays[i] < arrays[i+1]):\n                return False\n        return True\n\n    \n    q = [(a,0)]\n    visited = {tuple(map(tuple,a))}\n\n    while q:\n        curr_a, cost = q.pop(0)\n        if is_sorted(curr_a):\n            print(cost)\n            return\n\n        for i in range(n):\n            new_a = [list(x) for x in curr_a]\n            new_a[i] = cast_spell(new_a[i])\n            \n            if tuple(map(tuple,new_a)) not in visited:\n                visited.add(tuple(map(tuple,new_a)))\n                q.append((new_a, cost + 1))\n\n    print(-1)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

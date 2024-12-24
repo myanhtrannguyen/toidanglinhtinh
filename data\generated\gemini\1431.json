@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1431",
+    "problem_id": "p03933",
+    "language": "Python",
+    "solution": "```python\nimport math\n\ndef solve():\n    n, k = map(int, input().split())\n    \n    areas = []\n    for i in range(n):\n        for j in range(i + 1, n):\n            for l in range(j + 1, n):\n                a = abs(i - j)\n                b = abs(j - l)\n                c = abs(l - i)\n                \n                s = (a + b + c) / 2\n                if s < 1e-9:\n                    area = 0\n                else:\n                    area = 0.5 * (n * math.sin(math.pi * a / n)) * math.sqrt( (2-2*math.cos(math.pi*b/n))*(2-2*math.cos(math.pi*c/n)))\n                    \n                areas.append(area)\n\n    areas.sort()\n    print(areas[k - 1])\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

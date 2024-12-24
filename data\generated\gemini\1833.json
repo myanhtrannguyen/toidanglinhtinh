@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1833",
+    "problem_id": "p04040",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\n#define MOD 1000000007\n\nlong long combinations(int n, int k, long long fact[], long long inv[]) {\n    if (k < 0 || k > n) return 0;\n    return fact[n] * inv[k] % MOD * inv[n - k] % MOD;\n}\n\nlong long power(long long base, long long exp) {\n    long long res = 1;\n    base %= MOD;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % MOD;\n        base = (base * base) % MOD;\n        exp /= 2;\n    }\n    return res;\n}\n\nlong long inverse(long long n) {\n    return power(n, MOD - 2);\n}\n\nint main() {\n    int H, W, A, B;\n    scanf(\"%d %d %d %d\", &H, &W, &A, &B);\n\n    long long fact[H + W + 1];\n    long long inv[H + W + 1];\n    fact[0] = 1;\n    inv[0] = 1;\n    for (int i = 1; i <= H + W; i++) {\n        fact[i] = (fact[i - 1] * i) % MOD;\n        inv[i] = inverse(fact[i]);\n    }\n\n    long long total_paths = combinations(H + W - 2, H - 1, fact, inv);\n    long long forbidden_paths = combinations(H - 1 + W -1 -A-B , H -A-1, fact, inv);\n    long long result = (total_paths - forbidden_paths + MOD) % MOD;\n\n    printf(\"%lld\\n\", result);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

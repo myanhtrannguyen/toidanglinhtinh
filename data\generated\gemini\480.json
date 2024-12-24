@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-480",
+    "problem_id": "p03678",
+    "language": "Python",
+    "solution": "```python\nS = input()\nl, r = map(int, input().split())\nn = len(S)\nans = [0] * 26\nfor i in range(n):\n    ans[ord(S[i]) - ord('a')] += 1\nlength = n\nf = 10**100\nl -= 1\nfor i in range(26):\n    ans[i] *= (r - l) // length\n    ans[i] += sum(ord(c) == ord('a') + i for c in S[:(r - l) % length])\nprint(*ans)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

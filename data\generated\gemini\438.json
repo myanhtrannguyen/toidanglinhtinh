@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-438",
+    "problem_id": "p03667",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N, M;\n    scanf(\"%d %d\", &N, &M);\n    int A[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%d\", &A[i]);\n    }\n    for (int j = 0; j < M; j++) {\n        int X, Y;\n        scanf(\"%d %d\", &X, &Y);\n        A[X - 1] = Y;\n        int count = 0;\n        int k = N;\n        while (k > 0) {\n            int temp_k = k;\n            int removed = 0;\n            for (int i = 0; i < N; i++) {\n                if (A[i] != 0 && A[i] == temp_k) {\n                    A[i] = 0;\n                    removed++;\n                }\n            }\n            k -= removed;\n            \n        }\n        int modifications = 0;\n        int balls_left = 0;\n        for (int i = 0; i < N; i++) {\n            if (A[i] != 0)\n                balls_left++;\n        }\n        \n        modifications = balls_left;\n        printf(\"%d\\n\", modifications);\n        for (int i = 0; i < N; i++) {\n            if(A[i] == 0) continue;\n            \n            \n        }\n        for (int i = 0; i < N; i++) {\n            A[i] = (A[i] == 0 ? 0 : A[i]);\n        }\n    }\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

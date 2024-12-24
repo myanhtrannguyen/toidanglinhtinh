@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1750",
+    "problem_id": "p04017",
+    "language": "Python",
+    "solution": "```python\nN = int(input())\nx = list(map(int, input().split()))\nL = int(input())\nQ = int(input())\n\nfor _ in range(Q):\n    a, b = map(int, input().split())\n    a -= 1\n    b -= 1\n    if a > b:\n        a, b = b, a\n    \n    days = 0\n    curr = a\n    while curr != b:\n        days += 1\n        next_hotel = curr + 1\n        while next_hotel <= b and x[next_hotel] - x[curr] <= L:\n            next_hotel += 1\n        curr = next_hotel -1\n    print(days)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

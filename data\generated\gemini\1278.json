@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1278",
+    "problem_id": "p03891",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int A, B, C;\n    scanf(\"%d\", &A);\n    scanf(\"%d\", &B);\n    scanf(\"%d\", &C);\n\n    int sum = A + B + C;\n    int X13 = sum - A - B;\n    int X21 = sum - A - C;\n    int X23 = sum - B - C;\n    int X31 = sum - X13 - X21;\n    int X32 = sum - X21 - X23;\n    int X33 = sum - X31 - X32;\n\n\n    printf(\"%d %d %d\\n\", A, B, X13);\n    printf(\"%d %d %d\\n\", X21, C, X23);\n    printf(\"%d %d %d\\n\", X31, X32, X33);\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

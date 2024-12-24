@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1289",
+    "problem_id": "p03893",
+    "language": "Python",
+    "solution": "```python\ndef f(n):\n    if n <= 2:\n        return 0\n    ans = 0\n    for i in range(1, n // 2 + 1):\n        for j in range(i + 1, n - i):\n            k = n - i - j\n            ans = max(ans, 1 + f(max(min(i, j), min(j, k), min(i, k))))\n    return ans\n\nx = int(input())\nans = 0\nfor n in range(1000):\n    if f(n) == x:\n        ans = n\nprint(ans)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-376",
+    "problem_id": "p03650",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\np = list(map(int, input().split()))\np = [x - 1 for x in p]\ngraph = [[] for _ in range(n)]\nfor i in range(n):\n    graph[p[i]].append(i)\n\ndef solve():\n    for i in range(1 << n):\n        a = []\n        for j in range(n):\n            if (i >> j) & 1:\n                a.append(1)\n            else:\n                a.append(0)\n        \n        valid = True\n        for j in range(n):\n            if a[p[j]] == a[j]:\n                valid = False\n                break\n            \n            counts = {}\n            for k in graph[j]:\n                counts[a[k]] = counts.get(a[k], 0) + 1\n            \n            if a[j] > 0:\n                for k in range(a[j]):\n                    if k not in counts:\n                        valid = False\n                        break\n            if not valid:\n                break\n\n        if valid:\n            return \"POSSIBLE\"\n    return \"IMPOSSIBLE\"\n\nprint(solve())\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

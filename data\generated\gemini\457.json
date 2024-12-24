@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-457",
+    "problem_id": "p03672",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s[201];\n    scanf(\"%s\", s);\n    int n = strlen(s);\n    int max_len = 0;\n    for (int i = n / 2; i > 0; i--) {\n        int len = 2 * i;\n        char sub[201];\n        strncpy(sub, s, len);\n        sub[len] = '\\0';\n        char first[101];\n        strncpy(first, sub, i);\n        first[i] = '\\0';\n        char second[101];\n        strncpy(second, sub + i, i);\n        second[i] = '\\0';\n        if (strcmp(first, second) == 0) {\n            max_len = len;\n            break;\n        }\n    }\n    printf(\"%d\\n\", max_len);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

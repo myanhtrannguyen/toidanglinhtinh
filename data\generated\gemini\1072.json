@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1072",
+    "problem_id": "p03835",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  long long k, s;\n  cin >> k >> s;\n\n  long long count = 0;\n  for (long long x = 0; x <= k; ++x) {\n    for (long long y = 0; y <= k; ++y) {\n      long long z = s - x - y;\n      if (z >= 0 && z <= k) {\n        count++;\n      }\n    }\n  }\n  cout << count << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

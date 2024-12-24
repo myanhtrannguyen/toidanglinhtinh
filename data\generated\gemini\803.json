@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-803",
+    "problem_id": "p03763",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    char s[50][51];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%s\", s[i]);\n    }\n    int freq[26] = {0};\n    for (int i = 0; i < n; i++) {\n        int temp[26] = {0};\n        for (int j = 0; j < strlen(s[i]); j++) {\n            temp[s[i][j] - 'a']++;\n        }\n        if (i == 0) {\n            for (int j = 0; j < 26; j++) {\n                freq[j] = temp[j];\n            }\n        } else {\n            for (int j = 0; j < 26; j++) {\n                freq[j] = (freq[j] < temp[j]) ? freq[j] : temp[j];\n            }\n        }\n    }\n    char ans[51] = \"\";\n    for (int i = 0; i < 26; i++) {\n        for (int j = 0; j < freq[i]; j++) {\n            char c = i + 'a';\n            strcat(ans, &c);\n        }\n    }\n    printf(\"%s\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

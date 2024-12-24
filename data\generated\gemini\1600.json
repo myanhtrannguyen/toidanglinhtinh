@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1600",
+    "problem_id": "p03978",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n\n    char *s1 = (char *)malloc( (n + 1) * sizeof(char));\n    char *s2 = (char *)malloc( (n + 1) * sizeof(char));\n\n    for (int i = 0; i < n; ++i) {\n        s1[i] = '.';\n        s2[i] = '.';\n    }\n    s1[n] = '\\0';\n    s2[n] = '\\0';\n\n    for (int i = 0; i < (1 << (2 * n)); ++i) {\n        int temp = i;\n        for (int j = 0; j < n; ++j) {\n            s1[j] = (temp % 2 == 0) ? '.' : '#';\n            temp /= 2;\n        }\n        for (int j = 0; j < n; ++j) {\n            s2[j] = (temp % 2 == 0) ? '.' : '#';\n            temp /= 2;\n        }\n        printf(\"%s\\n%s\\n\", s1, s2);\n        fflush(stdout);\n        char result[4];\n        scanf(\"%s\", result);\n        if (strcmp(result, \"end\") == 0) {\n            free(s1);\n            free(s2);\n            return 0;\n        }\n    }\n    free(s1);\n    free(s2);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

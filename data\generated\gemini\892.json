@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-892",
+    "problem_id": "p03786",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n = int(input())\n    a = list(map(int, input().split()))\n    \n    creatures = []\n    for i in range(n):\n        creatures.append((a[i], i + 1))\n    \n    while len(creatures) > 1:\n        creatures.sort()\n        \n        merged = False\n        for i in range(len(creatures)):\n            for j in range(len(creatures)):\n                if i == j:\n                    continue\n                \n                if creatures[j][0] <= 2 * creatures[i][0]:\n                    new_size = creatures[i][0] + creatures[j][0]\n                    new_color = creatures[i][1]\n                    creatures.pop(j)\n                    creatures[i] = (new_size, new_color)\n                    merged = True\n                    break\n            if merged:\n                break\n\n    print(creatures[0][1])\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

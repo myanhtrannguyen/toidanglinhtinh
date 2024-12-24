@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1017",
+    "problem_id": "p03820",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long n, k;\n  cin >> n >> k;\n\n  long long mod = 1e9 + 7;\n\n  vector<vector<long long>> dp(n + 1, vector<long long>(n + 1, 0));\n  dp[0][0] = 1;\n\n  for (long long i = 1; i <= n; ++i) {\n    for (long long j = 1; j <= i; ++j) {\n      for (long long p = 0; p < i; ++p) {\n        dp[i][j] = (dp[i][j] + dp[i - 1][p]) % mod;\n        if (j > 1)\n          dp[i][j] = (dp[i][j] + dp[i-1][j-1]) % mod;\n      }\n\n    }\n  }\n\n  long long ans = 0;\n  if (k <= n) {\n      ans = dp[n][k-1];\n      for (int i = 0; i < n - k + 1; ++i) {\n          ans = (ans * 2) % mod;\n      }\n  }\n  \n\n  cout << ans << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

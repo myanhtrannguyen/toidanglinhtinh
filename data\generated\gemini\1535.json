@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1535",
+    "problem_id": "p03960",
+    "language": "Python",
+    "solution": "```python\nh, w = map(int, input().split())\ngrid = [input() for _ in range(h)]\ncost = 0\nfor j in range(w):\n    col = [grid[i][j] for i in range(h)]\n    count = {}\n    for c in col:\n        count[c] = count.get(c, 0) + 1\n    for i in range(h):\n        c = col[i]\n        if j > 0 and grid[i][j - 1] == c:\n            cost += count[c] - 1\n            count[c] -= 1\n        if j < w - 1 and grid[i][j + 1] == c:\n            cost += count[c] - 1\n            count[c] -= 1\nprint(cost)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

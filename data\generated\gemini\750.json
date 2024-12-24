@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-750",
+    "problem_id": "p03749",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nmod = 10**9 + 7\nif m == 0:\n    print(pow(n, 2, mod))\nelse:\n    x = list(map(int, input().split()))\n    x = [0] + x + [n]\n    dp = {}\n    def solve(i, j):\n        if (i, j) in dp:\n            return dp[(i, j)]\n        if i == m + 1:\n            return 1\n        ans = 0\n        for k in range(j + 1, x[i + 1] + 1):\n            ans = (ans + solve(i + 1, k) * (k - j) ** 2) % mod\n        dp[(i, j)] = ans\n        return ans\n    print(solve(0, 0))\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

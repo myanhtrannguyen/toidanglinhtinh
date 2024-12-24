@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1456",
+    "problem_id": "p03940",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n  long long n, e, t;\n  cin >> n >> e >> t;\n\n  vector<long long> x(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> x[i];\n  }\n\n  long long total_time = 0;\n  long long current_pos = 0;\n\n  for (int i = 0; i < n; ++i) {\n    total_time += abs(x[i] - current_pos);\n    current_pos = x[i];\n    total_time += t;\n  }\n\n  total_time += abs(e - current_pos);\n\n  cout << total_time << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

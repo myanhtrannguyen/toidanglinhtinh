@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-73",
+    "problem_id": "p03570",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <map>\n\nusing namespace std;\n\nint main() {\n  string s;\n  cin >> s;\n\n  int count = 0;\n  map<char, int> char_count;\n  for (char c : s) {\n    char_count[c]++;\n  }\n\n  for (int i = 0; i < s.length(); ++i) {\n    char_count[s[i]]--;\n    int odd_count = 0;\n    for (auto const& [key, val] : char_count) {\n      if (val % 2 != 0) {\n        odd_count++;\n      }\n    }\n    if (odd_count > 1) {\n      count++;\n      char_count.clear();\n      for (int j = i + 1; j < s.length(); ++j) {\n          char_count[s[j]]++;\n      }\n    }\n\n  }\n  cout << count + 1 << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

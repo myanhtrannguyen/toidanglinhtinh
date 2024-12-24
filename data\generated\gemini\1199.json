@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1199",
+    "problem_id": "p03868",
+    "language": "Python",
+    "solution": "```python\nMOD = 10**9 + 7\n\ndef solve():\n    n = int(input())\n    a = [int(input()) for _ in range(n)]\n    b = [int(input()) for _ in range(n)]\n    \n    a.sort()\n    b.sort()\n    \n    dp = {}\n    \n    def count_ways(i, j):\n        if i == n:\n            return 1\n        if (i, j) in dp:\n            return dp[(i,j)]\n        \n        count = 0\n        for k in range(j,n):\n            count = (count + count_ways(i+1,k+1)) % MOD\n        dp[(i,j)] = count\n        return count\n    \n    \n    min_len = float('inf')\n    \n    \n    import itertools\n    \n    perms = list(itertools.permutations(b))\n    \n    \n    min_cost_count = 0\n    min_cost = float('inf')\n    \n    for perm in perms:\n        cur_cost = 0\n        for i in range(n):\n            cur_cost += abs(a[i] - perm[i])\n        \n        if cur_cost < min_cost:\n            min_cost = cur_cost\n            min_cost_count = 1\n        elif cur_cost == min_cost:\n            min_cost_count +=1\n\n    print(min_cost_count % MOD)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

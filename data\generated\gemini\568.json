@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-568",
+    "problem_id": "p03702",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long n, a, b;\n    scanf(\"%lld %lld %lld\", &n, &a, &b);\n    long long h[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lld\", &h[i]);\n    }\n    long long ans = 0;\n    while (1) {\n        long long max_h = -1;\n        int max_idx = -1;\n        for (int i = 0; i < n; i++) {\n            if (h[i] > max_h) {\n                max_h = h[i];\n                max_idx = i;\n            }\n        }\n        if (max_h <= 0) break;\n        ans++;\n        h[max_idx] -= a;\n        for (int i = 0; i < n; i++) {\n            if (i != max_idx) {\n                h[i] -= b;\n            }\n        }\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

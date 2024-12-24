@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-599",
+    "problem_id": "p03710",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <algorithm>\n\nusing namespace std;\n\nint gcd_steps(long long a, long long b) {\n  if (b == 0) return 0;\n  if (a == 0) return 0;\n  if (a > b) swap(a, b);\n  return gcd_steps(b % a, a) + 1;\n}\n\nint main() {\n  int q;\n  cin >> q;\n\n  long long mod = 1e9 + 7;\n\n  while (q--) {\n    long long x, y;\n    cin >> x >> y;\n\n    int max_steps = 0;\n    long long count = 0;\n\n    for (long long i = 1; i <= x; ++i) {\n      for (long long j = 1; j <= y; ++j) {\n        int steps = gcd_steps(i, j);\n        if (steps > max_steps) {\n          max_steps = steps;\n          count = 1;\n        } else if (steps == max_steps) {\n          count++;\n        }\n      }\n    }\n    cout << max_steps << \" \" << count % mod << endl;\n  }\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

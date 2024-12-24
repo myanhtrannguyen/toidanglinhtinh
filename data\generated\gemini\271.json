@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-271",
+    "problem_id": "p03622",
+    "language": "Python",
+    "solution": "```python\nMOD = 998244353\n\ndef pow_mod(x, y, p):\n    res = 1\n    x = x % p\n    while y > 0:\n        if y & 1:\n            res = (res * x) % p\n        y = y >> 1\n        x = (x * x) % p\n    return res\n\ndef inv_mod(x, p):\n    return pow_mod(x, p - 2, p)\n\nN, M = map(int, input().split())\n\nif N == M:\n    ans = (N + M) * inv_mod(2, MOD) % MOD\nelse:\n    dp = {}\n    def solve(n, m):\n        if (n, m) in dp:\n            return dp[(n, m)]\n        if n == 0:\n            return 0\n        if m == 0:\n            return n\n        \n        res = (solve(n - 1, m) * m + solve(n, m - 1) * n) * inv_mod(n + m, MOD) % MOD\n        res = (res + 1) % MOD\n        dp[(n, m)] = res\n        return res\n\n    ans = solve(N, M)\n\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

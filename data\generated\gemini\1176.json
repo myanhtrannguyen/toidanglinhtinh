@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1176",
+    "problem_id": "p03862",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.lang.*;\n\nclass Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long x = sc.nextLong();\n        long[] a = new long[n];\n        for (int i = 0; i < n; i++) {\n            a[i] = sc.nextLong();\n        }\n        long ans = 0;\n        for (int i = 0; i < n - 1; i++) {\n            long sum = a[i] + a[i + 1];\n            if (sum > x) {\n                long diff = sum - x;\n                ans += diff;\n                a[i + 1] -= diff;\n            }\n        }\n        System.out.println(ans);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

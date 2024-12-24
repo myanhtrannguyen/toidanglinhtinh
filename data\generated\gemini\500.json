@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-500",
+    "problem_id": "p03684",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long[] x = new long[n];\n        long[] y = new long[n];\n        for (int i = 0; i < n; i++) {\n            x[i] = sc.nextLong();\n            y[i] = sc.nextLong();\n        }\n        long ans = 0;\n        long minX = x[0];\n        long minY = y[0];\n        for (int i = 1; i < n; i++) {\n            minX = Math.min(minX, x[i]);\n            minY = Math.min(minY, y[i]);\n        }\n        for (int i = 0; i < n; i++) {\n            ans += Math.min(Math.abs(x[i] - minX), Math.abs(y[i] - minY));\n        }\n        System.out.println(ans);\n        sc.close();\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

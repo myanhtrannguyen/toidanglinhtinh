@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1472",
+    "problem_id": "p03944",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n    long long W, H, N;\n    cin >> W >> H >> N;\n\n    long long minX = 0, maxX = W, minY = 0, maxY = H;\n\n    for (int i = 0; i < N; ++i) {\n        long long x, y, a;\n        cin >> x >> y >> a;\n        if (a == 1) minX = max(minX, x);\n        else if (a == 2) maxX = min(maxX, x);\n        else if (a == 3) minY = max(minY, y);\n        else maxX = min(maxY, y);\n    }\n\n    long long area = max(0LL, maxX - minX) * max(0LL, maxY - minY);\n    cout << area << endl;\n\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

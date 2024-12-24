@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1143",
+    "problem_id": "p03854",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s[100001];\n    scanf(\"%s\", s);\n    int n = strlen(s);\n    int dp[n + 1];\n    memset(dp, 0, sizeof(dp));\n    dp[0] = 1;\n    for (int i = 0; i < n; i++) {\n        if (dp[i] == 0) continue;\n        if (i + 5 <= n && strncmp(s + i, \"dream\", 5) == 0) dp[i + 5] = 1;\n        if (i + 7 <= n && strncmp(s + i, \"dreamer\", 7) == 0) dp[i + 7] = 1;\n        if (i + 5 <= n && strncmp(s + i, \"erase\", 5) == 0) dp[i + 5] = 1;\n        if (i + 6 <= n && strncmp(s + i, \"eraser\", 6) == 0) dp[i + 6] = 1;\n    }\n    if (dp[n]) printf(\"YES\\n\");\n    else printf(\"NO\\n\");\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

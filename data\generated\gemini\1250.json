@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1250",
+    "problem_id": "p03883",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\ntypedef struct {\n    long long l, r;\n} Interval;\n\nint compare(const void *a, const void *b) {\n    Interval *ia = (Interval *)a;\n    Interval *ib = (Interval *)b;\n    return ia->r - ib->r;\n}\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    Interval intervals[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lld %lld\", &intervals[i].l, &intervals[i].r);\n    }\n    qsort(intervals, n, sizeof(Interval), compare);\n    long long cost = 0;\n    long long rightmost = 0;\n    for (int i = 0; i < n; i++) {\n        if (intervals[i].l - rightmost > 0) {\n            cost += intervals[i].l - rightmost;\n            rightmost = intervals[i].r;\n\n        } else if (intervals[i].l >= -rightmost) {\n            rightmost = intervals[i].r;\n        } else {\n            cost += rightmost + intervals[i].l + 1;\n            rightmost = rightmost + intervals[i].l + 1 + intervals[i].r;\n\n        }\n    }\n    printf(\"%lld\\n\", cost);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1029",
+    "problem_id": "p03823",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, a, b = map(int, input().split())\n    s = [int(input()) for _ in range(n)]\n    mod = 10**9 + 7\n\n    ans = 0\n    for i in range(1 << n):\n        x = []\n        y = []\n        for j in range(n):\n            if (i >> j) & 1:\n                x.append(s[j])\n            else:\n                y.append(s[j])\n\n        ok_x = True\n        for j in range(len(x)):\n            for k in range(j + 1, len(x)):\n                if abs(x[j] - x[k]) < a:\n                    ok_x = False\n                    break\n            if not ok_x:\n                break\n\n        ok_y = True\n        for j in range(len(y)):\n            for k in range(j + 1, len(y)):\n                if abs(y[j] - y[k]) < b:\n                    ok_y = False\n                    break\n            if not ok_y:\n                break\n\n        if ok_x and ok_y:\n            ans += 1\n\n    print(ans)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-366",
+    "problem_id": "p03647",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nedges = []\nfor _ in range(m):\n    u, v = map(int, input().split())\n    edges.append((u, v))\n\nreachable = set()\nfor u, v in edges:\n    if u == 1:\n        reachable.add(v)\n\npossible = False\nfor u, v in edges:\n    if u in reachable and v == n:\n        possible = True\n        break\n    if v in reachable and u == n:\n        possible = True\n        break\n\nif possible:\n    print(\"POSSIBLE\")\nelse:\n    for u1, v1 in edges:\n        if u1 == 1:\n            for u2, v2 in edges:\n                if v1 == u2 and v2 == n:\n                    possible = True\n                    break\n            if possible:\n                break\n\n    if possible:\n        print(\"POSSIBLE\")\n    else:\n        print(\"IMPOSSIBLE\")\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

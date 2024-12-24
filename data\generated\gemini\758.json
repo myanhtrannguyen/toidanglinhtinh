@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-758",
+    "problem_id": "p03751",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\ns = [input() for _ in range(n)]\nt = input()\n\nnames = s + [t]\nans = set()\n\ndef solve(idx, current_names):\n    if idx == len(names):\n        sorted_names = sorted(current_names)\n        ans.add(sorted_names.index(t))\n        return\n    \n    if '?' not in names[idx]:\n        solve(idx + 1, current_names + [names[idx]])\n    else:\n        for char_code in range(ord('a'), ord('z') + 1):\n            new_name = names[idx].replace('?', chr(char_code), 1)\n            solve(idx + 1, current_names + [new_name])\n\n\nsolve(0, [])\nprint(*sorted(ans), end='\\n')\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

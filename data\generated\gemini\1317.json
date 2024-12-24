@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1317",
+    "problem_id": "p03901",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <iomanip>\n\nusing namespace std;\n\nint main() {\n  long long x;\n  double p;\n  cin >> x >> p;\n\n  double p_prob = p / 100.0;\n  double q_prob = 1.0 - p_prob;\n\n  if (x == 0) {\n    cout << fixed << setprecision(10) << 0.0 << endl;\n    return 0;\n  }\n\n  if (p == 100) {\n    cout << fixed << setprecision(10) << (double)x + 1 << endl;\n      return 0;\n  }\n\n  vector<double> dp(x + 1, 1e18);\n  dp[0] = 0;\n\n  for (long long i = 1; i <= x; ++i) {\n    dp[i] = min({dp[i], dp[i-1] + 1 + q_prob});\n      if (i > 0) dp[i] = min(dp[i], dp[i-1] + 1 + p_prob * (1 + dp[i] )/ (1 - p_prob));\n\n    if (i < x) {\n      dp[i] = min(dp[i], dp[i + 1] + 1 + q_prob);\n      if (i < x) dp[i] = min(dp[i], dp[i+1] + 1 + p_prob * (1 + dp[i]) / (1- p_prob));\n\n    }\n\n  }\n  \n\n  cout << fixed << setprecision(10) << dp[x] << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

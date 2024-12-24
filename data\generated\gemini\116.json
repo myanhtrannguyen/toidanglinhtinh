@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-116",
+    "problem_id": "p03582",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <algorithm>\n\nusing namespace std;\n\nstring solve() {\n  int x, y, z;\n  cin >> x >> y >> z;\n\n  string s = \"\";\n  for (int i = 0; i < x; ++i) s += 'a';\n  for (int i = 0; i < y; ++i) s += 'b';\n  for (int i = 0; i < z; ++i) s += 'c';\n\n  string best_f = s;\n  sort(s.begin(), s.end());\n  do {\n    string t = s;\n    string f = t;\n    for (int i = 0; i < t.length(); ++i) {\n      string shifted = t.substr(i) + t.substr(0, i);\n      if (shifted < f) {\n        f = shifted;\n      }\n    }\n    if (f > best_f) best_f = f;\n  } while (next_permutation(s.begin(), s.end()));\n\n  return best_f;\n}\n\nint main() {\n  cout << solve() << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

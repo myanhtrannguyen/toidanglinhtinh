@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1827",
+    "problem_id": "p04038",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.math.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int k = sc.nextInt();\n        long mod = (long) Math.pow(10, 9) + 7;\n\n        BigInteger ans = BigInteger.ONE;\n        BigInteger nk = BigInteger.valueOf(n * k);\n        BigInteger n_fact = factorial(n, mod);\n        BigInteger nk_fact = factorial(n * k, mod);\n        BigInteger k_fact = factorial(k, mod);\n        BigInteger k_fact_n = k_fact.pow(n);\n\n\n        ans = nk_fact.multiply(n_fact.modInverse(BigInteger.valueOf(mod)));\n        ans = ans.multiply(k_fact_n.modInverse(BigInteger.valueOf(mod)));\n\n        System.out.println(ans.mod(BigInteger.valueOf(mod)));\n    }\n\n    public static BigInteger factorial(int n, long mod) {\n        BigInteger fact = BigInteger.ONE;\n        for (int i = 2; i <= n; i++) {\n            fact = fact.multiply(BigInteger.valueOf(i)).mod(BigInteger.valueOf(mod));\n        }\n        return fact;\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

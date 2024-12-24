@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-855",
+    "problem_id": "p03776",
+    "language": "Python",
+    "solution": "```python\nn, a, b = map(int, input().split())\nv = []\nfor _ in range(n):\n    v.append(int(input()))\n\nv.sort(reverse=True)\n\nmax_mean = 0\ncount = 0\n\nfor i in range(a, min(b + 1, n + 1)):\n    current_sum = sum(v[:i])\n    current_mean = current_sum / i\n    if current_mean > max_mean:\n        max_mean = current_mean\n        count = 1\n    elif current_mean == max_mean:\n        count += 1\n\nprint(f'{max_mean:.6f}')\nprint(count)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

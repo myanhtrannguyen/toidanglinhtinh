@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-585",
+    "problem_id": "p03706",
+    "language": "Python",
+    "solution": "```python\ns = input()\nn = len(s)\nans = 0\nfor i in range(n):\n    for j in range(n):\n        if i == j:\n            continue\n        count = 0\n        cur = i\n        if i < j:\n            while cur < j:\n                if s[cur] == 'U':\n                    cur += 1\n                else:\n                    cur_up = cur\n                    while cur_up < j and s[cur_up] == 'D':\n                        cur_up +=1\n                    if cur_up == j:\n                        cur = cur_up\n                    else:\n                        cur = cur_up\n                        \n                count += 1\n\n        else:\n            while cur > j:\n                if s[cur] == 'D':\n                    cur -= 1\n                else:\n                    cur_down = cur\n                    while cur_down > j and s[cur_down] == 'U':\n                        cur_down -= 1\n                    if cur_down == j:\n                        cur = cur_down\n                    else:\n                        cur = cur_down\n                count += 1\n        ans += count\nprint(ans)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

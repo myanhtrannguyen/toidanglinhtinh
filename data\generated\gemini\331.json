@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-331",
+    "problem_id": "p03638",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  int h, w, n;\n  cin >> h >> w >> n;\n\n  vector<long long> a(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> a[i];\n  }\n\n  vector<vector<int>> grid(h, vector<int>(w));\n  long long count = 0;\n  int color = 0;\n  int r = 0, c = 0;\n\n  while (count < h * w) {\n    if (a[color] == 0) {\n      color++;\n      continue;\n    }\n    grid[r][c] = color + 1;\n    a[color]--;\n    count++;\n    if (c + 1 < w && a[color] > 0) {\n      c++;\n    } else if (r + 1 < h && a[color] > 0) {\n      r++;\n      c = 0;\n    } else {\n      color++;\n      r = 0;\n      c = 0;\n      for (int i = 0; i < h; ++i) {\n        for (int j = 0; j < w; ++j) {\n          if (grid[i][j] == 0) {\n            r = i;\n            c = j;\n            break;\n          }\n        }\n      }\n\n    }\n  }\n\n  for (int i = 0; i < h; ++i) {\n    for (int j = 0; j < w; ++j) {\n      cout << grid[i][j] << (j == w - 1 ? \"\" : \" \");\n    }\n    cout << endl;\n  }\n\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

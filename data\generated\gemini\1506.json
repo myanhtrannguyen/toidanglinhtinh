@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1506",
+    "problem_id": "p03953",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <iomanip>\n\nusing namespace std;\n\nint main() {\n    long long n;\n    cin >> n;\n\n    vector<double> x(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> x[i];\n    }\n\n    long long m, k;\n    cin >> m >> k;\n\n    vector<long long> a(m);\n    for (int i = 0; i < m; ++i) {\n        cin >> a[i];\n        a[i]--; \n    }\n\n    vector<double> expected_x = x;\n\n    for (long long set_num = 0; set_num < min((long long)1000,k); ++set_num) {\n        vector<double> next_expected_x = expected_x;\n        for (long long jump_index = 0; jump_index < m; ++jump_index) {\n            long long rabbit_index = a[jump_index];\n            double new_pos = 0.5 * (2 * expected_x[rabbit_index] - expected_x[rabbit_index -1] ) + 0.5 * (2 * expected_x[rabbit_index] - expected_x[rabbit_index + 1]);\n            next_expected_x[rabbit_index] = new_pos;\n        }\n        expected_x = next_expected_x;\n    }\n\n    cout << fixed << setprecision(10);\n    for (int i = 0; i < n; ++i) {\n        cout << expected_x[i] << endl;\n    }\n\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

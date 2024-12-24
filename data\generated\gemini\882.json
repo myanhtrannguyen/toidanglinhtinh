@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-882",
+    "problem_id": "p03784",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int A, B;\n    scanf(\"%d %d\", &A, &B);\n    if (A <= B) {\n        printf(\"Impossible\\n\");\n        return 0;\n    }\n    int N = A + B;\n    char ans[N][N];\n    for (int i = 0; i < N; i++) {\n        for (int j = 0; j < N; j++) {\n            printf(\"? %d %d\\n\", i, j);\n            fflush(stdout);\n            char c;\n            scanf(\" %c\", &c);\n            ans[i][j] = c;\n        }\n    }\n    int honest[N];\n    for (int i = 0; i < N; i++) honest[i] = 1;\n    for (int i = 0; i < N; i++) {\n        int count = 0;\n        for (int j = 0; j < N; j++) {\n            if (ans[i][j] == 'Y') count++;\n        }\n        if (count < A) honest[i] = 0;\n    }\n    int count_honest = 0;\n    for (int i = 0; i < N; i++) if (honest[i] == 1) count_honest++;\n    if (count_honest != A) {\n        printf(\"Impossible\\n\");\n        return 0;\n    }\n    printf(\"!\");\n    for (int i = 0; i < N; i++) printf(\"%d\", honest[i]);\n    printf(\"\\n\");\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

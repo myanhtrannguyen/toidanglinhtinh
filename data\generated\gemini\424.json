@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-424",
+    "problem_id": "p03663",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main() {\n  long long left = 1, right = 1e9;\n  while (left <= right) {\n    long long mid = left + (right - left) / 2;\n    cout << \"? \" << mid << endl;\n    fflush(stdout);\n    char ans;\n    cin >> ans;\n    if (ans == 'Y') {\n      long long cur = mid;\n      long long next = mid + 1;\n      string cur_str = to_string(cur);\n      while (true) {\n        string next_str = to_string(next);\n        cout << \"? \" << next << endl;\n        fflush(stdout);\n        cin >> ans;\n        if (ans == 'N') {\n          cout << \"! \" << cur << endl;\n          return 0;\n        }\n        cur = next;\n        cur_str = next_str;\n        next++;\n      }\n    } else {\n      right = mid - 1;\n    }\n  }\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

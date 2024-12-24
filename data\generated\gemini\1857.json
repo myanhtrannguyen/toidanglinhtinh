@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1857",
+    "problem_id": "p04046",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.math.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long h = sc.nextLong();\n        long w = sc.nextLong();\n        long a = sc.nextLong();\n        long b = sc.nextLong();\n        long mod = 1000000007;\n\n        long[][] dp = new long[(int)h][(int)w];\n        dp[0][0] = 1;\n\n        for (int i = 0; i < h; i++) {\n            for (int j = 0; j < w; j++) {\n                if (i + a >= h && j + b >= w) continue;\n                if (i + 1 < h && j + b < w) {\n                    if(i + 1 >= h -a && j < b) continue;\n                    dp[i + 1][j] = (dp[i + 1][j] + dp[i][j]) % mod;\n                }\n                if (i + a < h && j + 1 < w) {\n                    if(i < h -a && j+1 >= w -b) continue;\n                    dp[i][j + 1] = (dp[i][j + 1] + dp[i][j]) % mod;\n                }\n            }\n        }\n        System.out.println(dp[h - 1][w - 1]);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-947",
+    "problem_id": "p03801",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\ncounts = [0] * n\ntotal_stones = sum(a)\nheap = []\nimport heapq\nfor i in range(n):\n    heapq.heappush(heap, (-a[i], i))\n\nwhile total_stones > 0:\n    largest, index = heapq.heappop(heap)\n    counts[index] += 1\n    total_stones -= 1\n    if total_stones > 0:\n        largest +=1\n        heapq.heappush(heap, (largest, index))\n\n\nfor count in counts:\n    print(count)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-12",
+    "problem_id": "p03554",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N, Q;\n    scanf(\"%d\", &N);\n    int b[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%d\", &b[i]);\n    }\n    scanf(\"%d\", &Q);\n    int l[Q], r[Q];\n    for (int i = 0; i < Q; i++) {\n        scanf(\"%d %d\", &l[i], &r[i]);\n        l[i]--; \n        r[i]--; \n    }\n    int min_hamming = N + 1;\n    for (int i = 0; i < (1 << Q); i++) {\n        int a[N];\n        for (int j = 0; j < N; j++) {\n            a[j] = 0;\n        }\n        for (int j = 0; j < Q; j++) {\n            if ((i >> j) & 1) {\n                for (int k = l[j]; k <= r[j]; k++) {\n                    a[k] = 1;\n                }\n            }\n        }\n        int hamming = 0;\n        for (int j = 0; j < N; j++) {\n            if (a[j] != b[j]) {\n                hamming++;\n            }\n        }\n        if (hamming < min_hamming) {\n            min_hamming = hamming;\n        }\n    }\n    printf(\"%d\\n\", min_hamming);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

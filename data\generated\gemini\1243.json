@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1243",
+    "problem_id": "p03881",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    double p[6], q[6], prob_red = 0.0, prob_blue = 0.0;\n    for (int i = 0; i < 6; i++) {\n        scanf(\"%lf\", &p[i]);\n        p[i] /= 100.0;\n    }\n    for (int i = 0; i < 6; i++) {\n        scanf(\"%lf\", &q[i]);\n        q[i] /= 100.0;\n    }\n    double win_prob = 0.0;\n    for (int i = 0; i < 6; i++) {\n        prob_red += p[i];\n        prob_blue += q[i];\n    }\n    double red_win_prob = 0.0;\n    double blue_win_prob = 0.0;\n    for(int i=0; i<6; ++i){\n        double red_prob = p[i] / prob_red;\n        double blue_prob = q[i] / prob_blue;\n        if(red_prob > blue_prob){\n            red_win_prob += p[i];\n        } else if (blue_prob > red_prob){\n            blue_win_prob += q[i];\n        } else {\n            red_win_prob += p[i] / 2.0;\n            blue_win_prob += q[i] / 2.0;\n        }\n    }\n\n    \n    printf(\"%.12lf\\n\", (red_win_prob + blue_win_prob) /2);\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

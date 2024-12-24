@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1544",
+    "problem_id": "p03963",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nint main() {\n    long long n, k;\n    std::cin >> n >> k;\n    if (n == 1) {\n        std::cout << k << std::endl;\n        return 0;\n    }\n    long long result = k * (k - 1);\n    for (long long i = 2; i < n; ++i) {\n        result *= (k - 1);\n    }\n    std::cout << result << std::endl;\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1119",
+    "problem_id": "p03847",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.lang.*;\n\nclass Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long n = sc.nextLong();\n        long mod = 1000000007;\n        long ans = 0;\n        long limit = 1;\n        while (limit <= n) {\n            limit *= 2;\n        }\n        limit /= 2;\n        long num = 0;\n        long pow2 = 1;\n        while (limit > 0) {\n            long x = n / limit;\n            long y = n % limit;\n            long add = (x + 1) * x / 2 % mod * pow2 % mod * pow2 % mod;\n            long sub = (pow2 - 1 + mod) % mod * pow2 % mod * x % mod * (y + 1) % mod;\n            ans = (ans + add - sub + mod) % mod;\n            pow2 = pow2 * 2 % mod;\n            limit /= 2;\n        }\n        System.out.println(ans);\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

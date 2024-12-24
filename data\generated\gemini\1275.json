@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1275",
+    "problem_id": "p03890",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long n;\n  cin >> n;\n\n  long long size = 1LL << n;\n  vector<long long> a(size);\n  for (long long i = 0; i < size; ++i) {\n    cin >> a[i];\n  }\n\n  vector<long long> b = a;\n  while (b.size() > 1) {\n    vector<long long> next_b;\n    for (long long i = 0; i < b.size(); i += 2) {\n      if (b[i] > b[i + 1]) {\n        next_b.push_back(b[i] - b[i + 1]);\n      } else if (b[i] < b[i + 1]) {\n        next_b.push_back(b[i + 1] - b[i]);\n      } else {\n        next_b.push_back(b[i]);\n      }\n    }\n    b = next_b;\n  }\n\n  cout << b[0] << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

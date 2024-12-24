@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-524",
+    "problem_id": "p03690",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n = int(input())\n    a = list(map(int, input().split()))\n    b = list(map(int, input().split()))\n\n    def count_ops(arr, target):\n        ops = 0\n        xor_sum = 0\n        for x in arr:\n            xor_sum ^= x\n        \n        diff_indices = []\n        for i in range(n):\n            if arr[i] != target[i]:\n                diff_indices.append(i)\n\n        if len(diff_indices) == 0:\n            return 0\n\n        if len(diff_indices) % 2 != 0:\n            \n            for i in diff_indices:\n                temp_arr = arr[:]\n                temp_arr[i] = xor_sum\n                temp_xor = 0\n                for x in temp_arr:\n                    temp_xor ^= x\n                \n                if temp_xor == 0:\n                    return len(diff_indices)\n        else:\n            return len(diff_indices)\n\n    \n    xor_a = 0\n    for x in a:\n        xor_a ^= x\n    xor_b = 0\n    for x in b:\n        xor_b ^= x\n\n    if xor_a != xor_b:\n        print(-1)\n        return\n\n    print(count_ops(a,b))\n\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

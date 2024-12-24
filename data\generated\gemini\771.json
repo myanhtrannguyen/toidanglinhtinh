@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-771",
+    "problem_id": "p03755",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\n#define MOD 1000000007\n\nint main() {\n    int N, K, X;\n    scanf(\"%d %d %d\", &N, &K, &X);\n    int S[K];\n    for (int i = 0; i < K; i++) {\n        scanf(\"%d\", &S[i]);\n    }\n    long long dp[N + 1][X + 1];\n    for (int i = 0; i <= N; i++) {\n        for (int j = 0; j <= X; j++) {\n            dp[i][j] = 0;\n        }\n    }\n    dp[0][0] = 1;\n    for (int i = 0; i < N; i++) {\n        for (int j = 0; j <= X; j++) {\n            if (dp[i][j] == 0) continue;\n            for (int k = i + 1; k <= N; k++) {\n                if (j + k - i <= X) {\n                    dp[k][j + k - i] = (dp[k][j + k - i] + dp[i][j]) % MOD;\n                }\n            }\n        }\n    }\n    long long ans = 0;\n    for (int i = 0; i <= X; i++) {\n        ans = (ans + dp[N][i]) % MOD;\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

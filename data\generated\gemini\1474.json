@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1474",
+    "problem_id": "p03944",
+    "language": "Python",
+    "solution": "```python\nW, H, N = map(int, input().split())\nmin_x = 0\nmax_x = W\nmin_y = 0\nmax_y = H\nfor i in range(N):\n    x, y, a = map(int, input().split())\n    if a == 1:\n        min_x = max(min_x, x)\n    elif a == 2:\n        max_x = min(max_x, x)\n    elif a == 3:\n        min_y = max(min_y, y)\n    elif a == 4:\n        max_y = min(max_y, y)\nprint(max(0, max_x - min_x) * max(0, max_y - min_y))\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

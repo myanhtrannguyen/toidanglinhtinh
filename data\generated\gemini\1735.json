@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1735",
+    "problem_id": "p04014",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nlong long f(long long b, long long n) {\n    if (n < b) return n;\n    return f(b, n / b) + n % b;\n}\n\nint main() {\n    long long n, s;\n    scanf(\"%lld %lld\", &n, &s);\n    if (n < s) {\n        printf(\"-1\\n\");\n        return 0;\n    }\n    if (n == s) {\n        printf(\"%lld\\n\", n);\n        return 0;\n    }\n\n    for (long long b = 2; b <= 100000; ++b) {\n        if (f(b, n) == s) {\n            printf(\"%lld\\n\", b);\n            return 0;\n        }\n    }\n    if (n < s)\n        printf(\"-1\\n\");\n    else {\n        for (long long b = 2; b <= n; b++) {\n            if (f(b, n) == s) {\n                printf(\"%lld\\n\", b);\n                return 0;\n            }\n        }\n        printf(\"-1\\n\");\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

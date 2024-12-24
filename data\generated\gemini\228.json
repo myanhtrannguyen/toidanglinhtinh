@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-228",
+    "problem_id": "p03611",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <map>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  map<long long, long long> counts;\n  vector<long long> a(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> a[i];\n    counts[a[i]]++;\n  }\n\n  long long max_count = 0;\n  for (long long i = 0; i < n; ++i) {\n    map<long long, long long> cur_counts;\n    for (int j = 0; j < n; ++j) {\n      cur_counts[a[j]]++;\n    }\n\n    long long cur_max = 0;\n    for (long long j = -1; j <= 1; ++j) {\n      map<long long, long long> next_counts;\n      for (int k = 0; k < n; ++k) {\n        next_counts[a[k] + j]++;\n      }\n      for (auto const& [key, val] : next_counts) {\n        cur_max = max(cur_max, val);\n      }\n    }\n    max_count = max(max_count, cur_max);\n  }\n    long long cur_max = 0;\n    for (auto const& [key, val] : counts) {\n        cur_max = max(cur_max, val);\n    }\n    max_count = max(max_count, cur_max);\n\n  cout << max_count << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

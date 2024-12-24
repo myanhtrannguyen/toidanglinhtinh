@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1856",
+    "problem_id": "p04046",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nlong long combinations(int n, int k, const vector<long long>& fact, const vector<long long>& inv) {\n  if (k < 0 || k > n) return 0;\n  return fact[n] * inv[k] % 1000000007 * inv[n - k] % 1000000007;\n}\n\nlong long power(long long base, long long exp) {\n  long long res = 1;\n  base %= 1000000007;\n  while (exp > 0) {\n    if (exp % 2 == 1) res = (res * base) % 1000000007;\n    base = (base * base) % 1000000007;\n    exp /= 2;\n  }\n  return res;\n}\n\nlong long inverse(long long n) {\n  return power(n, 1000000007 - 2);\n}\n\nint main() {\n  long long h, w, a, b;\n  cin >> h >> w >> a >> b;\n\n  vector<long long> fact(h + w + 1);\n  vector<long long> inv(h + w + 1);\n  fact[0] = 1;\n  inv[0] = 1;\n  for (long long i = 1; i <= h + w; ++i) {\n    fact[i] = (fact[i - 1] * i) % 1000000007;\n    inv[i] = inverse(fact[i]);\n  }\n\n  long long ans = (combinations(h + w - 1, h -1, fact, inv) - combinations(h - a + w - b -1, h-a, fact, inv) + 1000000007) % 1000000007;\n\n  cout << ans << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

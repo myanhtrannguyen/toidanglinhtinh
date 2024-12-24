@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-245",
+    "problem_id": "p03616",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long x;\n  cin >> x;\n\n  int k;\n  cin >> k;\n\n  vector<long long> r(k);\n  for (int i = 0; i < k; ++i) {\n    cin >> r[i];\n  }\n\n  int q;\n  cin >> q;\n\n  for (int i = 0; i < q; ++i) {\n    long long t, a;\n    cin >> t >> a;\n\n    long long current_a = a;\n    bool upper_a = true;\n\n    for (int j = 0; j < k; ++j) {\n      if (t < r[j]) {\n        if (upper_a) {\n          current_a -= min(current_a, t);\n        } else {\n          current_a += min(x - current_a, t);\n        }\n        break;\n      } else {\n        if (upper_a) {\n          current_a -= min(current_a, r[j] - (j == 0 ? 0 : r[j-1]));\n        } else {\n          current_a += min(x - current_a, r[j] - (j == 0 ? 0 : r[j-1]));\n        }\n        upper_a = !upper_a;\n      }\n    }\n    if (upper_a) {\n        current_a -= min(current_a, t - (k == 0 ? 0 : r[k-1]));\n    } else {\n        current_a += min(x - current_a, t - (k == 0 ? 0 : r[k-1]));\n    }\n    cout << current_a << endl;\n  }\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

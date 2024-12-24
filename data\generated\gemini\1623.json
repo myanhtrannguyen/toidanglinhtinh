@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1623",
+    "problem_id": "p03984",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\n#define MOD 1000000007\n\nint main() {\n    int n, k;\n    scanf(\"%d %d\", &n, &k);\n\n    int a[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &a[i]);\n        a[i]--; \n    }\n\n    long long count = 0;\n    int colors[n];\n    \n    for (int i = 0; i < pow(k,n); ++i) {\n        int temp = i;\n        for (int j = 0; j < n; ++j) {\n            colors[j] = temp % k;\n            temp /= k;\n        }\n        count++;\n    }\n\n    printf(\"%lld\\n\", count % MOD);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1513",
+    "problem_id": "p03955",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N;\n    scanf(\"%d\", &N);\n    int a[3][N];\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < N; j++) {\n            scanf(\"%d\", &a[i][j]);\n        }\n    }\n    int b[3][N];\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < N; j++) {\n            b[i][j] = i + 3 * j + 1;\n        }\n    }\n    int sum_a = 0, sum_b = 0;\n    for (int i = 0; i < 3; i++) {\n        for (int j = 0; j < N; j++) {\n            sum_a += a[i][j];\n            sum_b += b[i][j];\n        }\n    }\n    if (sum_a == sum_b) {\n        printf(\"Yes\\n\");\n    } else {\n        printf(\"No\\n\");\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

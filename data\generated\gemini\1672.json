@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1672",
+    "problem_id": "p03996",
+    "language": "Python",
+    "solution": "```python\nn, m = map(int, input().split())\nq = list(map(int, input().split()))\n\ncounts = {}\nfor x in q:\n    counts[x] = counts.get(x, 0) + 1\n\npossible = True\nfor count in counts.values():\n    if count < n:\n        possible = False\n        break\n\nif possible:\n    print(\"Yes\")\nelse:\n    print(\"No\")\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

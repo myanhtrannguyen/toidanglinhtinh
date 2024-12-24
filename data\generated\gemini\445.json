@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-445",
+    "problem_id": "p03668",
+    "language": "Python",
+    "solution": "```python\nimport collections\n\ndef solve():\n    n = int(input())\n    edges = []\n    graph = collections.defaultdict(list)\n    for _ in range(n - 1):\n        u, v = map(int, input().split())\n        edges.append((u, v))\n        graph[u].append(v)\n        graph[v].append(u)\n\n    if n % 2 == 1:\n        print(\"Alice\")\n    else:\n        print(\"Bob\")\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

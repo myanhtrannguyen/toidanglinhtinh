@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1118",
+    "problem_id": "p03847",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  long long n;\n  cin >> n;\n\n  long long ans = 0;\n  long long mod = 1e9 + 7;\n\n  for (long long u = 0; u <= n; ++u) {\n    for (long long v = 0; v <= n; ++v) {\n      bool found = false;\n      for (long long a = 0; a <= v; ++a) {\n        long long b = v - a;\n        if (b < 0) continue;\n        if ((a ^ b) == u) {\n          found = true;\n          break;\n        }\n      }\n      if (found) ans = (ans + 1) % mod;\n    }\n  }\n  cout << ans << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

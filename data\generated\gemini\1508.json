@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1508",
+    "problem_id": "p03953",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nx = list(map(int, input().split()))\nm, k = map(int, input().split())\na = list(map(int, input().split()))\n\nif k == 0:\n    for val in x:\n        print(val)\nelse:\n    mat = [[0.0] * n for _ in range(n)]\n    for i in range(n):\n        mat[i][i] = 1.0\n    for _ in range(k):\n        new_mat = [[0.0] * n for _ in range(n)]\n        for i in range(n):\n            for j in range(n):\n                for l in range(n):\n                    new_mat[i][j] += mat[i][l] * mat[l][j]\n        mat = new_mat\n    \n    for j in range(m):\n        idx = a[j]-1\n        mat[idx][idx-1] = 0.5\n        mat[idx][idx+1] = 0.5\n        mat[idx][idx] = 0\n        \n\n    new_x = [0.0] * n\n    for i in range(n):\n        for j in range(n):\n            new_x[i] += mat[i][j] * x[j]\n\n    for val in new_x:\n        print(val)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

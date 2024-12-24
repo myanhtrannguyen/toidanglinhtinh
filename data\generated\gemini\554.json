@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-554",
+    "problem_id": "p03698",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.lang.*;\nimport java.io.*;\n\nclass Main {\n    public static void main(String[] args) throws java.lang.Exception {\n        Scanner sc = new Scanner(System.in);\n        String s = sc.next();\n        Set<Character> set = new HashSet<>();\n        boolean flag = true;\n        for (int i = 0; i < s.length(); i++) {\n            if (!set.add(s.charAt(i))) {\n                flag = false;\n                break;\n            }\n        }\n        if (flag) {\n            System.out.println(\"yes\");\n        } else {\n            System.out.println(\"no\");\n        }\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

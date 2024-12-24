@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-333",
+    "problem_id": "p03638",
+    "language": "Python",
+    "solution": "```python\nH, W = map(int, input().split())\nN = int(input())\na = list(map(int, input().split()))\n\ngrid = [[0 for _ in range(W)] for _ in range(H)]\ncount = 0\ncolor_index = 0\nr, c = 0, 0\ndr = [0, 1, 0, -1]\ndc = [1, 0, -1, 0]\n\nfor i in range(N):\n    num_to_paint = a[i]\n    stack = [(r, c)]\n    while num_to_paint > 0:\n        curr_r, curr_c = stack.pop()\n        if 0 <= curr_r < H and 0 <= curr_c < W and grid[curr_r][curr_c] == 0:\n            grid[curr_r][curr_c] = i + 1\n            num_to_paint -= 1\n            for j in range(4):\n                next_r, next_c = curr_r + dr[j], curr_c + dc[j]\n                stack.append((next_r, next_c))\n        \n        if num_to_paint == 0:\n            break\n        \n        if stack == []:\n            for nr in range(r,H):\n                for nc in range(c, W):\n                    if grid[nr][nc] == 0:\n                        r, c = nr, nc\n                        stack.append((r,c))\n                        break\n                if stack:\n                    break\n\nfor row in grid:\n    print(*row)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

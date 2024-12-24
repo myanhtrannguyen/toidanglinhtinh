@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1514",
+    "problem_id": "p03955",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    int n;\n    cin >> n;\n\n    vector<vector<long long>> a(3, vector<long long>(n));\n    for (int i = 0; i < 3; ++i) {\n        for (int j = 0; j < n; ++j) {\n            cin >> a[i][j];\n        }\n    }\n\n    vector<vector<long long>> b(3, vector<long long>(n));\n    for (int i = 0; i < 3; ++i) {\n        for (int j = 0; j < n; ++j) {\n            b[i][j] = i + 3 * j + 1;\n        }\n    }\n\n    vector<long long> count_a(3 * n + 1, 0);\n    vector<long long> count_b(3 * n + 1, 0);\n    for (int i = 0; i < 3; ++i) {\n        for (int j = 0; j < n; ++j) {\n            count_a[a[i][j]]++;\n            count_b[b[i][j]]++;\n        }\n    }\n\n    bool possible = true;\n    for (int i = 1; i <= 3 * n; ++i) {\n        if (count_a[i] != count_b[i]) {\n            possible = false;\n            break;\n        }\n    }\n\n    if (possible) {\n        cout << \"Yes\" << endl;\n    } else {\n        cout << \"No\" << endl;\n    }\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-996",
+    "problem_id": "p03814",
+    "language": "Python",
+    "solution": "```python\ns = input()\nmax_len = 0\nfor i in range(len(s)):\n    if s[i] == 'A':\n        for j in range(i + 1, len(s)):\n            if s[j] == 'Z':\n                max_len = max(max_len, j - i + 1)\nprint(max_len)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1355",
+    "problem_id": "p03913",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nlong long solve() {\n    long long n, a;\n    scanf(\"%lld %lld\", &n, &a);\n    if (n == 1) return 1;\n    long long l = 1, r = 2 * n;\n    long long ans = 2 * n;\n    while (l <= r) {\n        long long mid = l + (r - l) / 2;\n        long long cur = 1;\n        long long time = 0;\n        long long cookies = 0;\n        while (cookies < n) {\n            long long next_time = mid - time;\n            if (cur == 1) {\n                long long add = next_time;\n                cookies += add;\n                time += add;\n            } else {\n                long long add = next_time / cur * cur;\n                cookies += add;\n                time += add/cur;\n\n            }\n            if (cookies >= n) break;\n            long long eat_time = a;\n            if (time + eat_time > mid) break;\n            time += eat_time;\n            cur = cookies;\n\n        }\n\n        if (cookies >= n) {\n            ans = mid;\n            r = mid - 1;\n        } else {\n            l = mid + 1;\n        }\n    }\n    return ans;\n}\n\nint main() {\n    printf(\"%lld\\n\", solve());\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

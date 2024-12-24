@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-282",
+    "problem_id": "p03625",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        Map<Long, Integer> count = new HashMap<>();\n        for (int i = 0; i < n; i++) {\n            long a = sc.nextLong();\n            count.put(a, count.getOrDefault(a, 0) + 1);\n        }\n        List<Long> lengths = new ArrayList<>(count.keySet());\n        Collections.sort(lengths);\n        long maxArea = 0;\n        for (int i = 0; i < lengths.size(); i++) {\n            if (count.get(lengths.get(i)) >= 2) {\n                for (int j = i; j < lengths.size(); j++) {\n                    if (count.get(lengths.get(j)) >= 2 && i != j) {\n                        long area = lengths.get(i) * lengths.get(j);\n                        maxArea = Math.max(maxArea, area);\n                    }\n                }\n            }\n        }\n        System.out.println(maxArea);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

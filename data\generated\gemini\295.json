@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-295",
+    "problem_id": "p03628",
+    "language": "Python",
+    "solution": "```python\nMOD = 1000000007\n\ndef solve():\n    n = int(input())\n    s1 = input()\n    s2 = input()\n    \n    adj = {}\n    for i in range(n):\n        if s1[i] not in adj:\n            adj[s1[i]] = []\n        if s2[i] not in adj:\n            adj[s2[i]] = []\n        if i > 0:\n            if s1[i] != s1[i-1]:\n                adj[s1[i]].append(s1[i-1])\n                adj[s1[i-1]].append(s1[i])\n            if s2[i] != s2[i-1]:\n                adj[s2[i]].append(s2[i-1])\n                adj[s2[i-1]].append(s2[i])\n            if s1[i] != s2[i-1]:\n                adj[s1[i]].append(s2[i-1])\n                adj[s2[i-1]].append(s1[i])\n            if s2[i] != s1[i-1]:\n                adj[s2[i]].append(s1[i-1])\n                adj[s1[i-1]].append(s2[i])\n        \n    \n    dominoes = set(list(s1) + list(s2))\n    \n    color_count = {}\n    for d in dominoes:\n        color_count[d] = 3\n\n    \n    count = 1\n    for d in dominoes:\n        count = (count * color_count[d]) % MOD\n\n    print(count)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

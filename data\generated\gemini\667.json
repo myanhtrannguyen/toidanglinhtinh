@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-667",
+    "problem_id": "p03728",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n = int(input())\n    p = list(map(int, input().split()))\n    \n    count = 0\n    while True:\n        high = []\n        low = []\n        max_so_far = 0\n        for x in p:\n            if x > max_so_far:\n                high.append(x)\n                max_so_far = x\n            else:\n                low.append(x)\n        \n        if all(p[i] == i + 1 for i in range(n)):\n            break\n        \n        p = low + high\n        count += 1\n    print(count)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

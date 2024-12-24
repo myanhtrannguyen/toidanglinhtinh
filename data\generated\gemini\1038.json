@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1038",
+    "problem_id": "p03826",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        long a = scanner.nextLong();\n        long b = scanner.nextLong();\n        long c = scanner.nextLong();\n        long d = scanner.nextLong();\n        long area1 = a * b;\n        long area2 = c * d;\n        System.out.println(Math.max(area1, area2));\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

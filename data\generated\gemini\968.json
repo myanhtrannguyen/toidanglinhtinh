@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-968",
+    "problem_id": "p03807",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.lang.*;\n\nclass Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int odd = 0;\n        int even = 0;\n        for (int i = 0; i < n; i++) {\n            int a = sc.nextInt();\n            if (a % 2 == 0) {\n                even++;\n            } else {\n                odd++;\n            }\n        }\n        if (odd == 0 || even == 0 || Math.abs(odd - even) == 1) {\n            System.out.println(\"YES\");\n        } else {\n            System.out.println(\"NO\");\n        }\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

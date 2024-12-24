@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1815",
+    "problem_id": "p04034",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, m = map(int, input().split())\n    edges = []\n    for _ in range(m):\n        u, v = map(int, input().split())\n        edges.append((u, v))\n\n    possible_locations = {1}\n    \n    for i in range(m):\n        next_possible_locations = set()\n        for loc in possible_locations:\n            u, v = edges[i]\n            if loc == u:\n                next_possible_locations.add(v)\n            else:\n                next_possible_locations.add(loc)\n        possible_locations = next_possible_locations\n\n    print(len(possible_locations))\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

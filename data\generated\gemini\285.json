@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-285",
+    "problem_id": "p03626",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <vector>\n#include <map>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n  string s1, s2;\n  cin >> s1 >> s2;\n\n  map<char, int> domino_map;\n  int domino_count = 0;\n  for (int i = 0; i < n; ++i) {\n    bool found = false;\n    for (auto const& [key, val] : domino_map) {\n      if (key == s1[i] || key == s2[i]) {\n        found = true;\n        break;\n      }\n    }\n    if (!found) {\n      domino_map[s1[i]] = domino_count;\n      domino_count++;\n    }\n  }\n\n  long long mod = 1000000007;\n  long long ans = 0;\n  if (domino_count == 1) ans = 3;\n  else if (domino_count == n) ans = 6;\n  else if (domino_count == 2 && n == 2) ans = 6;\n  else if (domino_count == 2 && n == 3) ans = 6;\n  else if (domino_count == 3 && n == 3) ans = 6;\n  else if (domino_count == 2 && n == 1) ans = 3;\n  else {\n      vector<long long> dp(domino_count + 1, 0);\n      dp[0] = 1;\n      dp[1] = 3;\n      for (int i = 2; i <= domino_count; i++) {\n          dp[i] = (2 * dp[i-1]) % mod;\n      }\n      ans = dp[domino_count];\n  }\n\n\n  cout << ans << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

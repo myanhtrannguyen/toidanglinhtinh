@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1380",
+    "problem_id": "p03920",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nans = []\ncur_sum = 0\ni = 1\nwhile cur_sum < n:\n    if cur_sum + i <= n:\n        ans.append(i)\n        cur_sum += i\n    i += 1\nif cur_sum > n:\n    ans.pop()\n    i -= 1\n    while cur_sum + i > n:\n        i -= 1\n    ans.append(i)\nfor x in ans:\n    print(x)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

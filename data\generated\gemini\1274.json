@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1274",
+    "problem_id": "p03890",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nlong long solve(long long arr[], long long n) {\n    if (n == 1) return arr[0];\n    long long newArr[(1LL << (n - 1))];\n    for (long long i = 0; i < (1LL << n); i += 2) {\n        if (arr[i] > arr[i + 1]) {\n            newArr[i / 2] = arr[i] - arr[i + 1];\n        } else if (arr[i] < arr[i + 1]) {\n            newArr[i / 2] = arr[i + 1] - arr[i];\n        } else {\n            newArr[i / 2] = arr[i];\n        }\n    }\n    return solve(newArr, n - 1);\n}\n\nint main() {\n    long long n;\n    scanf(\"%lld\", &n);\n    long long arr[(1LL << n)];\n    for (long long i = 0; i < (1LL << n); i++) {\n        scanf(\"%lld\", &arr[i]);\n    }\n    printf(\"%lld\\n\", solve(arr, n));\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

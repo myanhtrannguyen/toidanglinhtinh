@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1832",
+    "problem_id": "p04039",
+    "language": "Python",
+    "solution": "```python\nn, k = map(int, input().split())\ndisliked_digits = set(map(int, input().split()))\n\ndef find_amount(n, disliked_digits):\n    s = str(n)\n    l = len(s)\n    for i in range(l):\n        digit = int(s[i])\n        if digit in disliked_digits:\n            found = False\n            for j in range(digit + 1, 10):\n                if j not in disliked_digits:\n                    new_s = list(s)\n                    new_s[i] = str(j)\n                    for k in range(i + 1, l):\n                        new_s[k] = '0'\n                    return int(\"\".join(new_s))\n            \n            new_s = ['1']\n            new_s.extend(['0'] * (l - i -1))\n            \n            \n            for x in range(i+1):\n                new_s[x] = '0'\n            \n            \n            \n            \n            \n            \n            for j in range(10):\n                if j not in disliked_digits:\n                    new_s[0] = str(j)\n                    break\n            \n            return int(\"\".join(new_s))\n    return n\n\nprint(find_amount(n, disliked_digits))\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

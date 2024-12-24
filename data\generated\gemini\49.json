@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-49",
+    "problem_id": "p03564",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n  long long n, k;\n  cin >> n >> k;\n\n  long long min_val = -1;\n\n  for (int i = 0; i <= n; ++i) {\n    long long cur_val = 1;\n    long long cur_n = n;\n    \n    for (int j = 0; j < i; ++j) {\n      cur_val *= 2;\n      cur_n--;\n    }\n    cur_val += cur_n * k;\n\n    if (min_val == -1 || cur_val < min_val) {\n      min_val = cur_val;\n    }\n  }\n  cout << min_val << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

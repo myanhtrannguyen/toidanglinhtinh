@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-591",
+    "problem_id": "p03708",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <set>\n\nusing namespace std;\n\nint main() {\n  long long a, b;\n  cin >> a >> b;\n\n  set<long long> s;\n  for (long long i = a; i <= b; ++i) {\n    s.insert(i);\n  }\n\n  set<long long> or_values;\n  or_values.insert(0);\n\n  for (long long i = 0; i < (1LL << s.size()); ++i) {\n    long long current_or = 0;\n    long long k = 0;\n    for (long long x : s) {\n      if ((i >> k) & 1) {\n        current_or |= x;\n      }\n      k++;\n    }\n    if (current_or != 0)\n      or_values.insert(current_or);\n  }\n\n  cout << or_values.size() << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1252",
+    "problem_id": "p03883",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nintervals = []\nfor i in range(n):\n    l, r = map(int, input().split())\n    intervals.append((-l, r))\n\nintervals.sort()\ncost = 0\nrightmost = 0\nfor l, r in intervals:\n    if l >= rightmost:\n        rightmost = r\n    else:\n        move = rightmost - l\n        cost += move\n        rightmost += r - l + move\n\nprint(cost)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

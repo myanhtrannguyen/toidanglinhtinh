@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1444",
+    "problem_id": "p03937",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int H, W;\n    scanf(\"%d %d\", &H, &W);\n    char a[H][W];\n    for (int i = 0; i < H; i++) {\n        for (int j = 0; j < W; j++) {\n            scanf(\" %c\", &a[i][j]);\n        }\n    }\n    int possible = 1;\n    for (int i = 0; i < H; i++) {\n        for (int j = 0; j < W; j++) {\n            if (a[i][j] == '#') {\n                int k = 0;\n                for (int x = 0; x <= i; x++) {\n                    for (int y = 0; y <= j; y++) {\n                        if (x == 0 && y == 0) continue;\n                        if (a[x][y] == '#') k++;\n                    }\n                }\n                if (k != i + j) {\n                    possible = 0;\n                    break;\n                }\n                \n            }\n        }\n        if (!possible) break;\n    }\n    if (possible && a[H-1][W-1] == '#') {\n        printf(\"Possible\\n\");\n    } else {\n        printf(\"Impossible\\n\");\n    }\n    \n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

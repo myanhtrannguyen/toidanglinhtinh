@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1625",
+    "problem_id": "p03984",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.math.*;\n\npublic class Main {\n    static final int MOD = 1000000007;\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int k = sc.nextInt();\n        int[] a = new int[n];\n        for (int i = 0; i < n; i++) {\n            a[i] = sc.nextInt() - 1;\n        }\n\n        long ans = 0;\n        int[] colors = new int[n];\n        boolean[] used = new boolean[k];\n        \n        \n        function(0, a, colors, k, used, n, ans);\n        System.out.println(ans);\n        \n\n    }\n\n    static void function(int v, int[] a, int[] colors, int k, boolean[] used, int n, long ans){\n        if(v == n){\n            ans++;\n            return;\n        }\n\n        for(int i = 0; i < k; i++){\n            boolean possible = true;\n            colors[v] = i;\n            if(colors[a[v]] == colors[v]){\n                possible = false;\n            }\n            if(possible){\n                function(v + 1, a, colors, k, used, n, ans);\n            }\n        }\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

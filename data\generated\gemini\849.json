@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-849",
+    "problem_id": "p03775",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <algorithm>\n#include <cmath>\n\nusing namespace std;\n\nint digits(long long n) {\n  if (n == 0) return 1;\n  return floor(log10(n)) + 1;\n}\n\nint main() {\n  long long n;\n  cin >> n;\n\n  long long min_f = 1e9;\n  for (long long a = 1; a * a <= n; ++a) {\n    if (n % a == 0) {\n      long long b = n / a;\n      min_f = min(min_f, max(digits(a), digits(b)));\n    }\n  }\n  cout << min_f << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

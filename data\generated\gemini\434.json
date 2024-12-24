@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-434",
+    "problem_id": "p03666",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdbool.h>\n\nint main() {\n    long long n, a, b, c, d;\n    scanf(\"%lld %lld %lld %lld %lld\", &n, &a, &b, &c, &d);\n    long long min_b = a, max_b = a;\n    for (long long i = 1; i < n; i++) {\n        long long next_min = min_b - d;\n        long long next_max = max_b + d;\n        min_b = next_min > next_max ? next_min : next_max;\n        max_b = next_max > next_min ? next_max : next_min;\n        \n    }\n    if (b >= min_b && b <= max_b) {\n        printf(\"YES\\n\");\n    } else {\n        printf(\"NO\\n\");\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

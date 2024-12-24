@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1532",
+    "problem_id": "p03959",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nt = list(map(int, input().split()))\na = list(map(int, input().split()))\nmod = 10**9 + 7\n\nh = [0] * n\nans = 1\nmin_a = a[0]\nfor i in range(n):\n    max_t = t[i]\n    min_a = min(min_a, a[i])\n    if max_t > min_a:\n        ans = 0\n        break\n    if i == 0:\n        h[i] = min(max_t, min_a)\n        continue\n    max_h = h[i - 1]\n    if max_h > max_t:\n      ans = 0\n      break\n    \n    if max_t == max_h:\n        h[i] = max_t\n    else:\n        h[i] = min(max_t, min_a)\n        \n    if h[i] < max_h:\n      ans = 0\n      break\n    \nprint(ans)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

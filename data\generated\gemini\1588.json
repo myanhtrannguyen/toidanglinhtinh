@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1588",
+    "problem_id": "p03974",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n = int(input())\n    s = [input() for _ in range(n)]\n    q = int(input())\n\n    for _ in range(q):\n        k, p = input().split()\n        k = int(k) - 1\n        \n        order = {}\n        for i, char in enumerate(p):\n            order[char] = i\n\n        def custom_sort(x):\n            return \"\".join([str(order[c]) for c in x])\n\n        sorted_s = sorted(s, key=custom_sort)\n        print(sorted_s.index(s[k]) + 1)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

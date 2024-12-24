@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1305",
+    "problem_id": "p03897",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nresult = []\nfor i in range(n):\n    for j in range(n):\n        if (i + j) % 2 != 0:\n            if (i % 2 == 1 and j == 0) or (i ==0 and j%2 ==1):\n                result.append((i, j))\n\nprint(len(result))\nfor x, y in result:\n    print(x, y)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

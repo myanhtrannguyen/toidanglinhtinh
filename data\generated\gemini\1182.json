@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1182",
+    "problem_id": "p03864",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long n, x;\n    scanf(\"%lld %lld\", &n, &x);\n    long long a[n];\n    for (long long i = 0; i < n; i++) {\n        scanf(\"%lld\", &a[i]);\n    }\n    long long ans = 0;\n    for (long long i = 0; i < n - 1; i++) {\n        long long sum = a[i] + a[i + 1];\n        if (sum > x) {\n            long long diff = sum - x;\n            ans += diff;\n            a[i + 1] -= diff;\n        }\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

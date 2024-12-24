@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1259",
+    "problem_id": "p03886",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int a[n];\n    int count90 = 0;\n    int count270 = 0;\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &a[i]);\n        if (a[i] == 90)\n            count90++;\n        else\n            count270++;\n    }\n    if (count90 != count270) {\n        printf(\"-1\\n\");\n        return 0;\n    }\n    int x = 0, y = 0;\n    int dx = 1, dy = 0;\n    printf(\"0 0\\n\");\n    for (int i = 0; i < n - 1; i++) {\n        if (a[i] == 90) {\n            x += dx;\n            y += dy;\n            int temp = dx;\n            dx = -dy;\n            dy = temp;\n\n        } else {\n            x += dx;\n            y += dy;\n            int temp = dx;\n            dx = dy;\n            dy = -temp;\n        }\n        printf(\"%d %d\\n\", x, y);\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

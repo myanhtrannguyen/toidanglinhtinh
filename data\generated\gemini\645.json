@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-645",
+    "problem_id": "p03723",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    long long a, b, c;\n    scanf(\"%lld %lld %lld\", &a, &b, &c);\n\n    int count = 0;\n    while (a % 2 == 0 && b % 2 == 0 && c % 2 == 0) {\n        long long next_a = (a + b + c) / 2;\n        long long next_b = (a + b + c) / 2;\n        long long next_c = (a + b + c) / 2;\n        a = next_a;\n        b = next_b;\n        c = next_c;\n        count++;\n        if (count > 1000) {\n            printf(\"-1\\n\");\n            return 0;\n        }\n    }\n    printf(\"%d\\n\", count);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

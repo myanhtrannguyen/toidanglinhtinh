@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1524",
+    "problem_id": "p03957",
+    "language": "Python",
+    "solution": "```python\ns = input()\nc_index = -1\nf_index = -1\nfor i in range(len(s)):\n    if s[i] == 'C' and c_index == -1:\n        c_index = i\n    elif s[i] == 'F' and c_index != -1 and i > c_index:\n        f_index = i\n        break\nif c_index != -1 and f_index != -1:\n    print(\"Yes\")\nelse:\n    print(\"No\")\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

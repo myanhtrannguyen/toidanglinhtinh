@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-235",
+    "problem_id": "p03613",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <map>\n\nusing namespace std;\n\nint main() {\n  int n;\n  cin >> n;\n\n  map<long long, long long> counts;\n  for (int i = 0; i < n; ++i) {\n    long long a;\n    cin >> a;\n    counts[a]++;\n    counts[a - 1]++;\n    counts[a + 1]++;\n  }\n\n  long long max_count = 0;\n  for (auto const& [key, val] : counts) {\n    max_count = max(max_count, val);\n  }\n\n  cout << max_count << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

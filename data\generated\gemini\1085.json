@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1085",
+    "problem_id": "p03839",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    long long n, k;\n    scanf(\"%lld %lld\", &n, &k);\n    long long a[n];\n    for (long long i = 0; i < n; i++) {\n        scanf(\"%lld\", &a[i]);\n    }\n    long long dp[n + 1];\n    for (long long i = 0; i <= n; i++) {\n        dp[i] = -1e18; \n    }\n    dp[0] = 0;\n    for (long long i = 1; i <= n; i++) {\n        for (long long j = i - 1; j >= 0; j--) {\n            if (i - j >= k) {\n                long long sum = 0;\n                for (long long l = j; l < i; l++) {\n                    sum += a[l];\n                }\n                dp[i] = (dp[i] > dp[j] + sum) ? dp[i] : dp[j] + sum;\n                dp[i] = (dp[i] > dp[j]) ? dp[i] : dp[j];\n            }\n        }\n    }\n    long long ans = 0;\n    for (long long i = 0; i <=n; i++) {\n        ans = (ans > dp[i]) ? ans : dp[i];\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

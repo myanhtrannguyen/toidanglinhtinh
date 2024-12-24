@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1708",
+    "problem_id": "p04006",
+    "language": "Python",
+    "solution": "```python\nn, x = map(int, input().split())\na = list(map(int, input().split()))\n\nmin_cost = sum(a)\n\nfor i in range(n):\n    cost = 0\n    have = [False] * n\n    current_cost = 0\n    \n    for j in range(n):\n        color = (i + j) % n\n        if not have[color]:\n            current_cost += a[color]\n            have[color] = True\n\n    \n    num_spells = 0\n    \n    temp_have = [False] * n\n    temp_cost = 0\n\n    for k in range(n):\n      color = (i + k) % n\n      if not temp_have[color]:\n        temp_cost += a[color]\n        temp_have[color] = True\n      if all(temp_have):\n        break\n      else:\n        temp_cost += x\n    \n    min_cost = min(min_cost, temp_cost)\n\n\nprint(min_cost)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

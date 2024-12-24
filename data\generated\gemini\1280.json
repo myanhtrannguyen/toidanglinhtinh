@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1280",
+    "problem_id": "p03891",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class MagicSquare {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        int A = scanner.nextInt();\n        int B = scanner.nextInt();\n        int C = scanner.nextInt();\n\n        int sum = A + B + C;\n        int X13 = sum - A - B;\n        int X21 = sum - A - C;\n        int X31 = sum - A - X13;\n        int X11 = A;\n        int X12 = B;\n        int X22 = C;\n        int X23 = sum - B - C;\n        int X32 = sum - C - X23;\n        int X33 = sum - X31 - X32;\n\n\n        System.out.println(X11 + \" \" + X12 + \" \" + X13);\n        System.out.println(X21 + \" \" + X22 + \" \" + X23);\n        System.out.println(X31 + \" \" + X32 + \" \" + X33);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

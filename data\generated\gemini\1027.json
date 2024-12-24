@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1027",
+    "problem_id": "p03823",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long n, a, b;\n  cin >> n >> a >> b;\n\n  vector<long long> s(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> s[i];\n  }\n\n  long long count = 0;\n  for (int i = 0; i < (1 << n); ++i) {\n    vector<long long> x, y;\n    for (int j = 0; j < n; ++j) {\n      if ((i >> j) & 1) {\n        x.push_back(s[j]);\n      } else {\n        y.push_back(s[j]);\n      }\n    }\n\n    bool ok_x = true;\n    for (int j = 0; j < x.size(); ++j) {\n      for (int k = j + 1; k < x.size(); ++k) {\n        if (abs(x[j] - x[k]) < a) {\n          ok_x = false;\n          break;\n        }\n      }\n      if (!ok_x) break;\n    }\n\n    bool ok_y = true;\n    for (int j = 0; j < y.size(); ++j) {\n      for (int k = j + 1; k < y.size(); ++k) {\n        if (abs(y[j] - y[k]) < b) {\n          ok_y = false;\n          break;\n        }\n      }\n      if (!ok_y) break;\n    }\n\n    if (ok_x && ok_y) {\n      count++;\n    }\n  }\n\n  cout << count << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

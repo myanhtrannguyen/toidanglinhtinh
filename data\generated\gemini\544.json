@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-544",
+    "problem_id": "p03696",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    char s[101];\n    scanf(\"%s\", s);\n    int balance = 0, min_balance = 0;\n    for (int i = 0; i < n; i++) {\n        if (s[i] == '(')\n            balance++;\n        else\n            balance--;\n        min_balance = min(min_balance, balance);\n    }\n    int add_left = -min_balance;\n    int add_right = balance - min_balance;\n    char result[202];\n    int k = 0;\n    for (int i = 0; i < add_left; i++)\n        result[k++] = '(';\n    for (int i = 0; i < n; i++)\n        result[k++] = s[i];\n    for (int i = 0; i < add_right; i++)\n        result[k++] = ')';\n    result[k] = '\\0';\n    printf(\"%s\\n\", result);\n    return 0;\n}\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

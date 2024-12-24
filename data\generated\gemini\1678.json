@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1678",
+    "problem_id": "p03998",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main() {\n    string sa, sb, sc;\n    cin >> sa >> sb >> sc;\n\n    string decks[] = {sa, sb, sc};\n    int turn = 0;\n\n    while (true) {\n        if (decks[turn].empty()) {\n            cout << (char)('A' + turn) << endl;\n            break;\n        }\n\n        char card = decks[turn][0];\n        decks[turn] = decks[turn].substr(1);\n\n        if (card == 'a') turn = 0;\n        else if (card == 'b') turn = 1;\n        else turn = 2;\n    }\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

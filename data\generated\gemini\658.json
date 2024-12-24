@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-658",
+    "problem_id": "p03726",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        List<List<Integer>> graph = new ArrayList<>();\n        for (int i = 0; i < n; i++) {\n            graph.add(new ArrayList<>());\n        }\n        for (int i = 0; i < n - 1; i++) {\n            int a = sc.nextInt() - 1;\n            int b = sc.nextInt() - 1;\n            graph.get(a).add(b);\n            graph.get(b).add(a);\n        }\n        if (n % 2 == 1) {\n            System.out.println(\"First\");\n        } else {\n            boolean leaf = true;\n            for (int i = 0; i < n; i++) {\n                if (graph.get(i).size() > 1) {\n                    leaf = false;\n                    break;\n                }\n            }\n            if (leaf) System.out.println(\"Second\");\n            else System.out.println(\"First\");\n\n        }\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

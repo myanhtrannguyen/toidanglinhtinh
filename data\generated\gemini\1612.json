@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1612",
+    "problem_id": "p03981",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char T[100001];\n    scanf(\"%s\", T);\n    int n = strlen(T);\n    int count = 0;\n    for (int len = 1; len <= n; len++) {\n        for (int i = 0; i <= n - len; i++) {\n            int flag = 1;\n            for (int j = 0; j < i; j++) {\n                int k = 0;\n                for (int l = j; l < n; l++) {\n                    if (k < len && T[l] == T[i + k]) {\n                        k++;\n                    }\n                    if (k == len) {\n                        flag = 0;\n                        break;\n                    }\n                }\n                if (!flag) break;\n            }\n            if (flag) count++;\n        }\n    }\n    printf(\"%d\\n\", count);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

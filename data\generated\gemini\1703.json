@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1703",
+    "problem_id": "p04005",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.lang.*;\n\nclass Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long a = sc.nextLong();\n        long b = sc.nextLong();\n        long c = sc.nextLong();\n        long total = a * b * c;\n        long ans = Long.MAX_VALUE;\n        for (long i = 1; i < a; i++) {\n            long red = i * b * c;\n            long blue = total - red;\n            ans = Math.min(ans, Math.abs(red - blue));\n        }\n        for (long i = 1; i < b; i++) {\n            long red = a * i * c;\n            long blue = total - red;\n            ans = Math.min(ans, Math.abs(red - blue));\n        }\n        for (long i = 1; i < c; i++) {\n            long red = a * b * i;\n            long blue = total - red;\n            ans = Math.min(ans, Math.abs(red - blue));\n        }\n        System.out.println(ans);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

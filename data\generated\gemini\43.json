@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-43",
+    "problem_id": "p03562",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, x_str = input().split()\n    n = int(n)\n    x = int(x_str, 2)\n    a = [int(input(), 2) for _ in range(n)]\n\n    s = set(a)\n    q = list(a)\n    \n    while q:\n        cur = q.pop(0)\n        if cur * 2 <= x and cur * 2 not in s:\n            s.add(cur * 2)\n            q.append(cur * 2)\n        for val in s:\n            xor_val = cur ^ val\n            if xor_val <= x and xor_val not in s:\n                s.add(xor_val)\n                q.append(xor_val)\n\n    print(len(s))\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

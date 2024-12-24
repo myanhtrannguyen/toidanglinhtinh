@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1847",
+    "problem_id": "p04043",
+    "language": "Python",
+    "solution": "```python\na, b, c = map(int, input().split())\n\nperms = [(a, b, c), (a, c, b), (b, a, c), (b, c, a), (c, a, b), (c, b, a)]\n\npossible = False\nfor perm in perms:\n    if perm[0] == 5 and perm[1] == 7 and perm[2] == 5:\n        possible = True\n        break\n\nif possible:\n    print(\"YES\")\nelse:\n    print(\"NO\")\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1808",
+    "problem_id": "p04032",
+    "language": "Python",
+    "solution": "```python\ns = input()\nn = len(s)\nfor i in range(n - 1):\n    for j in range(i + 1, n):\n        sub = s[i:j + 1]\n        length = len(sub)\n        counts = {}\n        for char in sub:\n            counts[char] = counts.get(char, 0) + 1\n        max_count = 0\n        for count in counts.values():\n            max_count = max(max_count, count)\n        if max_count > length // 2:\n            print(i + 1, j + 1)\n            exit()\nprint(-1, -1)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

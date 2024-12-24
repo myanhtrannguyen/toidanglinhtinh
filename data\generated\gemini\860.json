@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-860",
+    "problem_id": "p03778",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    long long W, a, b;\n    scanf(\"%lld %lld %lld\", &W, &a, &b);\n    long long diff = abs(a + W - b);\n    long long diff2 = abs(b + W - a);\n    long long ans = 0;\n    if (a + W >= b && b + W >= a) {\n        ans = 0;\n    } else if (a + W < b) {\n        ans = b - (a + W);\n    } else {\n        ans = a - (b + W);\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

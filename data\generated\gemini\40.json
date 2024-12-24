@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-40",
+    "problem_id": "p03561",
+    "language": "Python",
+    "solution": "```python\nK, N = map(int, input().split())\n\ntotal_sequences = 0\nfor i in range(1, N + 1):\n    total_sequences += K**i\n\nmiddle_index = (total_sequences + 1) // 2\n\ncurrent_index = 0\nresult = []\nfor length in range(N, 0, -1):\n    num_sequences_of_length = K**length\n    count = min(middle_index - current_index, num_sequences_of_length)\n    \n    value = (count -1 ) // (K**(length-1)) +1\n    result.append(value)\n    current_index += count\n\n    middle_index -=count\n    \n\n\nprint(*result)\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

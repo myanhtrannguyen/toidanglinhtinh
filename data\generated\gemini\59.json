@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-59",
+    "problem_id": "p03566",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n = int(input())\n    t = list(map(int, input().split()))\n    v = list(map(int, input().split()))\n\n    total_time = sum(t)\n    ans = 0.0\n\n    dp = {}\n    dp[0, 0] = 0\n\n    for i in range(n):\n        new_dp = {}\n        for (cur_time, cur_vel), cur_dist in dp.items():\n            for accel in [-1, 0, 1]:\n                next_vel = cur_vel + accel * t[i]\n                next_time = cur_time + t[i]\n                next_dist = cur_dist + cur_vel * t[i] + 0.5 * accel * t[i] ** 2\n\n                if abs(next_vel) <= v[i]:\n                    if (next_time, next_vel) not in new_dp or new_dp[(next_time, next_vel)] < next_dist:\n                        new_dp[(next_time, next_vel)] = next_dist\n\n        dp = new_dp\n    \n    max_dist = 0\n    for (cur_time, cur_vel), cur_dist in dp.items():\n        if cur_time == total_time:\n            \n            deceleration_time = cur_vel\n            deceleration_dist = 0.5 * cur_vel * deceleration_time\n            max_dist = max(max_dist, cur_dist + deceleration_dist)\n\n    print(max_dist)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

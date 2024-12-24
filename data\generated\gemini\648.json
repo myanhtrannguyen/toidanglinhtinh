@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-648",
+    "problem_id": "p03723",
+    "language": "Python",
+    "solution": "```python\na, b, c = map(int, input().split())\ncount = 0\nwhile (a % 2 == 0) and (b % 2 == 0) and (c % 2 == 0):\n    a, b, c = (a + b + c) // 2 - a, (a + b + c) // 2 - b, (a + b + c) // 2 - c\n    count += 1\n    if count > 1000:\n        count = -1\n        break\nprint(count)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

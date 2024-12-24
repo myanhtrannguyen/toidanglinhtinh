@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1579",
+    "problem_id": "p03972",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    long long W, H;\n    scanf(\"%lld %lld\", &W, &H);\n    long long *p = (long long *)malloc(W * sizeof(long long));\n    long long *q = (long long *)malloc(H * sizeof(long long));\n    long long total_cost = 0;\n    for (long long i = 0; i < W; i++) {\n        scanf(\"%lld\", &p[i]);\n    }\n    for (long long i = 0; i < H; i++) {\n        scanf(\"%lld\", &q[i]);\n    }\n    for (long long i = 0; i < W; i++) {\n        total_cost += p[i];\n    }\n    for (long long i = 0; i < H; i++) {\n        total_cost += q[i];\n    }\n    printf(\"%lld\\n\", total_cost);\n    free(p);\n    free(q);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

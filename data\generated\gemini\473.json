@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-473",
+    "problem_id": "p03677",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n, m;\n    scanf(\"%d %d\", &n, &m);\n    int a[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &a[i]);\n    }\n    long long min_presses = -1;\n    for (int x = 1; x <= m; x++) {\n        long long presses = 0;\n        for (int i = 0; i < n - 1; i++) {\n            int diff = abs(a[i] - a[i + 1]);\n            int press1 = diff;\n            int press2 = m - diff;\n            int press3 = 1 + (m - a[i] + x - 1) % m + (m - a[i+1] + x -1 ) %m;\n            int press4 = 1 + (a[i] - x + m -1)%m + (a[i+1] - x + m - 1 ) %m;\n\n            int press_x = (m - a[i] + x - 1) % m + (a[i + 1] - x + m - 1) % m + 1;\n            int press_x2 = (a[i] - x + m - 1) % m + (m - a[i + 1] + x - 1) % m + 1;\n            int cur_press = press_x < press_x2 ? press_x : press_x2;\n            \n            presses += cur_press < press1 ? cur_press: press1;\n        }\n        if (min_presses == -1 || presses < min_presses) {\n            min_presses = presses;\n        }\n    }\n    printf(\"%lld\\n\", min_presses);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

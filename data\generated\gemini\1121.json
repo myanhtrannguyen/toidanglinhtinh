@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1121",
+    "problem_id": "p03848",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\n#define MOD 1000000007\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int a[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &a[i]);\n    }\n    long long count = 0;\n    int p[n];\n    for (int i = 0; i < n; i++) {\n        p[i] = i + 1;\n    }\n    do {\n        int valid = 1;\n        for (int i = 0; i < n; i++) {\n            int left = 0;\n            int right = 0;\n            for (int j = 0; j < n; j++) {\n                if (p[j] < p[i]) {\n                    left++;\n                } else if (p[j] > p[i]) {\n                    right++;\n                }\n            }\n            if (abs(left - right) != a[i]) {\n                valid = 0;\n                break;\n            }\n        }\n        if (valid) {\n            count++;\n        }\n    } while (next_permutation(p, p + n));\n    printf(\"%lld\\n\", count % MOD);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1758",
+    "problem_id": "p04019",
+    "language": "Python",
+    "solution": "```python\ns = input()\nx, y = 0, 0\nfor c in s:\n    if c == 'N':\n        y += 1\n    elif c == 'S':\n        y -= 1\n    elif c == 'E':\n        x += 1\n    elif c == 'W':\n        x -= 1\nif x == 0 and y == 0:\n    print('Yes')\nelse:\n    print('No')\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

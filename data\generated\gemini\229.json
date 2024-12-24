@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-229",
+    "problem_id": "p03611",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        Map<Integer, Integer> count = new HashMap<>();\n        for (int i = 0; i < n; i++) {\n            int a = sc.nextInt();\n            count.put(a, count.getOrDefault(a, 0) + 1);\n            count.put(a - 1, count.getOrDefault(a - 1, 0) + 1);\n            count.put(a + 1, count.getOrDefault(a + 1, 0) + 1);\n\n        }\n        int max = 0;\n        for (int c : count.values()) {\n            max = Math.max(max, c);\n        }\n        System.out.println(max);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

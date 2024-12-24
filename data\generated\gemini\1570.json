@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1570",
+    "problem_id": "p03969",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, m, k = map(int, input().split())\n    edges = []\n    for _ in range(m):\n        u, v = map(int, input().split())\n        edges.append((u, v))\n\n    mod = 10**9 + 7\n\n    ans = pow(k, m, mod)\n    print(ans)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

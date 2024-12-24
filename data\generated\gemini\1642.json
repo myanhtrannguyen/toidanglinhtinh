@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1642",
+    "problem_id": "p03988",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\nif n == 2:\n    if a[0] == 1 and a[1] == 1:\n        print(\"Possible\")\n    else:\n        print(\"Impossible\")\n    exit()\n\na_sorted = sorted(a, reverse=True)\n\nif a_sorted[0] > n - 1 or a_sorted[0] != a_sorted[1] +1 :\n    print(\"Impossible\")\nelse:\n    \n    possible = True\n    count = {}\n    for x in a:\n        if x not in count:\n            count[x] = 0\n        count[x]+=1\n    \n    \n    \n    if a_sorted[0] != n-1:\n        possible = False\n    \n    \n    if possible:\n        print(\"Possible\")\n    else:\n        print(\"Impossible\")\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

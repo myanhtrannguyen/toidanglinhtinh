@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1283",
+    "problem_id": "p03892",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <numeric>\n\nlong long gcd(long long a, long long b) {\n    if (b == 0) return a;\n    return gcd(b, a % b);\n}\n\nint main() {\n    long long A, B, C, D;\n    std::cin >> A >> B >> C >> D;\n    long long dx = std::abs(C - A);\n    long long dy = std::abs(D - B);\n    std::cout << dx + dy - gcd(dx, dy) + 1 << std::endl;\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

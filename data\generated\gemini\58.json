@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-58",
+    "problem_id": "p03566",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int[] t = new int[n];\n        int[] v = new int[n];\n        for (int i = 0; i < n; i++) {\n            t[i] = sc.nextInt();\n        }\n        for (int i = 0; i < n; i++) {\n            v[i] = sc.nextInt();\n        }\n        double ans = 0;\n        double cur_v = 0;\n        double cur_t = 0;\n        for (int i = 0; i < n; i++) {\n            double time = t[i];\n            double vel = v[i];\n            double accel_time = Math.min(time, vel);\n            double dist = 0.5 * accel_time * accel_time;\n            cur_v += accel_time;\n            time -= accel_time;\n            dist += cur_v * time;\n            cur_v = Math.min(cur_v, vel);\n            ans += dist;\n\n            \n        }\n        double decel_time = cur_v;\n        ans += 0.5 * decel_time * decel_time;\n        System.out.println(ans);\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

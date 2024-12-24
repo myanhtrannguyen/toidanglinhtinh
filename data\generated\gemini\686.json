@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-686",
+    "problem_id": "p03733",
+    "language": "Python",
+    "solution": "```python\nn, t = map(int, input().split())\ntimes = list(map(int, input().split()))\n\nshower_on = 0\nlast_off = 0\n\nfor time in times:\n    if time > last_off:\n        shower_on += t\n        last_off = time + t\n    else:\n        last_off = time + t\n\nprint(shower_on)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

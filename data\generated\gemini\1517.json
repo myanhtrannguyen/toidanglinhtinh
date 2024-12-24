@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1517",
+    "problem_id": "p03956",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int N, M;\n    scanf(\"%d %d\", &N, &M);\n    int **grid = (int **)malloc(N * sizeof(int *));\n    for (int i = 0; i < N; i++) {\n        grid[i] = (int *)calloc(N, sizeof(int));\n    }\n    for (int i = 0; i < M; i++) {\n        int a, b;\n        scanf(\"%d %d\", &a, &b);\n        grid[a - 1][b - 1] = 1;\n    }\n    int changed = 1;\n    while (changed) {\n        changed = 0;\n        for (int x = 0; x < N; x++) {\n            for (int y = 0; y < N; y++) {\n                if (grid[x][y] == 1) {\n                    for (int z = 0; z < N; z++) {\n                        if (grid[y][z] == 1 && grid[z][x] == 0) {\n                            grid[z][x] = 1;\n                            changed = 1;\n                        }\n                    }\n                }\n            }\n        }\n    }\n    int count = 0;\n    for (int i = 0; i < N; i++) {\n        for (int j = 0; j < N; j++) {\n            count += grid[i][j];\n        }\n    }\n    printf(\"%d\\n\", count);\n    for (int i = 0; i < N; i++) {\n        free(grid[i]);\n    }\n    free(grid);\n    return 0;\n}\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1245",
+    "problem_id": "p03881",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class DiceGame {\n\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        double[] p = new double[6];\n        double[] q = new double[6];\n        for (int i = 0; i < 6; i++) {\n            p[i] = scanner.nextDouble() / 100.0;\n        }\n        for (int i = 0; i < 6; i++) {\n            q[i] = scanner.nextDouble() / 100.0;\n        }\n        scanner.close();\n\n        double winProbability = 0;\n        for (int i = 0; i < 6; i++) {\n            double probRed = p[i];\n            double probBlue = q[i];\n            if (probRed > probBlue) {\n                winProbability += probRed;\n            } else if (probBlue > probRed) {\n                winProbability += probBlue;\n            } else {\n                winProbability += probRed;\n            }\n        }\n\n        winProbability /= 2;\n\n        System.out.printf(\"%.12f\\n\", winProbability);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

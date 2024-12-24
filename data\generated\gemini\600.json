@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-600",
+    "problem_id": "p03710",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    static final long MOD = 1000000007;\n\n    static int steps(long a, long b) {\n        if (b == 0) return 0;\n        return steps(b % a, a) + 1;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int q = sc.nextInt();\n        while (q-- > 0) {\n            long x = sc.nextLong();\n            long y = sc.nextLong();\n            int maxSteps = 0;\n            long count = 0;\n            for (long i = 1; i <= x; i++) {\n                for (long j = 1; j <= y; j++) {\n                    int s = steps(i, j);\n                    if (s > maxSteps) {\n                        maxSteps = s;\n                        count = 1;\n                    } else if (s == maxSteps) {\n                        count++;\n                    }\n                }\n            }\n            System.out.println(maxSteps + \" \" + count);\n        }\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1193",
+    "problem_id": "p03867",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nlong long power(long long base, long long exp, long long mod) {\n    long long res = 1;\n    base %= mod;\n    while (exp > 0) {\n        if (exp % 2 == 1) res = (res * base) % mod;\n        base = (base * base) % mod;\n        exp /= 2;\n    }\n    return res;\n}\n\nint main() {\n    long long n, k, mod = 1e9 + 7;\n    scanf(\"%lld %lld\", &n, &k);\n    if (n % 2 == 1) {\n        long long ans = power(k, n / 2 + 1, mod);\n        printf(\"%lld\\n\", ans);\n    } else {\n        long long ans = (power(k, n / 2, mod) * (k + 1)) % mod;\n        long long g = power(2, mod - 2, mod);\n        ans = (ans * g) % mod;\n        printf(\"%lld\\n\", ans);\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

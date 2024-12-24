@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-227",
+    "problem_id": "p03611",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint cmp(const void *a, const void *b) {\n    return *(int *)a - *(int *)b;\n}\n\nint main() {\n    int n;\n    scanf(\"%d\", &n);\n    int a[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%d\", &a[i]);\n    }\n    qsort(a, n, sizeof(int), cmp);\n    int count = 1;\n    int maxCount = 1;\n    for (int i = 1; i < n; i++) {\n        if (a[i] == a[i - 1] || a[i] == a[i - 1] + 1 || a[i] == a[i - 1] + 2) {\n            count++;\n        } else {\n            maxCount = (maxCount > count) ? maxCount : count;\n            count = 1;\n        }\n    }\n    maxCount = (maxCount > count) ? maxCount : count;\n    printf(\"%d\\n\", maxCount);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

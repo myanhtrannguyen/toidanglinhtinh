@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1116",
+    "problem_id": "p03846",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n = int(input())\n    a = list(map(int, input().split()))\n    \n    mod = 10**9 + 7\n    \n    count = 0\n    \n    import itertools\n    \n    for perm in itertools.permutations(range(1, n + 1)):\n        valid = True\n        for i in range(n):\n            left_count = 0\n            right_count = 0\n            for j in range(n):\n                if perm[j] < perm[i]:\n                    left_count += 1\n                elif perm[j] > perm[i]:\n                    right_count += 1\n            if abs(left_count - right_count) != a[i]:\n                valid = False\n                break\n        if valid:\n            count += 1\n            \n    print(count % mod)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

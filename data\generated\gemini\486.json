@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-486",
+    "problem_id": "p03680",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        int[] a = new int[n];\n        for (int i = 0; i < n; i++) {\n            a[i] = sc.nextInt();\n        }\n        int count = 0;\n        int current = 1;\n        boolean[] visited = new boolean[n + 1];\n        while (current != 2) {\n            if (visited[current]) {\n                System.out.println(-1);\n                return;\n            }\n            visited[current] = true;\n            current = a[current - 1];\n            count++;\n            if (count > n) {\n                System.out.println(-1);\n                return;\n            }\n        }\n        System.out.println(count);\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

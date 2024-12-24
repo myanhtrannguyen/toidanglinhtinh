@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1562",
+    "problem_id": "p03967",
+    "language": "Python",
+    "solution": "```python\ns = input()\nn = len(s)\nrock_count = 0\npaper_count = 0\nscore = 0\nfor c in s:\n    if c == 'g':\n        if rock_count <= paper_count:\n            score += 1\n            rock_count += 1\n        else:\n            paper_count +=1\n            \n    else:\n        if rock_count <= paper_count:\n            rock_count += 1\n        \n        else:\n            score -=1\n            paper_count +=1\n            \n\nprint(score)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

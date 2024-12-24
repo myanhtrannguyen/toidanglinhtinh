@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-129",
+    "problem_id": "p03585",
+    "language": "Python",
+    "solution": "```python\nN = int(input())\nlines = []\nfor i in range(N):\n    A, B, C = map(int, input().split())\n    lines.append((A, B, C))\n\nx_coords = []\ny_coords = []\nfor i in range(N):\n    for j in range(i + 1, N):\n        A1, B1, C1 = lines[i]\n        A2, B2, C2 = lines[j]\n        det = A1 * B2 - A2 * B1\n        x = (B1 * C2 - B2 * C1) / det\n        y = (A2 * C1 - A1 * C2) / det\n        x_coords.append(x)\n        y_coords.append(y)\n\nx_coords.sort()\ny_coords.sort()\n\nif len(x_coords) % 2 == 0:\n    median_x = (x_coords[len(x_coords) // 2 - 1] + x_coords[len(x_coords) // 2]) / 2\nelse:\n    median_x = x_coords[len(x_coords) // 2]\n\nif len(y_coords) % 2 == 0:\n    median_y = (y_coords[len(y_coords) // 2 - 1] + y_coords[len(y_coords) // 2]) / 2\nelse:\n    median_y = y_coords[len(y_coords) // 2]\n\nprint(median_x, median_y)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

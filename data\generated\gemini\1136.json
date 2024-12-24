@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1136",
+    "problem_id": "p03851",
+    "language": "Python",
+    "solution": "```python\nN = int(input())\nT = list(map(int, input().split()))\nM = int(input())\n\nfor _ in range(M):\n    P, X = map(int, input().split())\n    P -= 1\n    temp_T = T[:]\n    temp_T[P] = X\n    max_score = 0\n    for i in range(1 << N):\n        solved = []\n        total_time = 0\n        for j in range(N):\n            if (i >> j) & 1:\n                solved.append(j)\n                total_time += temp_T[j]\n        score = 0\n        count = 0\n        for l in range(N):\n            for r in range(l, N):\n                valid = True\n                for k in range(l, r + 1):\n                    if k not in solved:\n                        valid = False\n                        break\n                if valid:\n                    count += 1\n        score = count - total_time\n        max_score = max(max_score, score)\n    print(max_score)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

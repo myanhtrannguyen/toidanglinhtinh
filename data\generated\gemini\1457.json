@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1457",
+    "problem_id": "p03940",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        long e = sc.nextLong();\n        long t = sc.nextLong();\n        long[] x = new long[n];\n        for (int i = 0; i < n; i++) {\n            x[i] = sc.nextLong();\n        }\n        long ans = 0;\n        long cur = 0;\n        long last = 0;\n        for (int i = 0; i < n; i++) {\n            ans += Math.abs(x[i] - cur);\n            cur = x[i];\n            long next = (i == n - 1 ? e : x[i + 1]);\n            ans += t;\n            cur = next;\n        }\n        System.out.println(ans);\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-373",
+    "problem_id": "p03649",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\n\ncount = 0\nwhile max(a) >= n:\n    max_val = max(a)\n    max_index = a.index(max_val)\n    a[max_index] -= n\n    for i in range(n):\n        if i != max_index:\n            a[i] += 1\n    count += 1\n\nprint(count)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

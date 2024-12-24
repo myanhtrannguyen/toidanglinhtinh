@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-589",
+    "problem_id": "p03707",
+    "language": "Python",
+    "solution": "```python\nimport sys\n\ndef solve():\n    n, m, q = map(int, sys.stdin.readline().split())\n    grid = [list(map(int, list(sys.stdin.readline().strip()))) for _ in range(n)]\n    \n    def count_components(r1, c1, r2, c2):\n        subgrid = [row[c1-1:c2] for row in grid[r1-1:r2]]\n        rows = len(subgrid)\n        cols = len(subgrid[0]) if rows > 0 else 0\n        \n        visited = [[False for _ in range(cols)] for _ in range(rows)]\n        count = 0\n        \n        def dfs(r, c):\n            if r < 0 or r >= rows or c < 0 or c >= cols or visited[r][c] or subgrid[r][c] == 0:\n                return\n            visited[r][c] = True\n            dfs(r+1, c)\n            dfs(r-1, c)\n            dfs(r, c+1)\n            dfs(r, c-1)\n\n        for r in range(rows):\n            for c in range(cols):\n                if subgrid[r][c] == 1 and not visited[r][c]:\n                    dfs(r, c)\n                    count += 1\n        return count\n\n    for _ in range(q):\n        r1, c1, r2, c2 = map(int, sys.stdin.readline().split())\n        print(count_components(r1, c1, r2, c2))\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

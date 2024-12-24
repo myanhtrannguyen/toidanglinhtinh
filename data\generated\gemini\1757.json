@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1757",
+    "problem_id": "p04019",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        String s = scanner.next();\n        int n = s.length();\n        int x = 0, y = 0;\n        for (int i = 0; i < n; i++) {\n            char c = s.charAt(i);\n            if (c == 'N') y++;\n            else if (c == 'S') y--;\n            else if (c == 'E') x++;\n            else x--;\n        }\n        if (x == 0 && y == 0) System.out.println(\"Yes\");\n        else System.out.println(\"No\");\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-505",
+    "problem_id": "p03685",
+    "language": "Python",
+    "solution": "```python\nR, C, N = map(int, input().split())\npoints = []\nfor i in range(N):\n    x1, y1, x2, y2 = map(int, input().split())\n    points.append(((x1, y1), (x2, y2)))\n\nif N == 0:\n    print(\"YES\")\nelse:\n    print(\"YES\" if all(p1[0] <= p2[0] and p1[1] <= p2[1] or \\\n                     p1[0] >= p2[0] and p1[1] >= p2[1] for p1, p2 in points) \\\n          or all(p1[0] <= p2[0] and p1[1] >= p2[1] or \\\n                     p1[0] >= p2[0] and p1[1] <= p2[1] for p1, p2 in points) else \"NO\")\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

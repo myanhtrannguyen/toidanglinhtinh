@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-357",
+    "problem_id": "p03644",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\ncount = 0\nans = 0\nmax_count = 0\nfor i in range(1, n + 1):\n    temp = i\n    c = 0\n    while temp % 2 == 0 and temp > 0:\n        temp //= 2\n        c += 1\n    if c > max_count:\n        max_count = c\n        ans = i\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

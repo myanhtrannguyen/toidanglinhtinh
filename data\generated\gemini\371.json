@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-371",
+    "problem_id": "p03649",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n  long long n;\n  cin >> n;\n\n  vector<long long> a(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> a[i];\n  }\n\n  long long count = 0;\n  while (true) {\n    long long max_val = *max_element(a.begin(), a.end());\n    if (max_val <= n - 1) {\n      break;\n    }\n\n    long long max_index = -1;\n    for (int i = 0; i < n; ++i) {\n      if (a[i] == max_val) {\n        max_index = i;\n        break;\n      }\n    }\n\n    a[max_index] -= n;\n    for (int i = 0; i < n; ++i) {\n      if (i != max_index) {\n        a[i]++;\n      }\n    }\n    count++;\n  }\n  cout << count << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

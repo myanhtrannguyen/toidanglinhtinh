@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1293",
+    "problem_id": "p03894",
+    "language": "Python",
+    "solution": "```python\nn, q = map(int, input().split())\nops = []\nfor _ in range(q):\n    ops.append(list(map(int, input().split())))\n\npossible_positions = {1}\n\nfor i in range(q):\n    new_possible_positions = set()\n    for pos in possible_positions:\n        a, b = ops[i]\n        if pos == a:\n            new_possible_positions.add(b)\n        elif pos == b:\n            new_possible_positions.add(a)\n        else:\n            new_possible_positions.add(pos)\n    possible_positions = new_possible_positions\n\nmin_pos = min(possible_positions)\nmax_pos = max(possible_positions)\n\nprint(max_pos - min_pos + 1)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1608",
+    "problem_id": "p03980",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n#include <stdlib.h>\n\nint calculate(char *expression, int *len) {\n    if (isdigit(expression[0])) {\n        *len = 1;\n        return atoi(expression);\n    }\n    int len1 = 0, len2 = 0;\n    int val1 = 0, val2 = 0;\n    int i = 0;\n    char op = expression[i++];\n    while (expression[i] != ',') i++;\n    i++;\n    char exp1[1001], exp2[1001];\n    int j = 0;\n    while (expression[i] != ')') exp1[j++] = expression[i++];\n    exp1[j] = '\\0';\n    val1 = calculate(exp1, &len1);\n    i++;\n    j = 0;\n    while (expression[i] != ')' && expression[i] != '?') exp2[j++] = expression[i++];\n    exp2[j] = '\\0';\n    val2 = calculate(exp2, &len2);\n\n    *len = 2 + len1 + len2 + (strlen(exp1) + strlen(exp2) + 2);\n\n    if (op == '^') return val1 > val2 ? val1 : val2;\n    return val1 < val2 ? val1 : val2;\n}\n\nint main() {\n    int Q;\n    scanf(\"%d\", &Q);\n    while (Q--) {\n        char expression[1001];\n        scanf(\"%s\", expression);\n        int len = 0;\n        int value = calculate(expression, &len);\n        printf(\"%d %d\\n\", value, len);\n    }\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

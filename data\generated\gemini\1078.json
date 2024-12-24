@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1078",
+    "problem_id": "p03836",
+    "language": "Python",
+    "solution": "```python\nsx, sy, tx, ty = map(int, input().split())\ndx = tx - sx\ndy = ty - sy\nans = \"\"\nans += \"U\" * dy\nans += \"R\" * dx\nans += \"D\" * dy\nans += \"L\" * dx\nans += \"U\" * (dy + 1)\nans += \"R\" * (dx + 1)\nans += \"D\" * (dy + 1)\nans += \"L\" * (dx + 1)\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-649",
+    "problem_id": "p03724",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    int n, m;\n    scanf(\"%d %d\", &n, &m);\n    int degree[n + 1];\n    for (int i = 1; i <= n; i++) {\n        degree[i] = 0;\n    }\n    int a, b;\n    for (int i = 0; i < m; i++) {\n        scanf(\"%d %d\", &a, &b);\n        degree[a]++;\n        degree[b]++;\n    }\n    int odd_degree = 0;\n    for (int i = 1; i <= n; i++) {\n        if (degree[i] % 2 != 0) {\n            odd_degree++;\n        }\n    }\n    if (odd_degree == 0 || odd_degree == 2) {\n        printf(\"YES\\n\");\n    } else {\n        printf(\"NO\\n\");\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1664",
+    "problem_id": "p03994",
+    "language": "Python",
+    "solution": "```python\ns, k = input(), int(input())\ns = list(s)\nfor i in range(len(s)):\n    diff = ord('z') - ord(s[i])\n    if k <= diff:\n        s[i] = chr(ord(s[i]) + k)\n        k = 0\n        break\n    else:\n        k -= diff + 1\n        s[i] = 'a'\nif k > 0:\n    for i in range(len(s) - 1, -1, -1):\n        if k == 0:\n            break\n        diff = ord('z') - ord(s[i])\n        if k <= diff:\n            s[i] = chr(ord(s[i]) + k)\n            k = 0\n            break\n        else:\n            k -= diff + 1\n            s[i] = 'a'\n\nprint(\"\".join(s))\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

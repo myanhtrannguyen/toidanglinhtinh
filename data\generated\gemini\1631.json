@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1631",
+    "problem_id": "p03986",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char X[200001];\n    scanf(\"%s\", X);\n    int len = strlen(X);\n    while (1) {\n        int found = 0;\n        int i;\n        for (i = 0; i < strlen(X) - 1; i++) {\n            if (X[i] == 'S' && X[i + 1] == 'T') {\n                found = 1;\n                break;\n            }\n        }\n        if (found == 0) break;\n        memmove(X + i, X + i + 2, strlen(X) - i - 1);\n        X[strlen(X) - 1] = '\\0';\n\n    }\n    printf(\"%ld\\n\", strlen(X));\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

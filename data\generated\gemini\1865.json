@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1865",
+    "problem_id": "p04048",
+    "language": "Python",
+    "solution": "```python\nimport math\n\nn, x = map(int, input().split())\nans = 0\ncur_x = x\ncur_y = 0\ntotal_dist = 0\nwhile True:\n    dist_bc = math.sqrt(3) * (n - cur_x)\n    total_dist += dist_bc\n    cur_x = n - cur_y\n    cur_y = n - cur_x + cur_y\n    if abs(cur_x - x) < 1e-6 and abs(cur_y) < 1e-6:\n        break\n    dist_ab = math.sqrt((cur_x - x)**2 + cur_y**2)\n    total_dist += dist_ab\n    cur_x = x + (x - cur_x)\n    cur_y = -cur_y\n    dist_bc = math.sqrt(3) * (n - cur_x)\n    total_dist += dist_bc\n    cur_x = n - cur_y\n    cur_y = n - cur_x + cur_y\n\nprint(int(total_dist))\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

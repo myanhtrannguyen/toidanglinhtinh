@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-8",
+    "problem_id": "p03553",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\n#include <limits.h>\n\nint main() {\n    int N;\n    scanf(\"%d\", &N);\n    long long a[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld\", &a[i]);\n    }\n    long long max_yen = LLONG_MIN;\n    for (int i = 0; i < (1 << N); i++) {\n        long long current_yen = 0;\n        long long smashed[N + 1];\n        for (int j = 1; j <= N; j++) {\n            smashed[j] = 0;\n        }\n        for (int j = 0; j < N; j++) {\n            if ((i >> j) & 1) {\n                for (int k = j + 1; k <= N; k++) {\n                    if (k % (j + 1) == 0) {\n                        smashed[k] = 1;\n                    }\n                }\n            }\n        }\n        for (int j = 1; j <= N; j++) {\n            if (smashed[j] == 0) {\n                current_yen += a[j - 1];\n            }\n        }\n        if (current_yen > max_yen) {\n            max_yen = current_yen;\n        }\n    }\n    printf(\"%lld\\n\", max_yen);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

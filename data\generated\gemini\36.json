@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-36",
+    "problem_id": "p03560",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <queue>\n#include <map>\n\nusing namespace std;\n\nint main() {\n  long long k;\n  cin >> k;\n\n  queue<pair<long long, long long>> q;\n  q.push({0, 0});\n\n  map<long long, long long> visited;\n  visited[0] = 0;\n\n  while (!q.empty()) {\n    long long num = q.front().first;\n    long long sum = q.front().second;\n    q.pop();\n\n    if (num % k == 0 && num != 0) {\n      cout << sum << endl;\n      return 0;\n    }\n\n    for (int i = 0; i <= 9; ++i) {\n      long long next_num = num * 10 + i;\n      long long next_sum = sum + i;\n      if (visited.find(next_num % k) == visited.end() || visited[next_num % k] > next_sum) {\n        visited[next_num % k] = next_sum;\n        q.push({next_num, next_sum});\n      }\n    }\n  }\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-611",
+    "problem_id": "p03713",
+    "language": "Python",
+    "solution": "```python\nH, W = map(int, input().split())\ntotal_area = H * W\nans = float('inf')\n\nfor i in range(1, H):\n    for j in range(1, W):\n        s1 = i * j\n        s2 = (H - i) * j\n        s3 = H * (W - j)\n        areas = sorted([s1, s2, s3])\n        ans = min(ans, areas[2] - areas[0])\n\nfor i in range(1, H):\n    s1 = i * W\n    s2 = (H - i) * W\n    areas = sorted([s1, s2])\n    ans = min(ans, areas[1] - areas[0])\n\nfor j in range(1, W):\n    s1 = H * j\n    s2 = H * (W - j)\n    areas = sorted([s1, s2])\n    ans = min(ans, areas[1] - areas[0])\n\nprint(ans)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

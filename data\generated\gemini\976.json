@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-976",
+    "problem_id": "p03809",
+    "language": "Python",
+    "solution": "```python\nimport collections\n\ndef solve():\n    n = int(input())\n    a = list(map(int, input().split()))\n    edges = []\n    for _ in range(n - 1):\n        u, v = map(int, input().split())\n        edges.append((u - 1, v - 1))\n\n    graph = collections.defaultdict(list)\n    for u, v in edges:\n        graph[u].append(v)\n        graph[v].append(u)\n\n    if sum(a) == 0:\n        print(\"YES\")\n        return\n\n    leaves = [i for i in range(n) if len(graph[i]) == 1]\n\n    if len(leaves) < 2:\n        print(\"NO\")\n        return\n\n    \n    print(\"YES\" if all(x >= 0 for x in a) else \"NO\")\n\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

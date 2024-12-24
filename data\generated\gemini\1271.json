@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1271",
+    "problem_id": "p03889",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <algorithm>\n\nusing namespace std;\n\nchar mirror(char c) {\n  if (c == 'b') return 'd';\n  if (c == 'd') return 'b';\n  if (c == 'p') return 'q';\n  return 'p';\n}\n\nint main() {\n  string s;\n  cin >> s;\n\n  string reversed_s = s;\n  reverse(reversed_s.begin(), reversed_s.end());\n\n  string mirrored_s = \"\";\n  for (char c : reversed_s) {\n    mirrored_s += mirror(c);\n  }\n\n  if (s == mirrored_s) {\n    cout << \"Yes\" << endl;\n  } else {\n    cout << \"No\" << endl;\n  }\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

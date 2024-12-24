@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1005",
+    "problem_id": "p03817",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nlong long solve() {\n    long long x;\n    scanf(\"%lld\", &x);\n    if (x <= 6) return 1;\n    if (x % 14 == 0) return x / 14 * 4;\n    if (x % 14 <= 6) return x / 14 * 4 + 1;\n    return x / 14 * 4 + 2;\n\n}\n\nint main() {\n    printf(\"%lld\\n\", solve());\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

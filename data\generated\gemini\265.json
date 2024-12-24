@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-265",
+    "problem_id": "p03621",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n  string a, b;\n  cin >> a >> b;\n\n  vector<int> a_ones, b_ones;\n  for (int i = 0; i < a.size(); ++i) {\n    if (a[i] == '1') a_ones.push_back(i);\n    if (b[i] == '1') b_ones.push_back(i);\n  }\n\n  long long k = a_ones.size();\n  long long factorial_k = 1;\n  for (long long i = 1; i <= k; ++i) factorial_k = (factorial_k * i) % 998244353;\n  long long factorial_k_squared = (factorial_k * factorial_k) % 998244353;\n\n  long long successful_permutations = 0;\n  vector<int> a_perm(k), b_perm(k);\n  for (int i = 0; i < k; ++i) a_perm[i] = i;\n  for (int i = 0; i < k; ++i) b_perm[i] = i;\n\n  do {\n    do {\n      string cur_a = a;\n      for (int i = 0; i < k; ++i) {\n        swap(cur_a[a_ones[a_perm[i]]], cur_a[b_ones[b_perm[i]]]);\n      }\n      if (cur_a == b) successful_permutations++;\n    } while (next_permutation(b_perm.begin(), b_perm.end()));\n  } while (next_permutation(a_perm.begin(), a_perm.end()));\n\n  cout << (successful_permutations * factorial_k_squared) % 998244353 << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

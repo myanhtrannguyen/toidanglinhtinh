@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-740",
+    "problem_id": "p03747",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long n, l, t;\n  cin >> n >> l >> t;\n\n  vector<pair<long long, long long>> ants(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> ants[i].first >> ants[i].second;\n  }\n\n  vector<long long> final_pos(n);\n  for (int i = 0; i < n; ++i) {\n    long long pos = ants[i].first;\n    long long dir = ants[i].second;\n    long long movement = dir == 1 ? t : -t;\n    pos = (pos + movement) % l;\n    if (pos < 0) pos += l;\n    final_pos[i] = pos;\n  }\n\n  for (int i = 0; i < n; ++i) {\n    cout << final_pos[i] << endl;\n  }\n\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

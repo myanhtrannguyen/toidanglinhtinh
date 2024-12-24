@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1697",
+    "problem_id": "p04003",
+    "language": "Python",
+    "solution": "```python\nimport heapq\n\ndef solve():\n    n, m = map(int, input().split())\n    edges = []\n    for _ in range(m):\n        u, v, c = map(int, input().split())\n        edges.append((u, v, c))\n        edges.append((v, u, c))\n\n    graph = {}\n    for u, v, c in edges:\n        if u not in graph:\n            graph[u] = []\n        graph[u].append((v, c))\n\n    pq = [(0, 1, -1)]  # (cost, node, prev_company)\n    visited = set()\n\n    while pq:\n        cost, node, prev_company = heapq.heappop(pq)\n        if (node, prev_company) in visited:\n            continue\n        visited.add((node, prev_company))\n\n        if node == n:\n            print(cost)\n            return\n\n        if node in graph:\n            for neighbor, company in graph[node]:\n                new_cost = cost\n                if prev_company != -1 and prev_company != company:\n                    new_cost += 1\n                heapq.heappush(pq, (new_cost, neighbor, company))\n\n    print(-1)\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

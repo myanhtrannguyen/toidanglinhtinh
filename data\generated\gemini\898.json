@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-898",
+    "problem_id": "p03788",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n, k = map(int, input().split())\n    s = list(input())\n    \n    for _ in range(k):\n        curr = 0\n        dir = 1 # 1 for right, -1 for left\n        \n        while 0 <= curr < n:\n            if s[curr] == 'A':\n                s[curr] = 'B'\n            else:\n                s[curr] = 'A'\n            curr += dir\n            dir *= -1\n    print(\"\".join(s))\n\nsolve()\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

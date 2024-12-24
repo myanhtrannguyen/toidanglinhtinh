@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-811",
+    "problem_id": "p03765",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char S[100005], T[100005];\n    int q, a, b, c, d;\n    scanf(\"%s %s %d\", S, T, &q);\n    while (q--) {\n        scanf(\"%d %d %d %d\", &a, &b, &c, &d);\n        int lenS = b - a + 1;\n        int lenT = d - c + 1;\n        char subS[lenS + 1], subT[lenT + 1];\n        strncpy(subS, S + a - 1, lenS);\n        subS[lenS] = '\\0';\n        strncpy(subT, T + c - 1, lenT);\n        subT[lenT] = '\\0';\n        int countA_S = 0, countB_S = 0;\n        int countA_T = 0, countB_T = 0;\n        for (int i = 0; i < lenS; i++) {\n            if (subS[i] == 'A')\n                countA_S++;\n            else\n                countB_S++;\n        }\n        for (int i = 0; i < lenT; i++) {\n            if (subT[i] == 'A')\n                countA_T++;\n            else\n                countB_T++;\n        }\n        if (countA_S % 2 == countA_T % 2 && countB_S % 2 == countB_T % 2 && lenS >= lenT)\n            printf(\"YES\\n\");\n        else\n            printf(\"NO\\n\");\n    }\n    return 0;\n}\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

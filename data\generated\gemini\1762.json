@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1762",
+    "problem_id": "p04020",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = []\nfor _ in range(n):\n    a.append(int(input()))\n\nans = 0\nfor i in range(n - 1):\n    if a[i] == 0:\n        continue\n    if a[i+1] == 0:\n        continue\n    \n    pair_count = min(a[i], a[i+1])\n    ans += pair_count\n    a[i] -= pair_count\n    a[i+1] -= pair_count\n\nprint(ans)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

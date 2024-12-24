@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1088",
+    "problem_id": "p03839",
+    "language": "Python",
+    "solution": "```python\nn, k = map(int, input().split())\na = list(map(int, input().split()))\n\ndp = {}\ndef solve(i, prev_k):\n    if i == n:\n        return 0\n    if (i, prev_k) in dp:\n        return dp[(i, prev_k)]\n    \n    ans = solve(i + 1, prev_k)\n    cur_sum = 0\n    for j in range(i, min(i + k, n)):\n        cur_sum += a[j]\n        if prev_k == 0 or j - i +1 == k:\n          ans = max(ans, cur_sum + solve(j + 1, j-i+1))\n\n    dp[(i, prev_k)] = ans\n    return ans\n\nprint(solve(0,0))\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1075",
+    "problem_id": "p03836",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <string.h>\n\nint main() {\n    int sx, sy, tx, ty;\n    scanf(\"%d %d %d %d\", &sx, &sy, &tx, &ty);\n    char *path = (char *)malloc(10000 * sizeof(char));\n    int dx = tx - sx;\n    int dy = ty - sy;\n    for (int i = 0; i < dy; i++) {\n        strcat(path, \"U\");\n    }\n    for (int i = 0; i < dx; i++) {\n        strcat(path, \"R\");\n    }\n    for (int i = 0; i < dy; i++) {\n        strcat(path, \"D\");\n    }\n    for (int i = 0; i < dx; i++) {\n        strcat(path, \"L\");\n    }\n    for (int i = 0; i < dy + 1; i++) {\n        strcat(path, \"U\");\n    }\n    for (int i = 0; i < dx + 1; i++) {\n        strcat(path, \"R\");\n    }\n    for (int i = 0; i < dy + 1; i++) {\n        strcat(path, \"D\");\n    }\n    for (int i = 0; i < dx + 1; i++) {\n        strcat(path, \"L\");\n    }\n    printf(\"%s\\n\", path);\n    free(path);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

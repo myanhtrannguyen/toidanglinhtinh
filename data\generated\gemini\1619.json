@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1619",
+    "problem_id": "p03982",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\na = list(map(int, input().split()))\nb = list(map(int, input().split()))\n\ndiff = [a[i] - b[i] for i in range(n)]\ncost = 0\nbalance = 0\nfor i in range(n):\n    balance += diff[i]\n    if balance > 0:\n        if diff[i] < 0:\n            transfer = min(balance, -diff[i])\n            cost += transfer * i\n            balance -= transfer\n\nprint(cost)\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

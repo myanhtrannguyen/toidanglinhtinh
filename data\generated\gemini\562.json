@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-562",
+    "problem_id": "p03700",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long n = sc.nextLong();\n        long a = sc.nextLong();\n        long b = sc.nextLong();\n        long[] h = new long[(int) n];\n        for (int i = 0; i < n; i++) {\n            h[i] = sc.nextLong();\n        }\n        Arrays.sort(h);\n        long ans = 0;\n        for (int i = 0; i < n; i++) {\n            if (h[i] <= 0) continue;\n            long cur = h[i];\n            long rem = cur - (n - 1 - i) * b;\n            if (rem <= 0) {\n                ans++;\n            } else {\n                long cnt = (rem + a - b - 1) / (a - b);\n                ans += cnt;\n            }\n            for (int j = i + 1; j < n; j++) {\n                h[j] -= b * (long) (ans- (i == 0 ? 0 : ans - (long)( (i > 0? (h[i-1] > 0 ? 1 : 0): 0))));\n            }\n\n        }\n        System.out.println(ans);\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

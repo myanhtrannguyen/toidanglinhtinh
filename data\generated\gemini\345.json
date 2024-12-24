@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-345",
+    "problem_id": "p03641",
+    "language": "Python",
+    "solution": "```python\ndef solve():\n    n = int(input())\n    p = list(map(int, input().split()))\n    \n    ans = []\n    \n    import itertools\n    \n    min_q = None\n    \n    for pairs in itertools.permutations(range(0,n,2)):\n        temp_p = p[:]\n        q = []\n        \n        \n        used = [False] * n\n        \n        \n        for i in pairs:\n            \n            \n            first_index = -1\n            second_index = -1\n            \n            for j in range(len(temp_p)):\n                if not used[j] :\n                    first_index = j\n                    break\n            \n            \n            \n            second_index = first_index + 1\n            \n            \n            q.extend([temp_p[first_index], temp_p[second_index]])\n            \n            used[first_index] = True\n            used[second_index] = True\n            \n            \n            temp_p = [x for i,x in enumerate(temp_p) if not used[i]]\n            \n        if min_q is None:\n            min_q = q\n        elif q < min_q:\n            min_q = q\n\n    print(*min_q)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

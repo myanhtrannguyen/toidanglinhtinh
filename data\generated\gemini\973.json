@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-973",
+    "problem_id": "p03809",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\n#define MAXN 100005\n\nint n;\nlong long a[MAXN];\nint deg[MAXN];\nint g[MAXN][2];\n\nint main() {\n    scanf(\"%d\", &n);\n    long long sum = 0;\n    for (int i = 1; i <= n; i++) {\n        scanf(\"%lld\", &a[i]);\n        sum += a[i];\n    }\n    for (int i = 0; i < n - 1; i++) {\n        int u, v;\n        scanf(\"%d %d\", &u, &v);\n        deg[u]++;\n        deg[v]++;\n        g[u][deg[u] - 1] = v;\n        g[v][deg[v] - 1] = u;\n    }\n    int leaves = 0;\n    for (int i = 1; i <= n; i++) {\n        if (deg[i] == 1) leaves++;\n    }\n    if (sum % leaves != 0) {\n        printf(\"NO\\n\");\n        return 0;\n    }\n    if (leaves == 0) {\n        printf(\"NO\\n\");\n        return 0;\n    }\n\n    printf(\"YES\\n\");\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

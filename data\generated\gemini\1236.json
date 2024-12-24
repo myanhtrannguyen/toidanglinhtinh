@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1236",
+    "problem_id": "p03879",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <math.h>\n\ndouble dist(double x1, double y1, double x2, double y2) {\n    return sqrt(pow(x1 - x2, 2) + pow(y1 - y2, 2));\n}\n\ndouble area(double x1, double y1, double x2, double y2, double x3, double y3) {\n    return 0.5 * abs((x2 - x1) * (y3 - y1) - (x3 - x1) * (y2 - y1));\n}\n\ndouble min(double a, double b) {\n    return a < b ? a : b;\n}\n\nint main() {\n    double x1, y1, x2, y2, x3, y3;\n    scanf(\"%lf %lf %lf %lf %lf %lf\", &x1, &y1, &x2, &y2, &x3, &y3);\n    double a = dist(x1, y1, x2, y2);\n    double b = dist(x2, y2, x3, y3);\n    double c = dist(x3, y3, x1, y1);\n    double s = (a + b + c) / 2;\n    double A = area(x1, y1, x2, y2, x3, y3);\n    double r = 2 * A / (a + b + c);\n    double r2 = r / (2 + sqrt(3));\n\n    printf(\"%.12lf\\n\", r2);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

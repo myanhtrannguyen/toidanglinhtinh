@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-39",
+    "problem_id": "p03561",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <cmath>\n\nusing namespace std;\n\nint main() {\n  long long k, n;\n  cin >> k >> n;\n\n  long long total_sequences = 0;\n  for (long long i = 1; i <= n; ++i) {\n    total_sequences += pow(k, i);\n  }\n\n  long long target_index = (long long)ceil((double)total_sequences / 2.0);\n\n  vector<long long> result;\n  long long current_index = target_index;\n\n  for (long long i = n; i >= 1; --i) {\n    long long power = pow(k, i -1);\n    long long num = (current_index -1) / power;\n    result.push_back(num + 1);\n    current_index -= num * power;\n  }\n\n  for (long long i = 0; i < result.size(); ++i) {\n    cout << result[i] << (i == result.size() - 1 ? \"\" : \" \");\n  }\n  cout << endl;\n\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-490",
+    "problem_id": "p03681",
+    "language": "Java",
+    "solution": "```java\nimport java.util.*;\nimport java.lang.*;\n\nclass Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        long n = sc.nextLong();\n        long m = sc.nextLong();\n        long mod = (long) Math.pow(10, 9) + 7;\n\n        if (Math.abs(n - m) > 1) {\n            System.out.println(0);\n            return;\n        }\n\n        long ans = 0;\n        if (n == m) {\n            ans = (factorial(n) * factorial(m)) % mod * 2 % mod;\n\n        } else if (n > m) {\n            ans = (factorial(n) * factorial(m)) % mod;\n        } else {\n            ans = (factorial(n) * factorial(m)) % mod;\n        }\n\n        System.out.println(ans);\n    }\n\n    static long factorial(long n) {\n        long res = 1;\n        long mod = (long) Math.pow(10, 9) + 7;\n        for (long i = 1; i <= n; i++) {\n            res = (res * i) % mod;\n        }\n        return res;\n    }\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

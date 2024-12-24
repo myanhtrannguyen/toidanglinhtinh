@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1580",
+    "problem_id": "p03972",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long w, h;\n  cin >> w >> h;\n\n  vector<long long> p(w);\n  for (int i = 0; i < w; ++i) {\n    cin >> p[i];\n  }\n\n  vector<long long> q(h);\n  for (int i = 0; i < h; ++i) {\n    cin >> q[i];\n  }\n\n  long long total_cost = 0;\n  for (int i = 0; i < w; ++i) {\n    total_cost += p[i];\n  }\n  for (int i = 0; i < h; ++i) {\n    total_cost += q[i];\n  }\n\n  cout << total_cost << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-377",
+    "problem_id": "p03651",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint gcd(int a, int b) {\n    if (b == 0) {\n        return a;\n    }\n    return gcd(b, a % b);\n}\n\nint main() {\n    int N, K;\n    scanf(\"%d %d\", &N, &K);\n    int *A = (int *)malloc(N * sizeof(int));\n    int g = 0;\n    for (int i = 0; i < N; i++) {\n        scanf(\"%d\", &A[i]);\n        g = gcd(g, A[i]);\n    }\n    free(A);\n    if (K % g == 0) {\n        printf(\"POSSIBLE\\n\");\n    } else {\n        printf(\"IMPOSSIBLE\\n\");\n    }\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1756",
+    "problem_id": "p04019",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n\nusing namespace std;\n\nint main() {\n  string s;\n  cin >> s;\n\n  long long x = 0, y = 0;\n  for (char c : s) {\n    if (c == 'N') y++;\n    else if (c == 'S') y--;\n    else if (c == 'E') x++;\n    else x--;\n  }\n\n  if (x == 0 && y == 0) cout << \"Yes\" << endl;\n  else cout << \"No\" << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

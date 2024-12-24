@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1112",
+    "problem_id": "p03845",
+    "language": "Python",
+    "solution": "```python\nN = int(input())\nT = list(map(int, input().split()))\nM = int(input())\n\nfor i in range(M):\n    P, X = map(int, input().split())\n    total_time = 0\n    for j in range(N):\n        if j + 1 == P:\n            total_time += X\n        else:\n            total_time += T[j]\n    print(total_time)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

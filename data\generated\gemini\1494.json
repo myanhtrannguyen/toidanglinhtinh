@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1494",
+    "problem_id": "p03950",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    long long W, H, N;\n    scanf(\"%lld %lld %lld\", &W, &H, &N);\n    long long x[N], y[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld %lld\", &x[i], &y[i]);\n    }\n    long long max_perimeter = 0;\n    for (int i = 0; i < (1 << (2 * N)); i++) {\n        long long min_x = 0, max_x = W, min_y = 0, max_y = H;\n        for (int j = 0; j < N; j++) {\n            if ((i >> (2 * j)) & 1) {\n                max_x = (long long)fmin(max_x, x[j]);\n            } else if ((i >> (2 * j + 1)) & 1) {\n                min_x = (long long)fmax(min_x, x[j]);\n            }\n            if ((i >> (2 * j + 2 * N)) & 1) {\n                max_y = (long long)fmin(max_y, y[j]);\n            } else if ((i >> (2 * j + 2 * N +1)) & 1) {\n                min_y = (long long)fmax(min_y, y[j]);\n            }\n        }\n        if (max_x > min_x && max_y > min_y) {\n            max_perimeter = (long long)fmax(max_perimeter, 2 * (max_x - min_x + max_y - min_y));\n        }\n    }\n    printf(\"%lld\\n\", max_perimeter);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

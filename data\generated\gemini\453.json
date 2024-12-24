@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-453",
+    "problem_id": "p03671",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int a, b, c;\n    scanf(\"%d %d %d\", &a, &b, &c);\n    int min1 = a < b ? a : b;\n    int min2 = (a == min1 ? b : a) < c ? (a == min1 ? b : a) : c;\n    int result = min1 + min2;\n    if(min1 == min2) {\n        int arr[] = {a,b,c};\n        int max = arr[0];\n        for(int i =1; i<3; i++){\n            if(arr[i] > max){\n                max = arr[i];\n            }\n        }\n        int min = arr[0];\n        for(int i = 1; i < 3; i++){\n            if(arr[i]<min && arr[i]!= min1){\n                min = arr[i];\n            }\n        }\n        result = min1 + min;\n\n    }\n\n    printf(\"%d\\n\", result);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

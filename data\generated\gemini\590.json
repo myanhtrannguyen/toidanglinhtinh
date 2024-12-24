@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-590",
+    "problem_id": "p03708",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\nint main() {\n    unsigned long long A, B;\n    scanf(\"%llu %llu\", &A, &B);\n    unsigned long long count = 0;\n    unsigned long long i;\n    unsigned long long result = 0;\n    for (i = A; i <= B; i++) {\n        unsigned long long or_val = i;\n        unsigned long long j;\n        for (j = i + 1; j <= B; j++) {\n            or_val |= j;\n        }\n        if (result == 0) result = or_val;\n        else if(result != or_val) {\n          result |= or_val;\n        }\n    }\n        \n    \n    unsigned long long num = 0;\n    for (i = A; i <= B; i++) {\n        unsigned long long or_val = 0;\n        unsigned long long j;\n        for (j = A; j <= B; j++) {\n          unsigned long long k;\n          unsigned long long cur = 0;\n          for (k = j; k <= B; k++) {\n            cur |= k;\n          }\n          if (cur == i) {\n            num++;\n            break;\n          }\n        }\n    }\n    printf(\"%llu\\n\", num);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

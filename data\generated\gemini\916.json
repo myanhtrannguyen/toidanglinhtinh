@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-916",
+    "problem_id": "p03793",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n\nusing namespace std;\n\nchar process(string& t) {\n  for (int i = 0; i < t.length() - 1; ++i) {\n    if (t[i] == t[i + 1]) {\n      if (t[i] == 'z') {\n        t.erase(i, 2);\n        i = -1;\n      } else {\n        t[i] = t[i] + 1;\n        t.erase(i + 1, 1);\n        i = -1;\n      }\n    }\n  }\n  return t.empty();\n}\n\nint main() {\n  string s;\n  cin >> s;\n  int q;\n  cin >> q;\n  for (int i = 0; i < q; ++i) {\n    int l, r;\n    cin >> l >> r;\n    string sub = s.substr(l - 1, r - l + 1);\n    if (process(sub)) {\n      cout << \"Yes\" << endl;\n    } else {\n      cout << \"No\" << endl;\n    }\n  }\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

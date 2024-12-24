@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-728",
+    "problem_id": "p03744",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <iomanip>\n\nusing namespace std;\n\nint main() {\n    int n, l;\n    cin >> n >> l;\n\n    vector<pair<double, double>> days(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> days[i].first >> days[i].second;\n    }\n\n    cout << fixed << setprecision(10);\n\n    for (int i = 0; i < n; ++i) {\n        double max_temp = 0;\n        double current_volume = 0;\n        double current_temp_sum = 0;\n\n        for (int j = 0; j <= i; ++j) {\n            current_volume += days[j].second;\n        }\n\n        if (i == 0) {\n            max_temp = days[0].first;\n        } else {\n            \n            double total_temp_sum = 0;\n            for (int k = 0; k <= i; k++) {\n                total_temp_sum += days[k].first * days[k].second;\n            }\n\n            max_temp = total_temp_sum / l;\n\n            \n        }\n        cout << max_temp << endl;\n    }\n\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1805",
+    "problem_id": "p04032",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <string.h>\n\nint main() {\n    char s[100001];\n    scanf(\"%s\", s);\n    int n = strlen(s);\n    for (int i = 0; i < n - 1; i++) {\n        for (int j = i + 1; j < n; j++) {\n            int len = j - i + 1;\n            int count[26] = {0};\n            for (int k = i; k <= j; k++) {\n                count[s[k] - 'a']++;\n            }\n            int max_count = 0;\n            for (int k = 0; k < 26; k++) {\n                if (count[k] > max_count) {\n                    max_count = count[k];\n                }\n            }\n            if (max_count > len / 2) {\n                printf(\"%d %d\\n\", i + 1, j + 1);\n                return 0;\n            }\n        }\n    }\n    printf(\"-1 -1\\n\");\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

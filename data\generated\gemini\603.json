@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-603",
+    "problem_id": "p03711",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n\nusing namespace std;\n\nint main() {\n  int x, y;\n  cin >> x >> y;\n\n  if ((x == 1 || x == 2 || x == 3) && (y == 1 || y == 2 || y == 3)) {\n    cout << \"Yes\" << endl;\n  } else if ((x == 4 || x == 5 || x == 6) && (y == 4 || y == 5 || y == 6)) {\n    cout << \"Yes\" << endl;\n  } else if ((x == 7 || x == 8 || x == 9 || x == 10 || x == 11 || x == 12) && (y == 7 || y == 8 || y == 9 || y == 10 || y == 11 || y == 12)) {\n    cout << \"Yes\" << endl;\n  } else {\n    cout << \"No\" << endl;\n  }\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

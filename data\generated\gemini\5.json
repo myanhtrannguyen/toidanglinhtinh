@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-5",
+    "problem_id": "p03552",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n  long long n, z, w;\n  cin >> n >> z >> w;\n\n  vector<long long> a(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> a[i];\n  }\n\n  long long max_score = 0;\n\n  function<void(int, long long, long long, bool)> solve = \n    [&](int idx, long long cur_z, long long cur_w, bool x_turn) {\n    if (idx == n) {\n      max_score = max(max_score, abs(cur_z - cur_w));\n      return;\n    }\n\n    if (x_turn) {\n      for (int i = idx; i < n; ++i) {\n        solve(i + 1, a[i], cur_w, false);\n      }\n    } else {\n      for (int i = idx; i < n; ++i) {\n        solve(i + 1, cur_z, a[i], true);\n      }\n    }\n  };\n\n  solve(0, z, w, true);\n  cout << max_score << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

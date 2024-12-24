@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-887",
+    "problem_id": "p03785",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main() {\n  long long n, c, k;\n  cin >> n >> c >> k;\n\n  vector<long long> t(n);\n  for (int i = 0; i < n; ++i) {\n    cin >> t[i];\n  }\n  sort(t.begin(), t.end());\n\n  long long buses = 0;\n  long long i = 0;\n  while (i < n) {\n    buses++;\n    long long count = 0;\n    long long departure_time = t[i] + k;\n    while (i < n && t[i] <= departure_time && count < c) {\n      count++;\n      i++;\n    }\n  }\n  cout << buses << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

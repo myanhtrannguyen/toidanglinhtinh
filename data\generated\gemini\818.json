@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-818",
+    "problem_id": "p03766",
+    "language": "Python",
+    "solution": "```python\nn = int(input())\nmod = 10**9 + 7\n\ndp = {}\ndef count_sequences(current_sequence):\n    if len(current_sequence) > n:\n        return 1\n    \n    last_element = current_sequence[-1]\n    \n    state = tuple(current_sequence)\n    if state in dp:\n        return dp[state]\n    \n    count = 0\n    for next_element in range(1, n + 1):\n        next_sequence = current_sequence + [next_element]\n        \n        valid = True\n        if len(next_sequence) > 1:\n            \n            last_len = next_sequence[-2]\n            \n            if len(next_sequence) <= last_len + 1 :\n                if next_sequence[-1] != next_sequence[-2]:\n                    valid = False\n        \n        if valid:\n            count = (count + count_sequences(next_sequence)) % mod\n\n    dp[state] = count\n    return count\n\nresult = 0\nfor i in range(1, n + 1):\n    result = (result + count_sequences([i])) % mod\n\nprint(result)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

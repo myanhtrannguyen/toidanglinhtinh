@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1722",
+    "problem_id": "p04010",
+    "language": "Python",
+    "solution": "```python\nimport collections\n\ndef solve():\n    n, m = map(int, input().split())\n    edges = []\n    graph = collections.defaultdict(list)\n    for _ in range(m):\n        u, v = map(int, input().split())\n        edges.append((u, v))\n        graph[u].append(v)\n        graph[v].append(u)\n\n    q = collections.deque([(tuple([0] * n), 0)])\n    visited = set()\n    visited.add(tuple([0] * n))\n\n    while q:\n        colors, count = q.popleft()\n        if all(colors):\n            print(count)\n            return\n\n        for u, v in edges:\n            u -= 1\n            v -= 1\n            new_colors = list(colors)\n            if colors[u] == colors[v]:\n                new_colors[u] = 1 - new_colors[u]\n                new_colors[v] = 1 - new_colors[v]\n                new_colors_tuple = tuple(new_colors)\n                if new_colors_tuple not in visited:\n                    visited.add(new_colors_tuple)\n                    q.append((new_colors_tuple, count + 1))\n\n    print(-1)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

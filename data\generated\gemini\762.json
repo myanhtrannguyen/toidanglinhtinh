@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-762",
+    "problem_id": "p03752",
+    "language": "Python",
+    "solution": "```python\nn, k = map(int, input().split())\na = list(map(int, input().split()))\n\nans = float('inf')\nfor i in range(1 << n):\n    cost = 0\n    visible = 0\n    heights = list(a)\n    cur_max = -1\n    \n    for j in range(n):\n        if (i >> j) & 1:\n            if heights[j] <= cur_max:\n                cost += cur_max - heights[j] + 1\n                heights[j] = cur_max + 1\n            cur_max = heights[j]\n            visible += 1\n\n    if visible >= k:\n        ans = min(ans, cost)\n\nprint(ans)\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

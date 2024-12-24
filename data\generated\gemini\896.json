@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-896",
+    "problem_id": "p03788",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long n, k;\n  string s;\n  cin >> n >> k >> s;\n\n  vector<char> state(n);\n  for (int i = 0; i < n; ++i) {\n    state[i] = s[i];\n  }\n\n  for (long long i = 0; i < k; ++i) {\n    long long cur = 0;\n    bool left = true;\n    while (cur < n) {\n      if (state[cur] == 'A') {\n        if (left) {\n          state[cur] = 'B';\n          \n        } else {\n          state[cur] = 'B';\n          \n        }\n        if(left) cur++; else cur--;\n\n      } else {\n        if (left) {\n          state[cur] = 'A';\n          cur--;\n          left = false;\n        } else {\n          state[cur] = 'A';\n          cur++;\n          left = true;\n        }\n      }\n    }\n  }\n\n  for (int i = 0; i < n; ++i) {\n    cout << state[i];\n  }\n  cout << endl;\n  return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

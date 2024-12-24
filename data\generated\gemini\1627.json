@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1627",
+    "problem_id": "p03985",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <math.h>\n\nint main() {\n    int T;\n    scanf(\"%d\", &T);\n    while (T--) {\n        double xA, yA, rA, xB, yB, rB;\n        scanf(\"%lf %lf %lf %lf %lf %lf\", &xA, &yA, &rA, &xB, &yB, &rB);\n        double dist = sqrt(pow(xA - xB, 2) + pow(yA - yB, 2));\n        int n = (int)floor(acos((rA + rB) / dist) / acos(-1) * 2);\n        printf(\"%d\\n\", n);\n\n    }\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

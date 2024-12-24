@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-984",
+    "problem_id": "p03811",
+    "language": "Python",
+    "solution": "```python\nimport math\n\ndef gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\ndef solve():\n    n = int(input())\n    a = list(map(int, input().split()))\n\n    import itertools\n    perms = list(itertools.permutations(a))\n    \n    best_perm = None\n    \n    for perm in perms:\n        current_perm = list(perm)\n        changed = True\n        while changed:\n            changed = False\n            for i in range(n - 1):\n                if gcd(current_perm[i], current_perm[i+1]) == 1:\n                    if current_perm[i] > current_perm[i+1]:\n                        current_perm[i], current_perm[i+1] = current_perm[i+1], current_perm[i]\n                        changed = True\n        \n        if best_perm is None or current_perm < best_perm:\n            best_perm = current_perm\n\n    print(*best_perm)\n\nsolve()\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

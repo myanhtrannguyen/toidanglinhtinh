@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1581",
+    "problem_id": "p03972",
+    "language": "Python",
+    "solution": "```python\nW, H = map(int, input().split())\np = [int(input()) for _ in range(W)]\nq = [int(input()) for _ in range(H)]\n\nans = sum(p) * H + sum(q) * W - sum(p) - sum(q)\nprint(ans)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

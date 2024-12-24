@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1582",
+    "problem_id": "p03973",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n    int N;\n    scanf(\"%d\", &N);\n    long long A[N];\n    for (int i = 0; i < N; i++) {\n        scanf(\"%lld\", &A[i]);\n    }\n    long long ans = 0;\n    for (int i = 0; i < N; i++) {\n        long long min_val = A[i];\n        for (int j = i + 1; j < N; j++) {\n            min_val = (min_val < A[j] - ans) ? min_val : A[j] - ans;\n\n        }\n        if (min_val > 0)\n             ans += min_val;\n        else break;\n    }\n    printf(\"%lld\\n\", ans);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

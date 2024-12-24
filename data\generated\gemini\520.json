@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-520",
+    "problem_id": "p03689",
+    "language": "Python",
+    "solution": "```python\nH, W, h, w = map(int, input().split())\n\nif h == 1 and w == 1:\n    print(\"No\")\nelif h == H and w == W:\n    print(\"No\")\nelse:\n    matrix = [[0 for _ in range(W)] for _ in range(H)]\n    for i in range(H):\n        for j in range(W):\n            if (i // h + j // w) % 2 == 0:\n                matrix[i][j] = 1\n            else:\n                matrix[i][j] = -100\n\n    print(\"Yes\")\n    for row in matrix:\n        print(*row)\n\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

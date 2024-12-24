@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-113",
+    "problem_id": "p03581",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n  long long a, b;\n  cin >> a >> b;\n\n  long long mod = 1e9 + 7;\n\n  if (a == 0 && b == 0) {\n    cout << 1 << endl;\n    return 0;\n  }\n\n  if (a == 0 || b == 0) {\n    cout << 1 << endl;\n    return 0;\n  }\n\n  vector<long long> fact(a + b + 1);\n  fact[0] = 1;\n  for (long long i = 1; i <= a + b; ++i) {\n    fact[i] = (fact[i - 1] * i) % mod;\n  }\n\n  auto power = [&](long long base, long long exp) {\n    long long res = 1;\n    base %= mod;\n    while (exp > 0) {\n      if (exp % 2 == 1) res = (res * base) % mod;\n      base = (base * base) % mod;\n      exp /= 2;\n    }\n    return res;\n  };\n\n  auto inv = [&](long long n) {\n    return power(n, mod - 2);\n  };\n\n  auto C = [&](long long n, long long k) {\n    if (k < 0 || k > n) return 0LL;\n    return fact[n] * inv(fact[k]) % mod * inv(fact[n - k]) % mod;\n  };\n\n  cout << C(a + b, a) << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

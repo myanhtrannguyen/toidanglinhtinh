@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-724",
+    "problem_id": "p03743",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main() {\n    long long n, d;\n    cin >> n >> d;\n\n    vector<long long> a(n);\n    for (int i = 0; i < n; ++i) {\n        cin >> a[i];\n    }\n\n    int q;\n    cin >> q;\n\n    for (int i = 0; i < q; ++i) {\n        int index;\n        cin >> index;\n        index--; \n\n        bool possible = false;\n        for (long long j = 1; j <= 1000; ++j) {\n            vector<long long> b = a;\n            b[index] = j;\n            long long current_distance = d;\n            bool reached = false;\n            for (long long x : b) {\n                if (current_distance <= x) {\n                    break;\n                }\n                current_distance -= x;\n                if (current_distance == 0) {\n                    reached = true;\n                    break;\n                }\n            }\n            if (!reached) {\n                possible = true;\n                break;\n            }\n        }\n        cout << (possible ? \"YES\" : \"NO\") << endl;\n    }\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

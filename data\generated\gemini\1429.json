@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1429",
+    "problem_id": "p03933",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <vector>\n#include <algorithm>\n#include <cmath>\n#include <iomanip>\n\nusing namespace std;\n\nint main() {\n    long long n, k;\n    cin >> n >> k;\n\n    vector<double> areas;\n    for (long long i = 0; i < n; ++i) {\n        for (long long j = i + 1; j < n; ++j) {\n            for (long long l = j + 1; l < n; ++l) {\n                double a = 2 * sin(M_PI * (j - i) / n);\n                double b = 2 * sin(M_PI * (l - j) / n);\n                double c = 2 * sin(M_PI * (i - l + n) / n);\n                double s = (a + b + c) / 2;\n                double area = sqrt(s * (s - a) * (s - b) * (s - c));\n                areas.push_back(area / 4);\n            }\n        }\n    }\n\n    sort(areas.begin(), areas.end());\n\n    cout << fixed << setprecision(15) << areas[k - 1] << endl;\n\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

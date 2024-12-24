@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1071",
+    "problem_id": "p03835",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n\nint main() {\n  int K, S;\n  scanf(\"%d %d\", &K, &S);\n  long long count = 0;\n  for (int X = 0; X <= K; X++) {\n    for (int Y = 0; Y <= K; Y++) {\n      int Z = S - X - Y;\n      if (Z >= 0 && Z <= K) {\n        count++;\n      }\n    }\n  }\n  printf(\"%lld\\n\", count);\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-864",
+    "problem_id": "p03779",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <cmath>\n\nusing namespace std;\n\nint main() {\n  long long x;\n  cin >> x;\n\n  if (x == 0) {\n    cout << 0 << endl;\n    return 0;\n  }\n\n  long long time = 0;\n  long long current_pos = 0;\n  long long i = 1;\n\n  while (current_pos != x) {\n    long long diff = abs(x - current_pos);\n    if (diff == 0) break;\n    if (diff <= i) {\n      time +=1;\n      current_pos = x;\n    } else {\n      long long next_pos;\n      if (x > current_pos) {\n          next_pos = current_pos + i;\n      } else {\n          next_pos = current_pos - i;\n      }\n      current_pos = next_pos;\n      time += 1;\n      \n    }\n    i++;\n  }\n  cout << time << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1328",
+    "problem_id": "p03904",
+    "language": "C++",
+    "solution": "```cpp\n#include <iostream>\n#include <string>\n#include <algorithm>\n\nusing namespace std;\n\nlong long stringToLong(const string& s) {\n  long long res = 0;\n  for (char c : s) {\n    res = res * 10 + (c - '0');\n  }\n  return res;\n}\n\nint main() {\n  int k;\n  string s;\n  cin >> k >> s;\n\n  long long minMax = -1;\n\n  for (int i = 0; i < (1 << (s.length() - 1)); ++i) {\n    if (__builtin_popcount(i) > k) continue;\n\n    string currentNum;\n    vector<long long> nums;\n    for (int j = 0; j < s.length(); ++j) {\n      currentNum += s[j];\n      if ((i >> j) & 1 || j == s.length() - 1) {\n        nums.push_back(stringToLong(currentNum));\n        currentNum = \"\";\n      }\n    }\n\n    long long maxNum = 0;\n    for (long long num : nums) {\n      maxNum = max(maxNum, num);\n    }\n\n    if (minMax == -1 || maxNum < minMax) {\n      minMax = maxNum;\n    }\n  }\n  cout << minMax << endl;\n  return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-256",
+    "problem_id": "p03619",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n#include <math.h>\n\n#define PI 3.14159265358979323846\n\nint main() {\n    long long x1, y1, x2, y2;\n    int n;\n    scanf(\"%lld %lld %lld %lld\", &x1, &y1, &x2, &y2);\n    scanf(\"%d\", &n);\n    long long X[n], Y[n];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lld %lld\", &X[i], &Y[i]);\n    }\n    double dist = 100.0 * (abs(x1 - x2) + abs(y1 - y2));\n    double min_dist = dist;\n    for (int i = 0; i < (1 << n); i++) {\n        double cur_dist = 0;\n        long long cur_x = x1, cur_y = y1;\n        for (int j = 0; j < n; j++) {\n            if ((i >> j) & 1) {\n                cur_dist += 100.0 * (abs(cur_x - X[j]) + abs(cur_y - Y[j])) + 20.0 * PI;\n                cur_x = X[j];\n                cur_y = Y[j];\n            }\n        }\n        cur_dist += 100.0 * (abs(cur_x - x2) + abs(cur_y - y2));\n        min_dist = fmin(min_dist, cur_dist);\n    }\n    printf(\"%.15lf\\n\", min_dist);\n    return 0;\n}\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

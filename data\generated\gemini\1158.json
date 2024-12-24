@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1158",
+    "problem_id": "p03858",
+    "language": "C",
+    "solution": "```c\n#include <stdio.h>\n#include <stdlib.h>\n\n#define MAXN 100005\n\ntypedef struct {\n    long long x, y;\n} Point;\n\nlong long dist(Point p1, Point p2) {\n    return abs(p1.x - p2.x) + abs(p1.y - p2.y);\n}\n\nint main() {\n    int n, a, b;\n    scanf(\"%d %d %d\", &n, &a, &b);\n    Point points[MAXN];\n    for (int i = 0; i < n; i++) {\n        scanf(\"%lld %lld\", &points[i].x, &points[i].y);\n    }\n    a--;\n    b--;\n    long long initial_dist = dist(points[a], points[b]);\n    int visited[MAXN] = {0};\n    int q[MAXN], head = 0, tail = 0;\n    q[tail++] = a;\n    q[tail++] = b;\n    visited[a] = visited[b] = 1;\n    int count = 0;\n    while (head < tail) {\n        int u = q[head++];\n        count++;\n        for (int v = 0; v < n; v++) {\n            if (u == v) continue;\n            if (dist(points[u], points[v]) == initial_dist && !visited[v]) {\n                visited[v] = 1;\n                q[tail++] = v;\n            }\n        }\n    }\n    printf(\"%d\\n\", count);\n    return 0;\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

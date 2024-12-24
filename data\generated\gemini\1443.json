@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-1443",
+    "problem_id": "p03936",
+    "language": "Python",
+    "solution": "```python\nH, W, N, K = map(int, input().split())\ngrid = [[0 for _ in range(W)] for _ in range(H)]\nans = 0\nfor i in range(H):\n    for j in range(W):\n        print(f'? {i} {j} {i} {j}')\n        count = int(input())\n        if count == 1:\n            grid[i][j] = 1\n            ans = (ans + 2**(i * W + j)) % K\n\nprint(f'! {ans}')\n\n```",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}

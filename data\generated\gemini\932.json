@@ -1,0 +1,8 @@
+{
+    "solution_id": "gemini-932",
+    "problem_id": "p03797",
+    "language": "Java",
+    "solution": "```java\nimport java.util.Scanner;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner scanner = new Scanner(System.in);\n        long n = scanner.nextLong();\n        long m = scanner.nextLong();\n        long s = m / 2;\n        long ans = Math.min(n, s);\n        System.out.println(ans);\n        scanner.close();\n    }\n}\n```\n",
+    "model": "gemini-1.5-flash",
+    "prompt": "You are a university student working on a programming assignment for a course. Your task is to provide the coding solution to a problem using the most appropriate programming language and practices for the given scenario. Your output should be only the code, without any explanations. Ensure the code is functional, correct, and follows standard conventions for the specified language. Do not include any introductory text or output besides the code itself."
+}
