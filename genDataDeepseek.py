@@ -1,5 +1,5 @@
 import os
-import jsonlines
+import json
 import logging
 from openai import OpenAI
 
@@ -31,17 +31,24 @@ def get_deepseek_response(system_prompt, user_prompt, retries=2, timeout=60):
 
 # Định nghĩa đường dẫn file
 input_file = "/Users/trannguyenmyanh/Documents/HUST/AUTH SCAN/authscan/data/generated/arxiv_abstract/data/test1.jsonl"
-output_file = "/Users/trannguyenmyanh/Documents/HUST/AUTH SCAN/authscan/data/generated/arxiv_abstract/data/test3.jsonl"
+output_file_path = "/Users/trannguyenmyanh/Documents/HUST/AUTH SCAN/authscan/data/generated/arxiv_abstract/data/test3.jsonl"
 
 # Đọc dữ liệu đầu vào và xử lý từng record
 solution_id_counter = 1
-with jsonlines.open(input_file, "r") as infile, jsonlines.open(output_file, "a") as outfile:
-    for record in infile:
-        problem_id = record.get("ID", "unknown")
-        problem_text = record.get("file_name", "")
 
-        if not problem_text:
-            logging.warning(f"Skipping problem ID {problem_id} due to missing problem text.")
+with open(input_file, 'r', encoding='utf-8') as file, open(output_file_path, "a", encoding="utf-8") as outfile:
+    for line in file:
+        try:
+            problem_data = json.loads(line)
+        except json.JSONDecodeError:
+            print(f"Skipping invalid JSON line: {line}")
+            continue
+        
+        problem_id = problem_data.get("ID", "unknown")
+        problem_title = problem_data.get("file_name", "")
+
+        if not problem_title:
+            print(f"Skipping problem ID {problem_id} due to missing title")
             continue
 
         # Tạo prompt cho mô hình
@@ -71,7 +78,7 @@ with jsonlines.open(input_file, "r") as infile, jsonlines.open(output_file, "a")
         - Helps the paper be easily discoverable in scientific databases. 
         Example: For research on large language models, relevant keywords might include GPT, transformer, fine-tuning, AI models. 
         """
-        user_prompt = f"Your task is to generate an abstract for this paper following the given guidelines.\n\n{problem_text}"
+        user_prompt = f"Your task is to generate an abstract for this paper following the given guidelines.\n\nTitle: {problem_title}"
 
         # Gọi DeepSeek API để sinh nội dung
         content = get_deepseek_response(system_prompt, user_prompt)
@@ -86,10 +93,14 @@ with jsonlines.open(input_file, "r") as infile, jsonlines.open(output_file, "a")
         }
 
         # Ghi ngay vào file JSONL
-        outfile.write(output_record)
+        outfile.write(json.dumps(output_record, ensure_ascii=False) + "\n")
+        outfile.flush()  
 
         print(f"✅ Processed record {solution_id_counter}: Problem ID {problem_id}")
 
         solution_id_counter += 1
+
+print(f"✅ Dataset saved to {output_file_path}")
+
 
 print(f"✅ Dataset saved to {output_file}")
